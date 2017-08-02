@@ -29,7 +29,7 @@ window.onload = () => {
     button.textSize = 12;
     button.textAlign = UI.TextAligns.Center;
     button.textLineStyles = ((UI.TextLineStyles.Underline | UI.TextLineStyles.Overline) | UI.TextLineStyles.Strikethrough);
-    button.bounds.update(10, 100, 200, 50);
+    button.bounds = button.bounds.update(10, 100, 200, 50);
     //button.backgroundColor = "red";
     gameScreen.controlManager.add(button);
 
@@ -39,7 +39,7 @@ window.onload = () => {
     button.textSize = 12;
     button.textAlign = UI.TextAligns.Center;
     button.textLineStyles = ((UI.TextLineStyles.Underline | UI.TextLineStyles.Overline) | UI.TextLineStyles.Strikethrough);
-    button.bounds.update(120, 140);
+    button.bounds = button.bounds.update(120, 140);
     //button.backgroundColor = "red";
     button.backgroundColor = "rgba(180, 180, 0, 0.7)";
     gameScreen.controlManager.add(button);
@@ -47,7 +47,7 @@ window.onload = () => {
     let textBox = new UI.TextBox();
     textBox.placeholder = "Enter your name";
     textBox.textSize = 12;
-    textBox.bounds.update(500, 300);
+    textBox.bounds = textBox.bounds.update(500, 300);
     gameScreen.controlManager.add(textBox);
 
     button1.bringToFront();

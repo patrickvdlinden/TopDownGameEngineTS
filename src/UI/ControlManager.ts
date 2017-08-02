@@ -45,8 +45,6 @@ module UI {
                 control.initialize();
             }
 
-            control.invalidate();
-
             return control;
         }
 
@@ -136,13 +134,13 @@ module UI {
             }
         }
 
-        // public draw(context: CanvasRenderingContext2D): void {
-        //     context.restore();
-        //     let controlsToDraw = this.controls.slice().reverse();
-        //     while (controlsToDraw.length) {
-        //         controlsToDraw[0].draw(context);
-        //         controlsToDraw.splice(0, 1);
-        //     }
-        // }
+        public draw(context: CanvasRenderingContext2D): void {
+            context.restore();
+            let controlsToDraw = this.controls.slice().reverse();
+            while (controlsToDraw.length) {
+                controlsToDraw[0].draw(context);
+                controlsToDraw.splice(0, 1);
+            }
+        }
     }
 }

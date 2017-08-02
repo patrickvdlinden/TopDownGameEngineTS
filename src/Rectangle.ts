@@ -12,7 +12,14 @@ class Rectangle {
     public constructor(x: number, y: number);
     public constructor(x: number, y: number, width: number, height: number);
     public constructor(x: number = 0, y: number = 0, width: number = 0, height: number = 0) {
-        this.update(x, y, width || 0, height || 0);
+        this._x = x || 0;
+        this._y = y || 0;
+        this._width = width || 0;
+        this._height = height || 0;
+        this._right = this._x + this._width;
+        this._bottom = this.y + this._height;
+        this._centerX = this._width / 2;
+        this._centerY = this._height / 2;
     }
 
     public get x(): number {
@@ -51,19 +58,18 @@ class Rectangle {
         return this._centerY;
     }
 
-    public update(x: number, y: number): this;
-    public update(x: number, y: number, width: number, height: number): this;
-    public update(x: number, y: number, width: number = 0, height: number = 0): this {
-        this._x = x || 0;
-        this._y = y || 0;
-        this._width = width || this._width;
-        this._height = height || this._height;
-        this._right = this._x + this._width;
-        this._bottom = this.y + this._height;
-        this._centerX = this._width / 2;
-        this._centerY = this._height / 2;
+    public update(x: number, y: number): Rectangle;
+    public update(x: number, y: number, width: number, height: number): Rectangle;
+    public update(x: number, y: number, width: number = -91823, height: number = -91823): Rectangle {
+        if (width === -91823) {
+            width = this._width;
+        }
 
-        return this;
+        if (height === -91823) {
+            height = this._height;
+        }
+        
+        return new Rectangle(x, y, width, height);
     }
 
     public isInBounds(x: number, y: number): boolean {

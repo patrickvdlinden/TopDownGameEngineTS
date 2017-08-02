@@ -106,13 +106,18 @@ module Screens {
             this.onUpdate(lastUpdateTime);
         }
 
-        public draw(): void {            
+        public draw(): void {
             this.onDraw(this.mainLayer);
+            this.onDrawControlManager(this.mainLayer);
         }
 
         protected abstract onInitialize(): void;
         protected abstract onUpdate(lastUpdateTime: number): void;
         protected abstract onDraw(context: CanvasRenderingContext2D): void;
+
+        protected onDrawControlManager(context: CanvasRenderingContext2D): void {            
+            this._controlManager.draw(context);
+        }
 
         protected setupMainLayer() {
             this.mainLayerElement.width = Settings.screenWidth;

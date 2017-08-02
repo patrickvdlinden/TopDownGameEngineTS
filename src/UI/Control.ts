@@ -1,5 +1,5 @@
 module UI {
-    export abstract class Control implements IUpdatable {
+    export abstract class Control implements IUpdatable, IDrawableWithContext {
         protected _bounds: Rectangle;
         protected eventManager: EventManager;
         protected textureFile: string = null;
@@ -59,7 +59,7 @@ module UI {
         }
 
         public set x(x: number) {
-            this._bounds.update(x, this._bounds.y, this._bounds.width, this._bounds.height);
+            this._bounds = this._bounds.update(x, this._bounds.y, this._bounds.width, this._bounds.height);
         }
 
         public get y(): number {
@@ -67,7 +67,7 @@ module UI {
         }
 
         public set y(y: number) {
-            this._bounds.update(this._bounds.x, y, this._bounds.width, this._bounds.height);
+            this._bounds = this._bounds.update(this._bounds.x, y, this._bounds.width, this._bounds.height);
         }
 
         public get width(): number {
@@ -75,7 +75,7 @@ module UI {
         }
 
         public set width(width: number) {
-            this._bounds.update(this._bounds.x, this._bounds.y, width, this._bounds.height);
+            this._bounds = this._bounds.update(this._bounds.x, this._bounds.y, width, this._bounds.height);
         }
 
         public get height(): number {
@@ -83,7 +83,7 @@ module UI {
         }
 
         public set height(height: number) {
-            this._bounds.update(this._bounds.x, this._bounds.y, this._bounds.width, height);
+            this._bounds = this.bounds.update(this._bounds.x, this._bounds.y, this._bounds.width, height);
         }
 
         public get state(): ControlStates {
@@ -375,16 +375,8 @@ module UI {
             this.onUpdate(lastUpdateTime);
         }
 
-        // public draw(context: CanvasRenderingContext2D): void {
-        //     this.onDraw(context);
-        // }
-
-        public invalidate(): void {
-            if (this.manager === null) {
-                return;
-            }
-
-            this.onDraw(this.manager.drawContext);
+        public draw(context: CanvasRenderingContext2D): void {
+            this.onDraw(context);
         }
 
         protected abstract onInitialize(): void;
@@ -398,7 +390,6 @@ module UI {
 
             this._state = ControlStates.Hovered;
             this.eventManager.triggerEvent("mouseover", Input.Mouse.currentState);
-            this.invalidate();
         }
 
         protected onMouseOut(mouseState: Input.MouseState) {
@@ -408,40 +399,33 @@ module UI {
 
             this._state = ControlStates.Default;
             this.eventManager.triggerEvent("mouseout", Input.Mouse.currentState);
-            this.invalidate();
         }
 
         protected onMouseDown(mouseState: Input.MouseState): void {
             this._state = ControlStates.Pressed;
             this.eventManager.triggerEvent("mousedown", Input.Mouse.currentState);
-            this.invalidate();
         }
 
         protected onMouseUp(mouseState: Input.MouseState) {
             this._state = ControlStates.Default;
             this._state = ControlStates.Default;
             this.eventManager.triggerEvent("mouseup", Input.Mouse.currentState);
-            this.invalidate();
         }
 
         protected onClick(mouseState: Input.MouseState): void {
             this.eventManager.triggerEvent("click", Input.Mouse.currentState);
-            this.invalidate();
         }
 
         protected onBoundsChanged(oldBounds: Rectangle, newBounds: Rectangle): void {
             this.eventManager.triggerEvent("boundschanged", oldBounds, newBounds);
-            this.invalidate();
         }
 
         protected onPaddingChanged(oldPadding: Padding, newPadding: Padding): void {
             this.eventManager.triggerEvent("paddingchanged", oldPadding, newPadding);
-            this.invalidate();
         }
 
         protected onTextChanged(oldText: string, newText: string): void {
             this.eventManager.triggerEvent("textchanged", oldText, newText);
-            this.invalidate();
         }
 
         protected onFocus(): void {
@@ -450,23 +434,18 @@ module UI {
             if (this.manager !== null) {
                 this.manager.requestFocus(this);
             }
-
-            this.invalidate();
         }
 
         protected onBlur(): void {
             this.eventManager.triggerEvent("blur");
-            this.invalidate();
         }
 
         protected onKeyDown(key: Input.Keys, keyboardState: Input.KeyboardState): void {
             this.eventManager.triggerEvent("keydown", key, Input.Keyboard.currentState);
-            this.invalidate();
         }
 
         protected onKeyUp(key: Input.Keys, keyboardState: Input.KeyboardState): void {
             this.eventManager.triggerEvent("keyup", key, Input.Keyboard.currentState);
-            this.invalidate();
         }
     }
 }

@@ -8,7 +8,6 @@ module UI {
         private _placeholder: string = null;
         private _placeholderTextColor: string = "gray";
         private characterWidths: Array<CharacterWidthItem> = [];
-        //private mustRemeasureTextWidth: boolean = true;
         private textMeasureContext: CanvasRenderingContext2D = null;
         private textCursorBlinker: boolean = false;
         private textCursorBlinkerInterval: number;
@@ -50,7 +49,7 @@ module UI {
         }
 
         protected onInitialize(): void {
-            this.bounds.update(0, 0, 250, 25);
+            this.bounds = this.bounds.update(this.x, this.y, 250, 25);
             this.textSize = 12;
             this.fontFamily = "Courier New";
             this.textColor = "black";
@@ -183,21 +182,21 @@ module UI {
         
         protected calculateCursorPosition() {
             if (this.text === null || this.text.length === 0) {
-                this.textCursorPosition.update(0, 0);
+                this.textCursorPosition = this.textCursorPosition.update(0, 0);
                 return;
             }
 
             if (this.textCursorIndex === 0) {
-                this.textCursorPosition.update(0, 0);
+                this.textCursorPosition = this.textCursorPosition.update(0, 0);
                 return;
             }
 
             if (this.textCursorIndex === this.text.length) {
-                this.textCursorPosition.update(this.characterWidths[this.textCursorIndex - 1].totalWidth, 0);
+                this.textCursorPosition = this.textCursorPosition.update(this.characterWidths[this.textCursorIndex - 1].totalWidth, 0);
                 return;
             }
             
-            this.textCursorPosition.update(this.characterWidths[this.textCursorIndex - 1].totalWidth, 0);
+            this.textCursorPosition = this.textCursorPosition.update(this.characterWidths[this.textCursorIndex - 1].totalWidth, 0);
         }
     }
 }
