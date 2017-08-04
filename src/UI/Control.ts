@@ -1,5 +1,7 @@
 module UI {
     export abstract class Control implements IUpdatable, IDrawableWithContext {
+        public static defaultTextSize: number = 14;
+
         protected _bounds: Rectangle;
         protected eventManager: EventManager;
         protected textureFile: string = null;
@@ -13,8 +15,8 @@ module UI {
         private _backgroundColor: string = "rgba(0, 0, 0, 0.7)";
         private _backgroundColorHover: string = "rgba(0, 0, 0, 1)";
         private _padding = new Padding(7, 15);
-        private _fontFamily: string = "Arial";
-        private _textSize: number = 14;
+        private _fontFamily: string = "'Segoe UI', Arial, sans-serif";
+        private _textSize: number = Control.defaultTextSize;
         private _textColor: string = "#FFFFFF";
         private _textBaseline: TextBaselines = TextBaselines.Alphabetic;
         private _textAlign: TextAligns = TextAligns.Left;
@@ -297,7 +299,7 @@ module UI {
                 return true;
             }
 
-            if (this._manager.requestFocus(this)) {
+            if (this._manager.focusControl(this)) {
                 this._isFocused = true;
 
                 return true;
@@ -432,7 +434,7 @@ module UI {
             this.eventManager.triggerEvent("focus");
 
             if (this.manager !== null) {
-                this.manager.requestFocus(this);
+                this.manager.focusControl(this);
             }
         }
 
@@ -442,6 +444,14 @@ module UI {
 
         protected onKeyDown(key: Input.Keys, keyboardState: Input.KeyboardState): void {
             this.eventManager.triggerEvent("keydown", key, Input.Keyboard.currentState);
+
+            if (key === Input.Keys.Tab) {
+                if (keyboardState.isShiftKeyPressed) {
+                    this.manager.focusPreviousControl();
+                } else {
+                    this.manager.focusNextControl();
+                }
+            }
         }
 
         protected onKeyUp(key: Input.Keys, keyboardState: Input.KeyboardState): void {

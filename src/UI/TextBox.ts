@@ -6,6 +6,8 @@ module UI {
 
     export class TextBox extends Control {
         private _placeholder: string = null;
+        private _placeholderFontFamily: string = "'Segoe UI', Arial, sans-serif";
+        private _placeholderTextSize: number = 14;
         private _placeholderTextColor: string = "gray";
         private characterWidths: Array<CharacterWidthItem> = [];
         private textMeasureContext: CanvasRenderingContext2D = null;
@@ -24,6 +26,22 @@ module UI {
         
         public set placeholder(placeholder: string) {
             this._placeholder = placeholder;
+        }
+
+        public get placeholderFontFamily(): string {
+            return this._placeholderFontFamily;
+        }
+        
+        public set placeholderFontFamily(fontFamily: string) {
+            this._placeholderFontFamily = fontFamily;
+        }
+
+        public get placeholderTextSize(): number {
+            return this._placeholderTextSize;
+        }
+        
+        public set placeholderTextSize(size: number) {
+            this._placeholderTextSize = size;
         }
 
         public get placeholderTextColor(): string {
@@ -53,7 +71,7 @@ module UI {
             this.textSize = 12;
             this.fontFamily = "Courier New";
             this.textColor = "black";
-            this.textBaseline = TextBaselines.Top;
+            this.textBaseline = TextBaselines.Bottom;
             this.textCursorPosition = new Rectangle();
             this.padding = new Padding(5, 7);
         }
@@ -69,24 +87,23 @@ module UI {
             context.fillStyle = "white";
             context.fillRect(this.x, this.y, this.width, this.height);
 
-            context.strokeStyle = this.isFocused ? "red" : "black";
+            context.strokeStyle = "black";
             context.lineWidth = 1;
             context.strokeRect(this.x, this.y, this.width, this.height);
 
             if (this.text !== null && this.text.length > 0) {
-                this.drawText(context, this.text, this.textColor);
+                this.drawText(context, this.text, this.fontFamily, this.textSize, this.textColor);
             } else if (this.placeholder !== null && this.placeholder.length > 0) {
-                this.drawText(context, this.placeholder, this.placeholderTextColor);
+                this.drawText(context, this.placeholder, this.placeholderFontFamily, this.placeholderTextSize, this.placeholderTextColor);
             }
         }
 
-        protected drawText(context: CanvasRenderingContext2D, text: string, color: string): void {
+        protected drawText(context: CanvasRenderingContext2D, text: string, fontFamily: string, size: number, color: string): void {
             context.textBaseline = this.textBaseline;
             context.textAlign = "left";
             context.fillStyle = color;
-            context.font = `${this.textSize}px ${this.fontFamily}`;
-
-            context.fillText(text, this.x + this.padding.left, this.y + this.padding.top);
+            context.font = `${size}px ${fontFamily}`;
+            context.fillText(text, this.x + this.padding.left, this.bounds.bottom - this.padding.bottom);
 
             if (this.isFocused && this.textCursorBlinker) {
                 context.strokeStyle = "grey";
@@ -102,6 +119,8 @@ module UI {
         protected onKeyDown(key: Input.Keys, keyboardState: Input.KeyboardState): void {
             super.onKeyDown(key, keyboardState);
 
+            var text = (this.text || "");
+
             switch (key) {
                 case Input.Keys.Left:
                     this.textCursorIndex--;
@@ -112,28 +131,39 @@ module UI {
                     return;
 
                 case Input.Keys.Delete:
-                    this.text = this.text.slice(0, this.textCursorIndex) + this.text.slice(this.textCursorIndex + 1, this.text.length);
+                    this.text = text.slice(0, this.textCursorIndex) + text.slice(this.textCursorIndex + 1, text.length);
                     return;
 
                 case Input.Keys.Backspace:
                     this.textCursorIndex--;
 
                     if (this.textCursorIndex === 0) {
-                        this.text = this.text.slice(1, this.text.length);
+                        this.text = text.slice(1, text.length);
                     } else {
-                        this.text = this.text.slice(0, this.textCursorIndex) + this.text.slice(this.textCursorIndex + 1, this.text.length);
+                        this.text = text.slice(0, this.textCursorIndex) + text.slice(this.textCursorIndex + 1, text.length);
                     }
                     this.calculateTextWidth();
                     return;
+
+                case Input.Keys.Home:
+                    this.textCursorIndex = 0;
+                    return;
+
+                case Input.Keys.End:
+                    this.textCursorIndex = text.length;
+                    return;
             }
 
-            //if (key >= 65 && key <= 90) {
-                var char = keyboardState.toChar(key);
+            var char = keyboardState.toChar(key);
+            if (char !== null) {
+                if (!this.text) {
+                    this.text = char;
+                } else {
+                    this.text = text.slice(0, this.textCursorIndex) + char + this.text.slice(this.textCursorIndex, text.length);
+                }
 
-                // TODO: insert at cursor position
-                this.text = (this.text || "") + char;
                 this.textCursorIndex++;
-            //}
+            }
         }
 
         protected onKeyUp(key: Input.Keys, keyboardState: Input.KeyboardState): void {

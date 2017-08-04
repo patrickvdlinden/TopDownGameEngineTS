@@ -85,7 +85,7 @@ module Input {
                 return char;
             }
 
-            return "";
+            return null;
         }
     }
 }

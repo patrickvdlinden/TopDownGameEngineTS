@@ -51,8 +51,16 @@ module Input {
             this.eventManager.registerEventHandler("keydown", handler);
         }
 
+        public static removeKeyDownHandler(handler: IKeyboardEventHandler): any {
+            this.eventManager.unregisterEventHandler("keydown", handler);
+        }
+
         public static addKeyUpHandler(handler: IKeyboardEventHandler): any {
             this.eventManager.registerEventHandler("keyup", handler);
+        }
+
+        public static removeKeyUpHandler(handler: IKeyboardEventHandler): any {
+            this.eventManager.unregisterEventHandler("keyup", handler);
         }
 
         private static onKeyDown = (ev: KeyboardEvent) => {

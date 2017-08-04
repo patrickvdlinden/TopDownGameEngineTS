@@ -85,7 +85,7 @@ module UI {
             return this.controls.length && this.controls[0] === control;
         }
 
-        public requestFocus(control: Control): boolean {
+        public focusControl(control: Control): boolean {
             if (!this.contains(control)) {
                 return false;
             }
@@ -102,6 +102,34 @@ module UI {
             this._focusedControl = control;
 
             return true;
+        }
+
+        public focusPreviousControl(): void {
+            let idx = this.controls.length - 1;
+
+            if (this.focusedControl !== null) {
+                idx = this.controls.indexOf(this.focusedControl) - 1;
+
+                if (idx < 0) {
+                    idx = this.controls.length - 1;
+                }
+            }
+
+            this.focusControl(this.controls[idx]);
+        }
+
+        public focusNextControl(): void {
+            let idx = 0;
+
+            if (this.focusedControl !== null) {
+                idx = this.controls.indexOf(this.focusedControl) + 1;
+
+                if (idx === this.controls.length) {
+                    idx = 0;
+                }
+            }
+
+            this.focusControl(this.controls[idx]);
         }
 
         public enableExclusiveInputHandling(control: Control) {
