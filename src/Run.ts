@@ -53,4 +53,12 @@ window.onload = () => {
     button1.bringToFront();
 
     game.start();
+
+    interface Test {
+        success: boolean;
+    }
+
+    Http.Ajax.get("test.php").success((value?: Test) => {
+        console.log(value.success);
+    });
 };
