@@ -5,7 +5,7 @@ module Http {
         Rejected = 2
     }
 
-    export class AjaxPromise<T> {
+    export class AjaxPromise<T> implements IPromise<T> {
         private state: AjaxPromiseStates = AjaxPromiseStates.Pending;
         private result: T;
         private errorReason: any;
@@ -16,7 +16,7 @@ module Http {
             executor(this.fulfill, this.reject);
         }
 
-        public done(onsuccess: (value?: T) => void, onfail?: (reason?: any) => void): AjaxPromise<T> {
+        public done(onsuccess: (value?: T) => void, onfail?: (reason?: any) => void): IPromise<T> {
             this.onsuccess = onsuccess;
 
             if (onfail) {
@@ -26,13 +26,13 @@ module Http {
             return this;
         }
 
-        public success(onsuccess: (value: T) => void): AjaxPromise<T> {
+        public success(onsuccess: (value: T) => void): IPromise<T> {
             this.onsuccess = onsuccess;
 
             return this;
         }
 
-        public fail(onfail?: (reason?: any) => void): AjaxPromise<T> {
+        public fail(onfail?: (reason?: any) => void): IPromise<T> {
             this.onfail = onfail;
 
             if (this.state === AjaxPromiseStates.Rejected) {
