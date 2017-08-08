@@ -196,6 +196,10 @@ $map["chunks"] = [
 ];
 
 if (isset($_GET["includeVarName"])) {
+  header("Content-Type: text/javascript");
   echo "var map = ";
+} else {
+  header("Content-Type: text/json");
 }
+
 echo json_encode($map, JSON_PRETTY_PRINT);
