@@ -15,6 +15,10 @@ module Input {
             Keyboard.specialKeys = [
                 Keys.F12, Keys.WinKey, Keys.CommandKey
             ];
+            
+            if (Settings.isDebugModeEnabled) {
+                Keyboard.specialKeys.push(Keys.F5);
+            }
 
             this.container = container;
             this.container.tabIndex = 0;
