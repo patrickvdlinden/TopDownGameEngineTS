@@ -195,6 +195,8 @@ $map["chunks"] = [
   ]
 ];
 
+// Force loading time (test)
+sleep(2);
 if (isset($_GET["includeVarName"])) {
   header("Content-Type: text/javascript");
   echo "var map = ";
