@@ -1,10 +1,11 @@
 module UI {
-    export class ControlManager implements IGameComponent, IUpdatable {
+    export class ControlManager implements IGameComponent, IInitializable, IUpdatable {
         private _game: Game;
         private _context: CanvasRenderingContext2D;
         private controls: Array<Control> = [];
         private exclusiveInputHandling: Control = null;
         private _focusedControl: Control = null;
+        private _isInitialized: boolean = false;
 
         public constructor(game: Game, context: CanvasRenderingContext2D) {
             this._game = game;
@@ -25,6 +26,38 @@ module UI {
                 : null;
         }
 
+        public get isInitialized(): boolean {
+            return this._isInitialized;
+        }
+
+        public initialize(): void {
+            if (this._isInitialized) {
+                throw new Error("ControlManager is already initialized.");
+            }
+
+            for (var i = 0; i < this.controls.length; i++) {
+                if (!this.controls[i].isInitialized) {
+                    this.controls[i].initialize();
+                }
+            }
+
+            this._isInitialized = true;
+        }
+
+        public uninitialize(): void {
+            if (!this._isInitialized) {
+                throw new Error("ControlManager is not yet initialized.");
+            }
+
+            for (var i = 0; i < this.controls.length; i++) {
+                if (this.controls[i].isInitialized) {
+                    this.controls[i].uninitialize();
+                }
+            }
+
+            this._isInitialized = false;
+        }
+
         public contains(control: Control): boolean {
             return this.controls.indexOf(control) >= 0;
         }
@@ -41,20 +74,25 @@ module UI {
             this.controls.unshift(control);
             control.manager = this;
 
-            if (!control.isInitialized) {
+            if (this._isInitialized && !control.isInitialized) {
                 control.initialize();
             }
 
             return control;
         }
 
-        public remove(control: Control): boolean {
+        public remove(control: Control, uninitializeControl: boolean = true): boolean {
             let idx = this.controls.indexOf(control);
             if (idx === -1) {
                 return false;
             }
 
             this.controls.splice(idx, 1);
+
+            if (uninitializeControl && control.isInitialized) {
+                control.uninitialize();
+            }
+
             control.manager = null;
 
             return true;
@@ -85,6 +123,7 @@ module UI {
             return this.controls.length && this.controls[0] === control;
         }
 
+        // TODO: fix
         public focusControl(control: Control): boolean {
             if (!this.contains(control)) {
                 return false;
@@ -104,6 +143,7 @@ module UI {
             return true;
         }
 
+        // TODO: fix
         public focusPreviousControl(): void {
             let idx = this.controls.length - 1;
 
@@ -118,6 +158,7 @@ module UI {
             this.focusControl(this.controls[idx]);
         }
 
+        // TODO: fix
         public focusNextControl(): void {
             let idx = 0;
 
@@ -150,13 +191,13 @@ module UI {
             while (controlsToUpdate.length) {
                 var control = controlsToUpdate[0];
 
-                control.update(lastUpdateTime);
-
                 if (handleInput && (this.exclusiveInputHandling === null || this.exclusiveInputHandling == control)) {
                     handleInput = control.handleInput(lastUpdateTime);
                 } else {
                     control.resetInput();
                 }
+
+                control.update(lastUpdateTime);
 
                 controlsToUpdate.splice(0, 1);
             }

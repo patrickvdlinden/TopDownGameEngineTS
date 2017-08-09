@@ -1,7 +1,7 @@
 ///<reference path="ScreenBase.ts" />
 
 module Screens {
-    export class ScreenManager implements IGameComponent, IUpdatable, IDrawable {
+    export class ScreenManager implements IGameComponent, IInitializable, IUpdatable, IDrawable {
         private _screens: Array<ScreenBase> = [];
         private _game: Game;
         private _isInitialized: boolean = false;
@@ -25,11 +25,30 @@ module Screens {
         public add(screen: ScreenBase): ScreenBase {
             this._screens.push(screen);
 
+            screen.manager = this;
+
             if (this._isInitialized && !screen.isInitialized) {
                 screen.initialize();
             }
 
             return screen;
+        }
+
+        public remove(screen: ScreenBase, uninitializeScreen: boolean = true): boolean {
+            var index = this._screens.indexOf(screen);
+            if (index === -1) {
+                return false;
+            }
+
+            this._screens.splice(index, 1);
+
+            if (uninitializeScreen && screen.isInitialized) {
+                screen.uninitialize();
+            }
+
+            screen.manager = null;
+
+            return true;
         }
 
         public initialize() {
@@ -46,24 +65,34 @@ module Screens {
             this._isInitialized = true;
         }
 
+        public uninitialize() {
+            if (!this._isInitialized) {
+                throw new Error("ScreenManager is not yet initialized.");
+            }
+
+            for (var i = 0; i < this._screens.length; i++) {
+                if (this._screens[i].isInitialized) {
+                    this._screens[i].uninitialize();
+                }
+            }
+
+            this._isInitialized = false;
+        }
+
         public update(lastUpdateTime: number): void {
             if (!this._isInitialized) {
                 return;
             }
             
             var screensToUpdate = this._screens.slice();
-            var index = 0;
             while (screensToUpdate.length > 0) {
-                var screen = screensToUpdate[index];
+                var screen = screensToUpdate[0];
 
-                if (screen.state === ScreenStates.Frozen) {
-                    continue;
+                if ((screen.state & ScreenStates.Frozen) !== ScreenStates.Frozen) {
+                    screen.update(lastUpdateTime);
                 }
-            
-                screen.update(lastUpdateTime);
 
-                screensToUpdate.splice(index, 1);
-                index++;
+                screensToUpdate.splice(0, 1);
             }
         }
 
@@ -73,18 +102,14 @@ module Screens {
             }
 
             var screensToDraw = this._screens.slice();
-            var index = 0;
             while (screensToDraw.length > 0) {
-                var screen = screensToDraw[index];
+                var screen = screensToDraw[0];
 
-                if (screen.state === ScreenStates.Hidden) {
-                    continue;
+                if ((screen.state & ScreenStates.Hidden) !== ScreenStates.Hidden) {
+                    screen.draw();
                 }
-            
-                screen.draw();
 
-                screensToDraw.splice(index, 1);
-                index++;
+                screensToDraw.splice(0, 1);
             }
         }
     }

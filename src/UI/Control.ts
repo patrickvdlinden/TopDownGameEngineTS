@@ -1,5 +1,5 @@
 module UI {
-    export abstract class Control implements IUpdatable, IDrawableWithContext {
+    export abstract class Control implements IInitializable, IUpdatable, IDrawableWithContext {
         public static defaultTextSize: number = 14;
 
         protected _bounds: Rectangle;
@@ -223,6 +223,15 @@ module UI {
             this._isInitialized = true;
         }
 
+        public uninitialize() {
+            if (!this._isInitialized) {
+                throw new Error("Control is not yet initialized.");
+            }
+
+            this.onUninitialize();
+            this._isInitialized = false;
+        }
+
         public addMouseOverHandler(handler: Input.IMouseEventHandler): this {
             this.eventManager.registerEventHandler("mouseover", handler);
 
@@ -315,7 +324,7 @@ module UI {
             return this;
         }
 
-        public handleInput(lastUpdateTime: number): boolean {            
+        public handleInput(lastUpdateTime: number): boolean {
             var prevMouse = Input.Mouse.previousState;
             var curMouse = Input.Mouse.currentState;
 
@@ -331,8 +340,12 @@ module UI {
                     this.onMouseDown(curMouse);    
                     
                     if (!this.isFocused) {
-                        this.onFocus();
+                        if (this.manager !== null) {
+                            this.manager.focusControl(this);
+                        }
+
                         this._isFocused = true;
+                        this.onFocus();
                     }
                 }
             } else if (this.cursorInBounds) {
@@ -355,6 +368,9 @@ module UI {
 
                     if (this.cursorInBounds) {
                         this.onClick(curMouse);
+                    } else {
+                        this.onMouseOut(curMouse);
+                        this.cursorInBounds = false;
                     }
 
                     this.manager.disableExclusiveInputHandling();
@@ -382,35 +398,39 @@ module UI {
         }
 
         protected abstract onInitialize(): void;
+
+        protected onUninitialize(): void {
+        }
+
         protected abstract onUpdate(lastUpdateTime: number): void;
         protected abstract onDraw(context: CanvasRenderingContext2D): void;
         
         protected onMouseOver(mouseState: Input.MouseState) {
-            if (this._state === ControlStates.Pressed) {
+            if (this.state === ControlStates.Pressed) {
                 return;
             }
 
-            this._state = ControlStates.Hovered;
+            this.state = ControlStates.Hovered;
             this.eventManager.triggerEvent("mouseover", Input.Mouse.currentState);
         }
 
         protected onMouseOut(mouseState: Input.MouseState) {
-            if (this._state === ControlStates.Pressed) {
+            if (this.state === ControlStates.Pressed) {
                 return;
             }
 
-            this._state = ControlStates.Default;
+            this.state = ControlStates.Default;
             this.eventManager.triggerEvent("mouseout", Input.Mouse.currentState);
         }
 
         protected onMouseDown(mouseState: Input.MouseState): void {
-            this._state = ControlStates.Pressed;
+            this.state = ControlStates.Pressed;
             this.eventManager.triggerEvent("mousedown", Input.Mouse.currentState);
         }
 
         protected onMouseUp(mouseState: Input.MouseState) {
-            this._state = ControlStates.Default;
-            this._state = ControlStates.Default;
+            this.state = ControlStates.Default;
+            this.state = ControlStates.Default;
             this.eventManager.triggerEvent("mouseup", Input.Mouse.currentState);
         }
 
@@ -432,10 +452,6 @@ module UI {
 
         protected onFocus(): void {
             this.eventManager.triggerEvent("focus");
-
-            if (this.manager !== null) {
-                this.manager.focusControl(this);
-            }
         }
 
         protected onBlur(): void {

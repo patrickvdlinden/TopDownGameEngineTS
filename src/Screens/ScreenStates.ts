@@ -1,7 +1,7 @@
 module Screens {
     export enum ScreenStates {
-        Hidden = 0,
-        Visible = 1,
-        Frozen = 2
+        Hidden = 1,
+        Visible = 2,
+        Frozen = 4
     }
 }

@@ -3,7 +3,7 @@
 module UI {
     export class Button extends Control {        
         private _autoSize = true;
-        private _textWidth: number = 0;
+        private _textWidth: number = null;
         private _textLineStyles: TextLineStyles = TextLineStyles.None;
         private _backgroundColorPressed: string = "rgba(0, 0, 100, 1)";
         private mustRecalculateSize = true;
@@ -28,7 +28,7 @@ module UI {
         }
 
         public get textWidth(): number {
-            return this._textWidth;
+            return this._textWidth || 0;
         }
 
         public get textLineStyles(): TextLineStyles {
@@ -54,12 +54,13 @@ module UI {
         }
 
         protected onUpdate(lastUpdateTime: number): void {
-            if (this.autoSize && this.mustRecalculateSize) {
+            // use _textWidth as the property will return 0 as default value.
+            if (this.autoSize && this.mustRecalculateSize && this._textWidth !== null) {
                 this.mustRecalculateSize = false;
 
-                let width = this._textWidth + this.padding.horizontal;
-                let height = this.textSize;
-                this.bounds = new Rectangle(this.x, this.y, width, height + this.padding.vertical);
+                let width = this.textWidth + this.padding.horizontal;
+                let height = this.textSize + this.padding.vertical;
+                this.bounds = this.bounds.update(this.x, this.y, width, height);
 
                 // autoSize will get set to false when changing the bounds. Make sure autoSize stays true.
                 this._autoSize = true;
@@ -70,7 +71,7 @@ module UI {
             if (this.text !== null && this.text.length > 0) {
                 context.font = `${this.textSize}px ${this.fontFamily}`;
 
-                if (this.mustRemeasureTextWidth || (this.autoSize && this.mustRecalculateSize)) {
+                if (this.mustRemeasureTextWidth) {
                     this.mustRemeasureTextWidth = false;
 
                     this._textWidth = context.measureText(this.text).width;
@@ -146,16 +147,15 @@ module UI {
             super.onBoundsChanged(oldBounds, newBounds)
 
             if (oldBounds.width !== newBounds.width || oldBounds.height !== newBounds.height) {
-                this._autoSize = false;
+                this.autoSize = false;
+                this.mustRecalculateSize = false;
             }
-
-            this.mustRecalculateSize = false;
         }
 
         protected onPaddingChanged(oldPadding: Padding, newPadding: Padding): void {
             super.onPaddingChanged(oldPadding, newPadding);
 
-            if (this._autoSize) {
+            if (this.autoSize) {
                 this.mustRecalculateSize = true;
             }
         }
@@ -163,7 +163,7 @@ module UI {
         protected onTextChanged(oldText: string, newText: string): void {
             super.onTextChanged(oldText, newText);
 
-            if (this._autoSize) {
+            if (this.autoSize) {
                 this.mustRecalculateSize = true;
             }
 

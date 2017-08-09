@@ -2,6 +2,7 @@ class Settings {
     private static _isDebugModeEnabled: boolean = false;
     private static _screenWidth: number = 0;
     private static _screenHeight: number = 0;
+    private static _elementIdPrefix: string = "TDGE_";
     
     public static get isDebugModeEnabled(): boolean {
         return this._isDebugModeEnabled;
@@ -18,7 +19,15 @@ class Settings {
     public static get screenHeight(): number {
         return this._screenHeight; //|| window.innerHeight;
     }
-    
+
+    public static get elementIdPrefix(): string {
+        return this._elementIdPrefix;
+    }
+
+    public static set elementIdPrefix(idPrefix: string) {
+        this._elementIdPrefix = idPrefix;
+    }
+
     public static changeScreenResolution(width: number, height: number) {
         if (this._isDebugModeEnabled) {
             console.log(`Changing screen resolution from ${this._screenWidth}x${this._screenHeight} to ${width}x${height}.`);
