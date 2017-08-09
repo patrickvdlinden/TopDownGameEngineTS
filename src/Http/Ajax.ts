@@ -1,66 +1,4 @@
 module Http {
-    enum AjaxPromiseStates {
-        Pending = 0,
-        Fulfilled = 1,
-        Rejected = 2
-    }
-
-    export class AjaxPromise<T> implements IPromise<T> {
-        private state: AjaxPromiseStates = AjaxPromiseStates.Pending;
-        private result: T;
-        private errorReason: any;
-        private onsuccess: (value?: T) => void;
-        private onfail: (reason?: any) => void;
-        
-        public constructor(executor: (fulfill: (value?: T) => void, reject: (reason?: any) => void) => void) {
-            executor(this.fulfill, this.reject);
-        }
-
-        public done(onsuccess: (value?: T) => void, onfail?: (reason?: any) => void): IPromise<T> {
-            this.onsuccess = onsuccess;
-
-            if (onfail) {
-                this.onfail = onfail;
-            }
-
-            return this;
-        }
-
-        public success(onsuccess: (value: T) => void): IPromise<T> {
-            this.onsuccess = onsuccess;
-
-            return this;
-        }
-
-        public fail(onfail?: (reason?: any) => void): IPromise<T> {
-            this.onfail = onfail;
-
-            if (this.state === AjaxPromiseStates.Rejected) {
-                this.onfail(this.errorReason);
-            }
-
-            return this;
-        }
-
-        private fulfill = (result?: T) => {
-            this.result = result;
-            this.state = AjaxPromiseStates.Fulfilled;
-
-            if (this.onsuccess) {
-                this.onsuccess(result);
-            }
-        }
-
-        private reject = (error: any) => {
-            this.errorReason = error;
-            this.state = AjaxPromiseStates.Rejected;
-
-            if (this.onfail) {
-                this.onfail(error);
-            }
-        }
-    }
-
     export class Ajax {
         private static _asyncEnabled: boolean = true;
         private static xmlHttpVersionCache: string;
@@ -73,8 +11,8 @@ module Http {
             this._asyncEnabled = flag;
         }
 
-        public static send<TResult>(url: string, method: string, data: string): AjaxPromise<TResult> {
-            return new AjaxPromise((fulfill: (value?: TResult) => void, reject: (reason?: any) => void) => {
+        public static send<TResult>(url: string, method: string, data: string): IPromise<TResult> {
+            return new SimplePromise((fulfill: (value?: TResult) => void, reject: (reason?: any) => void) => {
                 let request = this.createRequest();
                 request.open(method, url, this.asyncEnabled);
                 request.onload = () => {
@@ -89,25 +27,25 @@ module Http {
             });
         }
 
-        public static get<TResult>(url: string, data?: any): AjaxPromise<TResult> {
+        public static get<TResult>(url: string, data?: any): IPromise<TResult> {
             let query = this.buildQuery(data);
         
             return this.send(url + (query.length > 0 ? "?" + query.join("&") : ""), "GET", null);
         }
 
-        public static post<TResult>(url: string, data: any): AjaxPromise<TResult> {
+        public static post<TResult>(url: string, data: any): IPromise<TResult> {
             let query = this.buildQuery(data);
 
             return this.send(url, "POST", query.join("&"));
         }
 
-        public static put<TResult>(url: string, data: any): AjaxPromise<TResult> {
+        public static put<TResult>(url: string, data: any): IPromise<TResult> {
             let query = this.buildQuery(data);
 
             return this.send(url, "PUT", query.join("&"));
         }
 
-        public static delete<TResult>(url: string, data: any): AjaxPromise<TResult> {
+        public static delete<TResult>(url: string, data: any): IPromise<TResult> {
             let query = this.buildQuery(data);
 
             return this.send(url, "DELETE", query.join("&"));
