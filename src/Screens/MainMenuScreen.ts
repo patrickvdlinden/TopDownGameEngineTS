@@ -13,7 +13,7 @@ module Screens {
 
         protected onInitialize(): void {
             this.backgroundImage = new Image();
-            this.backgroundImage.src = "http://s1.picswalls.com/wallpapers/2015/09/27/hd-one-piece-wallpaper_011525259_277.jpg";
+            this.backgroundImage.src = "Background MainMenu.jpg";
             this.backgroundImageFillStyle = BackgroundImageFillStyles.CenterCrop;
 
             this.backgroundImage.addEventListener("load", () => {
@@ -50,11 +50,21 @@ module Screens {
                 this.exitButton.addClickHandler(this.onExitButtonClick);
                 this.controlManager.add(this.exitButton);
 
+                let selectBox = new UI.SelectBox();
+                selectBox.addItem("-- Just pick one please --", 0);
+                selectBox.addItem("Pick me, pick me!", 1);
+                selectBox.addItem("No!!! Pick me!", 2);
+                selectBox.addItem("I'm the better pick. Pick me!", 3);
+                selectBox.addItem("Please, don't pick me. You really, really really don't want to pick me.", 4);
+                selectBox.selectedIndex = 0;
+                selectBox.bounds = new Rectangle(50, (this.viewport.height / 2) + this.optionsButton.height + this.exitButton.height + 5, 200, 30);
+                this.controlManager.add(selectBox);
+
                 this.isLoading = false;
             });
         }
 
-        protected onUpdate(lastUpdateTime: number): void {
+        protected onUpdate(updateTime: number): void {
         }
 
         protected onDraw(context: CanvasRenderingContext2D): void {

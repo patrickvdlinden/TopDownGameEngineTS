@@ -4,6 +4,6 @@ module Environment {
         y: number;
         width: number;
         height: number;
-        action: string;
+        command: string;
     }
 }

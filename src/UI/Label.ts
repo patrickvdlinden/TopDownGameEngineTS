@@ -37,7 +37,7 @@ module UI {
             this.backgroundColorHover = "transparent";
         }
 
-        protected onUpdate(lastUpdateTime: number): void {
+        protected onUpdate(updateTime: number): void {
             if (this.autoSize && this.mustRecalculateSize) {
                 this.bounds = this.bounds.update(this.x, this.y, this._textWidth + this.padding.horizontal, this.textSize + this.padding.vertical);
             }

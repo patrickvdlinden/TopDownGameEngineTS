@@ -143,18 +143,18 @@ module Screens {
         protected onInitialize(): void {
         }
         
-        protected onUpdate(lastUpdateTime: number): void {
-            lastUpdateTime = 1;
+        protected onUpdate(updateTime: number): void {
+            updateTime = 1;
 
             if (this.redDirection < 0) {
-                this.red -= 1 * lastUpdateTime;
+                this.red -= 1 * updateTime;
 
                 if (this.red <= 0) {
                     this.redDirection = 1;
                     this.red = 0;
                 }
             } else {
-                this.red += 1 * lastUpdateTime;
+                this.red += 1 * updateTime;
 
                 if (this.red >= 255) {
                     this.redDirection = -1;
@@ -163,14 +163,14 @@ module Screens {
             }
 
             if (this.greenDirection < 0) {
-                this.green -= 2 * lastUpdateTime;
+                this.green -= 2 * updateTime;
 
                 if (this.green <= 0) {
                     this.greenDirection = 1;
                     this.green = 0;
                 }
             } else {
-                this.green += 2 * lastUpdateTime;
+                this.green += 2 * updateTime;
 
                 if (this.green >= 255) {
                     this.greenDirection = -1;
@@ -179,14 +179,14 @@ module Screens {
             }
 
             if (this.blueDirection < 0) {
-                this.blue -= 3 * lastUpdateTime;
+                this.blue -= 3 * updateTime;
 
                 if (this.blue <= 0) {
                     this.blueDirection = 1;
                     this.blue = 0;
                 }
             } else {
-                this.blue += 3 * lastUpdateTime;
+                this.blue += 3 * updateTime;
 
                 if (this.blue >= 255) {
                     this.blueDirection = -1;

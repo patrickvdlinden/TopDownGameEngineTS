@@ -4,18 +4,19 @@ class Game {
 
     protected updateInterval: number;
     protected updateTime: number = 10;
+    protected lastUpdateTime: number = performance.now();
     protected drawInterval: number;
-
-    protected lastUpdateTime: number = 0;
 
     private _container: HTMLElement;
     private _viewport: Viewport;
     private _screenManager: Screens.ScreenManager;
+    private _commandManager: CommandManager;
 
     public constructor(container: HTMLElement) {
         this._container = container;
         this._screenManager = new Screens.ScreenManager(this, this._container);
         this.eventManager = new EventManager(this);
+        this._commandManager = new CommandManager(this);
     }
 
     public get container(): HTMLElement {
@@ -100,7 +101,11 @@ class Game {
         Input.Mouse.updateState();
         Input.Keyboard.updateState();
 
-        this._screenManager.update(this.lastUpdateTime);
+        const updateTime = performance.now() - this.lastUpdateTime;
+        
+        this._screenManager.update(updateTime);
+
+        this.lastUpdateTime = performance.now();
     }
 
     protected onDraw = () => {

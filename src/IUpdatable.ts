@@ -1,3 +1,3 @@
 interface IUpdatable {
-    update(lastUpdateTime: number): void;
+    update(updateTime: number): void;
 }

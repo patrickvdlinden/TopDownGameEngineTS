@@ -6,7 +6,6 @@ module Environment {
     }
 
     export interface IChunkCollectionX {
-        [x: number]: ITileCollectionY;
-        triggers?: Array<ITrigger>;
+        [x: number]: IChunk;
     }
 }

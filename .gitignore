@@ -1,2 +1,7 @@
 node_modules/*
 script/gamecore.js
+.idea/*
+
+# These files are auto-generated
+*.tileset.json
+map.json

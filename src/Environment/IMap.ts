@@ -1,7 +1,8 @@
 module Environment {
     export interface IMap {
-        chunkSize: number;
         tileSize: number;
+        chunkSize: number;
         chunks: IChunkCollectionY;
+        tilesets: ITilesetCollection;
     }
 }

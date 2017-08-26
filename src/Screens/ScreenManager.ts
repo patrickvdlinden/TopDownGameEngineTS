@@ -79,7 +79,7 @@ module Screens {
             this._isInitialized = false;
         }
 
-        public update(lastUpdateTime: number): void {
+        public update(updateTime: number): void {
             if (!this._isInitialized) {
                 return;
             }
@@ -89,7 +89,7 @@ module Screens {
                 var screen = screensToUpdate[0];
 
                 if ((screen.state & ScreenStates.Frozen) !== ScreenStates.Frozen) {
-                    screen.update(lastUpdateTime);
+                    screen.update(updateTime);
                 }
 
                 screensToUpdate.splice(0, 1);

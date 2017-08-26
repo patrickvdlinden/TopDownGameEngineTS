@@ -10,8 +10,8 @@ module Entities {
             return this._game;
         }
 
-        public update(lastUpdateTime: number): void {
-            if (!this.onUpdate(lastUpdateTime)) {
+        public update(updateTime: number): void {
+            if (!this.onUpdate(updateTime)) {
                 return;
             }
         }
@@ -27,7 +27,7 @@ module Entities {
             context.restore();
         }
 
-        protected abstract onUpdate(lastUpdateTime: number): boolean;
+        protected abstract onUpdate(updateTime: number): boolean;
         protected abstract onDraw(context: CanvasRenderingContext2D): boolean;
     }
 }

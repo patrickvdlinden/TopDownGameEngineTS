@@ -175,7 +175,7 @@ module Screens {
             this.eventManager.triggerEvent("ended");
         }
 
-        protected onUpdate(lastUpdateTime: number): void {
+        protected onUpdate(updateTime: number): void {
             if (Input.Keyboard.previousState.isKeyUp(Input.Keys.Escape) &&
                 Input.Keyboard.currentState.isKeyDown(Input.Keys.Escape)) {
                 this.stop();

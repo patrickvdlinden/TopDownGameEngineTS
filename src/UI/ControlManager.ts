@@ -185,19 +185,19 @@ module UI {
             this.exclusiveInputHandling = null;
         }
 
-        public update(lastUpdateTime: number): void {
+        public update(updateTime: number): void {
             let handleInput = true;
             let controlsToUpdate = this.controls.slice();
             while (controlsToUpdate.length) {
                 var control = controlsToUpdate[0];
 
                 if (handleInput && (this.exclusiveInputHandling === null || this.exclusiveInputHandling == control)) {
-                    handleInput = control.handleInput(lastUpdateTime);
+                    handleInput = control.handleInput(updateTime);
                 } else {
                     control.resetInput();
                 }
 
-                control.update(lastUpdateTime);
+                control.update(updateTime);
 
                 controlsToUpdate.splice(0, 1);
             }

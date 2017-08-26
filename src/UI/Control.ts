@@ -18,7 +18,7 @@ module UI {
         private _fontFamily: string = "'Segoe UI', Arial, sans-serif";
         private _textSize: number = Control.defaultTextSize;
         private _textColor: string = "#FFFFFF";
-        private _textBaseline: TextBaselines = TextBaselines.Alphabetic;
+        private _textBaseline: TextBaselines = TextBaselines.Top;
         private _textAlign: TextAligns = TextAligns.Left;
         private _isFocused: boolean = false;
 
@@ -324,7 +324,7 @@ module UI {
             return this;
         }
 
-        public handleInput(lastUpdateTime: number): boolean {
+        public handleInput(updateTime: number): boolean {
             var prevMouse = Input.Mouse.previousState;
             var curMouse = Input.Mouse.currentState;
 
@@ -373,7 +373,9 @@ module UI {
                         this.cursorInBounds = false;
                     }
 
-                    this.manager.disableExclusiveInputHandling();
+                    if (this.manager) {
+                        this.manager.disableExclusiveInputHandling();
+                    }
                 }
 
                 return false;
@@ -389,8 +391,8 @@ module UI {
             }
         }
 
-        public update(lastUpdateTime: number): void {
-            this.onUpdate(lastUpdateTime);
+        public update(updateTime: number): void {
+            this.onUpdate(updateTime);
         }
 
         public draw(context: CanvasRenderingContext2D): void {
@@ -402,7 +404,7 @@ module UI {
         protected onUninitialize(): void {
         }
 
-        protected abstract onUpdate(lastUpdateTime: number): void;
+        protected abstract onUpdate(updateTime: number): void;
         protected abstract onDraw(context: CanvasRenderingContext2D): void;
         
         protected onMouseOver(mouseState: Input.MouseState) {

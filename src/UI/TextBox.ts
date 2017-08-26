@@ -76,7 +76,7 @@ module UI {
             this.padding = new Padding(5, 7);
         }
 
-        protected onUpdate(lastUpdateTime: number): void {
+        protected onUpdate(updateTime: number): void {
         }
 
         protected onDraw(context: CanvasRenderingContext2D): void {

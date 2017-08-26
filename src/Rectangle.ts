@@ -18,8 +18,8 @@ class Rectangle {
         this._height = height || 0;
         this._right = this._x + this._width;
         this._bottom = this.y + this._height;
-        this._centerX = this._width / 2;
-        this._centerY = this._height / 2;
+        this._centerX = this.x + (this._width / 2);
+        this._centerY = this.y + (this._height / 2);
     }
 
     public get x(): number {

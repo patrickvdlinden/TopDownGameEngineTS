@@ -8,6 +8,7 @@ module UI {
         private _backgroundColorPressed: string = "rgba(0, 0, 100, 1)";
         private mustRecalculateSize = true;
         private mustRemeasureTextWidth = true;
+        private clickSound: HTMLAudioElement;
 
         public constructor() {
             super();
@@ -51,9 +52,12 @@ module UI {
             this.cursor = Cursors.Pointer;
             this.textBaseline = TextBaselines.Middle;
             this.textAlign = TextAligns.Center;
+
+            this.clickSound = new Audio("Menu Selection Click.wav");
+            this.clickSound.load();
         }
 
-        protected onUpdate(lastUpdateTime: number): void {
+        protected onUpdate(updateTime: number): void {
             // use _textWidth as the property will return 0 as default value.
             if (this.autoSize && this.mustRecalculateSize && this._textWidth !== null) {
                 this.mustRecalculateSize = false;
@@ -168,6 +172,12 @@ module UI {
             }
 
             this.mustRemeasureTextWidth = true;
+        }
+
+        protected onMouseDown(mouseState: Input.MouseState): void {
+            super.onMouseDown(mouseState);
+
+            (<HTMLAudioElement>this.clickSound.cloneNode(true)).play();
         }
     }
 }

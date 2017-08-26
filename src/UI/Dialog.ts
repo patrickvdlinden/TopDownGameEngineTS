@@ -48,7 +48,7 @@ module UI {
         public uninitialize(): void {
         }
 
-        public update(lastUpdateTime: number): void {
+        public update(updateTime: number): void {
         }
 
         public draw(context: CanvasRenderingContext2D): void {

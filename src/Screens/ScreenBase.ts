@@ -234,14 +234,14 @@ module Screens {
             this._isInitialized = false;
         }
 
-        public update(lastUpdateTime: number): void {
+        public update(updateTime: number): void {
             if (this._dialogManager.hasActiveDialog) {
-                this.updateDialogManager(lastUpdateTime);
+                this.updateDialogManager(updateTime);
             } else {
-                this.updateControlManager(lastUpdateTime);
+                this.updateControlManager(updateTime);
             }
 
-            this.onUpdate(lastUpdateTime);
+            this.onUpdate(updateTime);
         }
 
         public draw(): void {
@@ -265,7 +265,7 @@ module Screens {
         protected onUninitialize(): void {
         }
 
-        protected abstract onUpdate(lastUpdateTime: number): void;
+        protected abstract onUpdate(updateTime: number): void;
         protected abstract onDraw(context: CanvasRenderingContext2D): void;
 
         protected drawBackgroundImage(context: CanvasRenderingContext2D): void {
@@ -278,12 +278,12 @@ module Screens {
                 // TODO: texture bounds (to support topright, bottomleft, bottomright, etc.)
         }
 
-        protected updateDialogManager(lastUpdateTime: number): void {
-            this._dialogManager.update(lastUpdateTime);
+        protected updateDialogManager(updateTime: number): void {
+            this._dialogManager.update(updateTime);
         }
 
-        protected updateControlManager(lastUpdateTime: number): void {
-            this._controlManager.update(lastUpdateTime);
+        protected updateControlManager(updateTime: number): void {
+            this._controlManager.update(updateTime);
         }
 
         protected drawControlManager(context: CanvasRenderingContext2D): void {

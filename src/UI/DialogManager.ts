@@ -120,19 +120,19 @@ module UI {
             return this.dialogs.length && this.dialogs[0] === dialog;
         }
 
-        public update(lastUpdateTime: number): void {
+        public update(updateTime: number): void {
             let handleInput = true;
             let dialogsToUpdate = this.dialogs.slice();
             while (dialogsToUpdate.length) {
                 var dialog = dialogsToUpdate[0];
 
                 // if (handleInput) {
-                //     handleInput = dialog.handleInput(lastUpdateTime);
+                //     handleInput = dialog.handleInput(updateTime);
                 // } else {
                 //     dialog.resetInput();
                 // }
 
-                dialog.update(lastUpdateTime);
+                dialog.update(updateTime);
 
                 dialogsToUpdate.splice(0, 1);
             }
