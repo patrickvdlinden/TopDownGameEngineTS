@@ -4,7 +4,7 @@
 <head>
     <title>SpritesheetBuilder</title>
 
-    <link rel="stylesheet" href="script/color-picker.min.css?v=<?= filemtime("script/color-picker.min.css"); ?>" type="text/css" />
+    <link rel="stylesheet" href="../node_modules/c-p/color-picker.min.css?v=<?= filemtime("../node_modules/c-p/color-picker.min.css"); ?>" type="text/css" />
     <style type="text/css">
         html, body {
             margin: 0;
@@ -225,7 +225,7 @@
             }
         ?>
     </script>
-    <script type="text/javascript" src="script/color-picker.min.js?v=<?= filemtime("script/color-picker.min.js"); ?>"></script>
+    <script type="text/javascript" src="../node_modules/c-p/color-picker.min.js?v=<?= filemtime("../node_modules/c-p/color-picker.min.js"); ?>"></script>
     <script type="text/javascript" src="script/core.js?v=<?= filemtime("script/core.js"); ?>"></script>
 </head>
 <body>

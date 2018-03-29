@@ -1,8 +1,11 @@
+/// <reference path="../typings/color-picker.d.ts" />
+
 module SpritesheetBuilder {
     interface IGlobalProperties {
         rasterItemWidth?: number;
         rasterItemHeight?: number;
         rasterColor?: string;
+        rasterAlpha?: number;
     }
 
     export class App {
@@ -102,7 +105,8 @@ module SpritesheetBuilder {
             globalProperties.appendChild(this.createPropertiesItem(this.globalProperties, "editorMode", "Editor Mode", PropertyFieldTypes.Select, [["Spritesheet Map", EditorModes.SpritesheetMap, true], ["Tileset Map", EditorModes.TilesetMap]], (v) => this.invalidateTexturesCanvas()));
             globalProperties.appendChild(this.createPropertiesItem(this.globalProperties, "rasterItemWidth", "Raster Item Width", PropertyFieldTypes.Number, 32, (v) => this.invalidateTexturesCanvas()));
             globalProperties.appendChild(this.createPropertiesItem(this.globalProperties, "rasterItemHeight", "Raster Item Height", PropertyFieldTypes.Number, 32, (v) => this.invalidateTexturesCanvas()));
-            globalProperties.appendChild(this.createPropertiesItem(this.globalProperties, "rasterColor", "Raster Color", PropertyFieldTypes.ColorPicker, "rgba(0, 0, 0, 0.5)", (v) => this.invalidateTexturesCanvas()));
+            globalProperties.appendChild(this.createPropertiesItem(this.globalProperties, "rasterColor", "Raster Color", PropertyFieldTypes.ColorPicker, "000000", (v) => this.invalidateTexturesCanvas()));
+            globalProperties.appendChild(this.createPropertiesItem(this.globalProperties, "rasterAlpha", "Raster Alpha", PropertyFieldTypes.Number, 0.5, (v) => this.invalidateTexturesCanvas()));
 
             this.propertiesPaneBody.appendChild(globalProperties);
 
@@ -171,6 +175,18 @@ module SpritesheetBuilder {
 
                     if (fieldType === PropertyFieldTypes.ColorPicker) {
                         let colorPicker = new CP(input);
+                        colorPicker.on("change", (color: string) => {
+                            if (color.length === 3 || color.length === 6) {
+                                color = "#" + color;
+                            }
+
+                            input.value = color;
+                            propertiesObj[name] = input.value;
+
+                            if (onValueChanged) {
+                                onValueChanged(input.value);
+                            }
+                        });
                     }
 
                     break;
@@ -185,8 +201,6 @@ module SpritesheetBuilder {
                     if (typeof value !== "undefined" && value !== null && value.length > 0) {
                         for (let i=0; i<value.length; i++) {
                             const item = value[i];
-
-                            console.log(item);
 
                             const itemLabel = item[0];
                             const itemValue = typeof item[1] !== "undefined" ? item[1] : itemLabel;
@@ -260,7 +274,9 @@ module SpritesheetBuilder {
             context.beginPath();
             context.rect(0, 0, this.currentTexture.width * this.scale, this.currentTexture.height * this.scale);
             context.clip();
-            context.strokeStyle = this.globalProperties["rasterColor"] || "rgba(0, 0, 0, 0.5)";
+
+            context.strokeStyle = this.globalProperties["rasterColor"] || "#000000";
+            context.globalAlpha = this.globalProperties["rasterAlpha"];
             context.lineWidth = 1;
             for (var y=0; y<maxY; y++) {
                 for (var x=0; x<maxX; x++) {
