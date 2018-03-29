@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "outFile": "../script/core.js"
+    },
+    "include": [
+        "**/*.ts"
+    ]
+}

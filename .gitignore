@@ -1,5 +1,6 @@
 node_modules/*
 script/gamecore.js
+SpritesheetBuilder/script/core.js
 .idea/*
 
 # These files are auto-generated
