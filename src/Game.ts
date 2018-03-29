@@ -3,6 +3,7 @@ class Game {
     protected isInitialized = false;
 
     protected updateInterval: number;
+    protected updateEstimatedFpsInterval: number;
     protected updateTime: number = 10;
     protected lastUpdateTime: number = performance.now();
     protected drawInterval: number;
@@ -11,12 +12,18 @@ class Game {
     private _viewport: Viewport;
     private _screenManager: Screens.ScreenManager;
     private _commandManager: CommandManager;
+    private _saveManager: IO.SaveManager;
+
+    private mainLayerElement: HTMLCanvasElement;
+    private _directFps = 0;
+    private _estimatedFps = 0;
 
     public constructor(container: HTMLElement) {
         this._container = container;
         this._screenManager = new Screens.ScreenManager(this, this._container);
         this.eventManager = new EventManager(this);
         this._commandManager = new CommandManager(this);
+        this._saveManager = new IO.SaveManager();
     }
 
     public get container(): HTMLElement {
@@ -29,6 +36,10 @@ class Game {
 
     public get screenManager(): Screens.ScreenManager {
         return this._screenManager;
+    }
+
+    public get saveManager(): IO.SaveManager {
+        return this._saveManager;
     }
 
     public initialize() {
@@ -46,12 +57,13 @@ class Game {
             this.container.style.position = "relative";
         }
 
-        Settings.changeScreenResolution(this._container.offsetWidth, this._container.offsetHeight);
+        const resolution = IO.UserSettings.instance.resolution;
+        Settings.changeScreenResolution(this._container, resolution.width, resolution.height);
         this._viewport = new Viewport(this, 0, 0, Settings.screenWidth, Settings.screenHeight);
 
         window.onresize = this.onWindowResize;  
 
-        Input.Mouse.hook(this.container);
+        Input.Mouse.hook(this.container, this.viewport);
         Input.Keyboard.hook(this.container);
 
         this.screenManager.initialize();
@@ -67,7 +79,10 @@ class Game {
 
         this.onStart();
 
+        this.mainLayerElement = <HTMLCanvasElement>document.getElementById("MainLayer");
+
         this.updateInterval = setInterval(this.onUpdate, this.updateTime);
+        this.updateEstimatedFpsInterval = setInterval(this.onUpdateEstimatedFps, 1000);
         this.drawInterval = setInterval(this.onDraw);
     }
 
@@ -101,14 +116,43 @@ class Game {
         Input.Mouse.updateState();
         Input.Keyboard.updateState();
 
-        const updateTime = performance.now() - this.lastUpdateTime;
+        const now = performance.now();
+        const updateTime = now - this.lastUpdateTime;
+
+        this._directFps = Math.round(1000 / updateTime);
         
         this._screenManager.update(updateTime);
 
         this.lastUpdateTime = performance.now();
     }
 
-    protected onDraw = () => {
-        this._screenManager.draw();
+    protected onUpdateEstimatedFps = () => {
+        this._estimatedFps = this._directFps;
     }
+
+    protected onDraw = () => {
+        let context: CanvasRenderingContext2D = null;
+
+        if (this.mainLayerElement) {
+            context = this.mainLayerElement.getContext("2d");
+            context.clearRect(0, 0, this.mainLayerElement.clientWidth, this.mainLayerElement.clientHeight);
+        }
+
+        // TODO: dictate MainLayer in Game.ts and pass context to all screens.
+        this._screenManager.draw();
+
+        if (context !== null) {
+            context.save();
+            context.font = "10px Arial";
+            context.fillStyle = "#000000";
+            context.fillText(this._estimatedFps.toString(), this.viewport.x + 11, this.viewport.bottom - 14);
+            context.fillStyle = "#FFFF00";
+            context.fillText(this._estimatedFps.toString(), this.viewport.x + 10, this.viewport.bottom - 15);
+            context.restore();
+        }
+
+        context.strokeStyle = "#AA0000";
+        context.strokeRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
+    }
+    
 }

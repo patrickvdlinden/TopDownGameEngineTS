@@ -3,6 +3,7 @@ class Settings {
     private static _screenWidth: number = 0;
     private static _screenHeight: number = 0;
     private static _elementIdPrefix: string = "TDGE_";
+    private static _maxSaveSlots: number = 4;
     
     public static get isDebugModeEnabled(): boolean {
         return this._isDebugModeEnabled;
@@ -28,10 +29,21 @@ class Settings {
         this._elementIdPrefix = idPrefix;
     }
 
-    public static changeScreenResolution(width: number, height: number) {
+    public static get maxSaveSlots(): number {
+        return this._maxSaveSlots;
+    }
+
+    public static set maxSaveSlots(maxSaveSlots: number) {
+        this._maxSaveSlots = Math.max(1, maxSaveSlots);
+    }
+
+    public static changeScreenResolution(container: HTMLElement, width: number, height: number) {
         if (this._isDebugModeEnabled) {
             console.log(`Changing screen resolution from ${this._screenWidth}x${this._screenHeight} to ${width}x${height}.`);
         }
+
+        container.style.width = width +"px";
+        container.style.height = height +"px";
 
         this._screenWidth = width || 0;
         this._screenHeight = height || 0;
