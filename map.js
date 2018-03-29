@@ -1,10 +1,11 @@
 var WATER = { animation: [[16, 0], [16, 1], [16, 2], [16, 3], [16, 4], [16, 5], [16, 6], [16, 7], [16, 8], [16, 9], [16, 10], [16, 11], [16, 12], [16, 13], [16, 14], [16, 15], [16, 16], [16, 17], [16, 18], [16, 19], [16, 20], [16, 21], [16, 22], [16, 23], [16, 24], [17, 0], [17, 1], [17, 2], [17, 3], [17, 4], [17, 5], [17, 6]] },
-    GRASS = [0, 0], GRASS_TL = [1, 0], GRASS_TR = [2, 0], GRASS_BR = [3, 0], GRASS_BL = [4, 0],
+    GRASS = [0, 1], GRASS_TL = [1, 1], GRASS_TR = [2, 1], GRASS_BR = [3, 1], GRASS_BL = [4, 1],
     DIRT = [0, 1], DIRT_TL = [1, 1], DIRT_TR = [2, 1], DIRT_BR = [3, 1], DIRT_BL = [4, 1],
     SAND = [0, 2], SAND_TL = [1, 2], SAND_TR = [2, 2], SAND_BR = [3, 2], SAND_BL = [4, 2],
-    WALL = [1, 3], WALL_B = [0, 3],
-    DOOR = [1, 4], DOOR_T = [0, 4],
-    VOID = [15, 0];
+    WALL = [0, 4], WALL_B = [1, 4],
+    DOOR = [1, 5], DOOR_T = [0, 5],
+    VOID = [0, 0],
+    TREE_TL = [0, 6], TREE_TR = [0, 7], TREE_BL = [1, 6], TREE_BR = [1, 7];
 
 function _corner(t1, t2) {
   return { corners:[t1, t2] };
@@ -77,8 +78,8 @@ var map = {
       "0": {
         "0": {"0": DIRT, "1": SAND, "2": DIRT, "3": GRASS, "4": GRASS, "5": GRASS, "6": GRASS, "7": GRASS, "8": GRASS, "9": GRASS, "10": GRASS, "11": GRASS, "12": GRASS, "13": GRASS, "14": GRASS, "15": GRASS},
         "1": {"0": DIRT, "1": SAND, "2": DIRT, "3": GRASS, "4": GRASS, "5": GRASS, "6": GRASS, "7": GRASS, "8": GRASS, "9": GRASS, "10": GRASS, "11": GRASS, "12": GRASS, "13": GRASS, "14": GRASS, "15": GRASS},
-        "2": {"0": DIRT, "1": SAND, "2": DIRT, "3": GRASS, "4": GRASS, "5": GRASS, "6": GRASS, "7": GRASS, "8": GRASS, "9": GRASS, "10": GRASS, "11": GRASS, "12": GRASS, "13": GRASS, "14": GRASS, "15": GRASS},
-        "3": {"0": DIRT, "1": SAND, "2": DIRT, "3": GRASS, "4": GRASS, "5": GRASS, "6": GRASS, "7": GRASS, "8": GRASS, "9": GRASS, "10": GRASS, "11": GRASS, "12": GRASS, "13": GRASS, "14": GRASS, "15": GRASS},
+        "2": {"0": DIRT, "1": SAND, "2": DIRT, "3": GRASS, "4": TREE_TL, "5": TREE_TR, "6": GRASS, "7": GRASS, "8": GRASS, "9": GRASS, "10": GRASS, "11": GRASS, "12": GRASS, "13": GRASS, "14": GRASS, "15": GRASS},
+        "3": {"0": DIRT, "1": SAND, "2": DIRT, "3": GRASS, "4": TREE_BL, "5": TREE_BR, "6": GRASS, "7": GRASS, "8": GRASS, "9": GRASS, "10": GRASS, "11": GRASS, "12": GRASS, "13": GRASS, "14": GRASS, "15": GRASS},
         "4": {"0": DIRT, "1": SAND, "2": DIRT, "3": DIRT, "4": DIRT, "5": DIRT, "6": DIRT, "7": DIRT, "8": DIRT, "9": DIRT, "10": GRASS, "11": GRASS, "12": GRASS, "13": GRASS, "14": GRASS, "15": GRASS },
         "5": {"0": DIRT, "1": SAND, "2": SAND, "3": SAND, "4": SAND, "5": SAND, "6": SAND, "7": SAND, "8": SAND, "9": DIRT, "10": GRASS, "11": GRASS, "12": GRASS, "13": GRASS, "14": GRASS, "15": GRASS },
         "6": {"0": DIRT, "1": DIRT, "2": DIRT, "3": DIRT, "4": DIRT, "5": DIRT, "6": DIRT, "7": DIRT, "8": SAND, "9": DIRT, "10": GRASS, "11": GRASS, "12": GRASS, "13": GRASS, "14": GRASS, "15": GRASS },
