@@ -22,5 +22,6 @@ module Environment {
     export interface ITile {
         tilesetName: string;
         tileName: string;
+        passable: boolean;
     }
 }

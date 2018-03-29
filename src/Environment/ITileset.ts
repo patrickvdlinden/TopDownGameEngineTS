@@ -4,6 +4,7 @@ module Environment {
         textureFilePath: string;
         tileSize: number;
         tiles: ITileDescriptorCollection;
+        objects: IObjectDescriptorCollection;
         animatedTiles: Array<string>;
     }
 }

@@ -4,5 +4,16 @@ module Environment {
         chunkSize: number;
         chunks: IChunkCollectionY;
         tilesets: ITilesetCollection;
+
+        // For in-game usage only.
+        tilesOccupiedByObject?: {
+            [chunkY: string]: {
+                [chunkX: string]: {
+                    [tileY: string]: {
+                        [tileX: string]: boolean
+                    }
+                }
+            }
+        };
     }
 }
