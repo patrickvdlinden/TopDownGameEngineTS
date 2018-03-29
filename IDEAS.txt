@@ -1,0 +1,49 @@
+IDEAS
+
+
+
+Saving/Loading:
+- Have a global GameState object wihich can be easily (de)serialized (JSON)
+- To upgrade older versions, for example when a new property is added to the gameState
+  and the new version of the game depends on it, a save/load function with 'version' as
+  param would be the way to go. Each new version has its own upgrade script. The current
+  version of the save game is stored in the GameState object.
+  When someone then loads a save from 10 versions ago, it would run 10 upgrade scripts.
+  Looks a bit like the data migration in MVC sites.
+
+- MenuScreens:
+  MenuScreen.ts toevoegen. MainMenuScreen, OptionsScreen en NewGameScreen deriven
+  hiervan. In MenuScreen wordt drawControlManager overschreven en worden de controls
+  alleen getekend wanneer er geen 'child' screen zichtbaar is. Alleen parent image is
+  zichtbaar, hierdoor hoeft het plaatje niet telkens opnieuw geladen te worden.
+  etc.
+  etc.
+
+
+
+----------------------------------------------------------------------------------------
+STORYBOARD
+
+Chapter 1: Introduction:
+- Intro video + theme song
+- Luffy (child) spawnt in zijn huis
+- Dialogs met simpele uitleg
+- De wereld is op dit moment nog niet 'open'
+  Alleen de townsquare is open met de Partys Bar als enige gebouw met toegang
+- Eenmaal in de Partys Bar begint een cutscene met een stuk uit episode 4
+- Na de vernedering van Shanks kan je met Luffy naar buiten lopen en de bandieten
+  aanspreken (character dialog). Deze nemen Luffy te grazen en de bandietleider wil hem
+  doden. Even later verschijnen de  barmedewerkster en de mayor. De mayor smeekt om
+  Luffy niet te doden. Kort daarna komt Shanks met zijn crew aanlopen en begint een
+  gevecht met de bandieten. Wanneer deze gewonnen wordt en ze alleen de bandietleider
+  nog moeten aanpakken, gooit deze een rookbom en verdwijnt. Hij heeft Luffy ontvoerd
+  (cutscene?).
+- Luffy wordt meegenomen op een bootje de zee op waar de bandietleider hem in het water
+  gooit.
+- Zeemonster
+- Shanks (arm kwijt)
+- Gered
+- Feest
+- RHP gaan weg
+- Einde Chapter 1
+
