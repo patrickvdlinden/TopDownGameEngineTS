@@ -1,17 +1,22 @@
 ///<reference path="Control.ts" />
 
 module UI {
-    export class Button extends Control {        
+    export class Button extends Control {
         private _autoSize = true;
         private _textWidth: number = null;
         private _textLineStyles: TextLineStyles = TextLineStyles.None;
         private _backgroundColorPressed: string = "rgba(0, 0, 100, 1)";
+        private _clickSoundEnabled: boolean = true;
         private mustRecalculateSize = true;
         private mustRemeasureTextWidth = true;
         private clickSound: HTMLAudioElement;
 
         public constructor() {
             super();
+
+            this.cursor = Cursors.Pointer;
+            this.textBaseline = TextBaselines.Middle;
+            this.textAlign = TextAligns.Center;
         }
 
         public get autoSize(): boolean {
@@ -43,22 +48,43 @@ module UI {
         public get backgroundColorPressed(): string {
             return this._backgroundColorPressed;
         }
-        
+
         public set backgroundColorPressed(color: string) {
             this._backgroundColorPressed = color;
         }
 
-        protected onInitialize(): void {
-            this.cursor = Cursors.Pointer;
-            this.textBaseline = TextBaselines.Middle;
-            this.textAlign = TextAligns.Center;
+        public get clickSoundEnabled(): boolean {
+            return this._clickSoundEnabled;
+        }
 
+        public set clickSoundEnabled(flag: boolean) {
+            this._clickSoundEnabled = flag;
+        }
+
+        protected onInitialize(): void {
             this.clickSound = new Audio("Menu Selection Click.wav");
+            this.clickSound.volume = IO.UserSettings.instance.audioVolume;
             this.clickSound.load();
+
+            IO.UserSettings.instance.removeSettingChangedHandler(this.onUserSettingChanged);
+
+            if (this.autoSize) {
+                this.mustRecalculateSize = true;
+                this.mustRemeasureTextWidth = true;
+            }
+        }
+
+        protected onUnitialize(): void {
+            super.onUninitialize();
+
+            IO.UserSettings.instance.addSettingChangedHandler(this.onUserSettingChanged);
+
+            this.clickSound.pause();
+            this.clickSound = null;
         }
 
         protected onUpdate(updateTime: number): void {
-            // use _textWidth as the property will return 0 as default value.
+            // use the field '_textWidth' as its property 'textWidth' will return 0 as default value.
             if (this.autoSize && this.mustRecalculateSize && this._textWidth !== null) {
                 this.mustRecalculateSize = false;
 
@@ -99,8 +125,8 @@ module UI {
                     break;
             }
 
-            context.fillRect(this.x, this.y, this.width, this.height);
-            
+            context.fillRect(this.viewportX, this.viewportY, this.width, this.height);
+
             if (this.text !== null && this.text.length > 0) {
                 this.drawText(context);
             }
@@ -117,7 +143,8 @@ module UI {
             let textX;
             switch (this.textAlign) {
                 case TextAligns.Center:
-                    textX = (this.width - this.textWidth) / 2;
+                    textX = this.width / 2;
+                    context.textAlign = "center";
                     break;
 
                 case TextAligns.End:
@@ -127,22 +154,22 @@ module UI {
 
                 default:
                     textX = this.padding.left;
-                    break;                        
+                    break;
             }
 
-            context.fillText(this.text, this.x + textX, this.y + (this.height / 2) + offsetY);
+            context.fillText(this.text, this.viewportX + textX, this.viewportY + (this.height / 2) + offsetY);
 
             if (this._textLineStyles !== TextLineStyles.None) {
                 if ((this._textLineStyles & TextLineStyles.Overline) === TextLineStyles.Overline) {
-                    context.fillRect(this.x + textX, this.y + (this.height / 2) - (this.textSize / 2) + offsetY - 1, this.textWidth, 1);
+                    context.fillRect(this.viewportX + textX, this.viewportY + (this.height / 2) - (this.textSize / 2) + offsetY - 1, this.textWidth, 1);
                 }
 
                 if ((this._textLineStyles & TextLineStyles.Underline) === TextLineStyles.Underline) {
-                    context.fillRect(this.x + textX, this.y + (this.height / 2) + (this.textSize / 2) + offsetY, this.textWidth, 1);
+                    context.fillRect(this.viewportX + textX, this.viewportY + (this.height / 2) + (this.textSize / 2) + offsetY, this.textWidth, 1);
                 }
 
                 if ((this._textLineStyles & TextLineStyles.Strikethrough) === TextLineStyles.Strikethrough) {
-                    context.fillRect(this.x + textX, this.y + (this.height / 2) + offsetY + 1, this.textWidth, 1);
+                    context.fillRect(this.viewportX + textX, this.viewportY + (this.height / 2) + offsetY + 1, this.textWidth, 1);
                 }
             }
         }
@@ -177,7 +204,18 @@ module UI {
         protected onMouseDown(mouseState: Input.MouseState): void {
             super.onMouseDown(mouseState);
 
-            (<HTMLAudioElement>this.clickSound.cloneNode(true)).play();
+            if (this.clickSoundEnabled) {
+                this.clickSound.volume = IO.UserSettings.instance.audioVolume;
+                this.clickSound.play();
+            }
+        }
+
+        private onUserSettingChanged = (name: string, value: any) => {
+            if (name !== "audioVolume") {
+                return;
+            }
+
+            this.clickSound.volume = <number>value;
         }
     }
 }

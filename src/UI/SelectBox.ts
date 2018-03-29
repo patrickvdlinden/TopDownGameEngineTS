@@ -6,7 +6,8 @@ module UI {
         private _dropDownMenu: SelectBoxDropDownMenu = null;
         private isDropDownBoxOpened: boolean = false;
         private lastKnownItemLength: number = 0;
-        private arrowImage: HTMLImageElement;
+        private arrowDownImage: HTMLImageElement;
+        private arrowUpImage: HTMLImageElement;
         private mustMeasureText: boolean = false;
         private selectedItemText: string;
 
@@ -14,10 +15,14 @@ module UI {
             super();
 
             this._dropDownMenu = new SelectBoxDropDownMenu(this);
+            this.backgroundColor = Colors.white;
+            this.textColor = Colors.black;
+            this.textBaseline = TextBaselines.Middle;
+            this.padding = new Padding(5, 10);
         }
 
         public get items(): SelectBoxItem[] {
-            return this._items;
+            return this._items.slice();
         }
 
         public get selectedIndex(): number {
@@ -49,37 +54,73 @@ module UI {
             return this._dropDownMenu;
         }
 
-        public addItem(label: string, value: any): SelectBoxItem {
-            const item = new SelectBoxItem(label, value);
-            this.items.push(item);
+        public addItem = (label: string, value: any): SelectBoxItem => {
+            const item = new SelectBoxItem(this, label, value);
+            this._items.push(item);
+
             return item;
         }
 
+        public addItemSelectedHandler(handler: IEventHandler2<SelectBoxItem, SelectBoxItem>): this {
+            this.eventManager.registerEventHandler("itemSelected", handler);
+
+            return this;
+        }
+
         public handleInput(updateTime: number): boolean {
-             if (!super.handleInput(updateTime)) {
+            if (this.isFocused) {
+                let prevKeyboard = Input.Keyboard.previousState;
+                let curKeyboard = Input.Keyboard.currentState;
+
+                var isDropDownBoxOpenedBeforeInput = this.isDropDownBoxOpened;
+
+                if (prevKeyboard.isKeyUp(Input.Keys.Down) && curKeyboard.isKeyDown(Input.Keys.Down)) {
+                    if (this.selectedIndex === this._items.length - 1) {
+                        this.selectedIndex = 0;
+                    } else {
+                    this.selectedIndex++;
+                    }
+                } else if (prevKeyboard.isKeyUp(Input.Keys.Up) && curKeyboard.isKeyDown(Input.Keys.Up)) {
+                    if (this.selectedIndex === 0) {
+                        this.selectedIndex = this._items.length - 1;
+                    } else {
+                        this.selectedIndex--;
+                    }
+                } else if (prevKeyboard.isKeyUp(Input.Keys.Enter) && curKeyboard.isKeyDown(Input.Keys.Enter)) {
+                    isDropDownBoxOpenedBeforeInput = false;
+                }
+
+                this.isDropDownBoxOpened = isDropDownBoxOpenedBeforeInput;
+            }
+            
+            if (!super.handleInput(updateTime)) {
                  return false;
-             }
+            }
 
-             if (this.isDropDownBoxOpened) {
-                return this.dropDownMenu.handleInput(updateTime);
-             }
+            if (this.isDropDownBoxOpened) {
+               return this.dropDownMenu.handleInput(updateTime);
+            }
 
-             return true;
+            return true;
         }
 
         protected onInitialize(): void {
-            this.backgroundColor = "white";
-            this.textColor = "black";
+            this.arrowDownImage = new Image();
+            this.arrowDownImage.src = "arrow_down.png";
 
-            this.arrowImage = new Image();
-            this.arrowImage.src = "arrow_down.png";
+            this.arrowUpImage = new Image();
+            this.arrowUpImage.src = "arrow_up.png";
 
             this.dropDownMenu.initialize();
         }
 
+        protected onUninitialize(): void {
+            this.dropDownMenu.uninitialize();
+        }
+
         protected onUpdate(updateTime: number): void {
-            if (this.lastKnownItemLength !== this.items.length) {
-                this.lastKnownItemLength = this.items.length;
+            if (this.lastKnownItemLength !== this._items.length) {
+                this.lastKnownItemLength = this._items.length;
                 this.dropDownMenu.invalidate();
             }
 
@@ -107,29 +148,56 @@ module UI {
 
             // render textbox-like control
             context.fillStyle = this.backgroundColor;
-            context.fillRect(this.bounds.x, this.bounds.y, this.bounds.width, this.height);
+            context.fillRect(this.viewportX, this.viewportY, this.width, this.height);
 
             context.strokeStyle = "black";
             context.lineWidth = 1;
-            context.strokeRect(this.bounds.x, this.bounds.y, this.bounds.width, this.height);
+            context.strokeRect(this.viewportX, this.viewportY, this.width, this.height);
+
+            context.fillStyle = "grey";
+            context.fillRect(
+                this.viewportX + this.width - this.padding.horizontal - this.arrowDownImage.width,
+                this.viewportY + 1,
+                1,
+                this.height - 2);
 
             if (this.selectedIndex >= 0) {
+                context.beginPath();
+                context.rect(
+                    this.viewportX + this.padding.left,
+                    this.viewportY + this.padding.top,
+                    this.width - this.padding.horizontal - this.arrowDownImage.width,
+                    this.height - this.padding.vertical);
+                context.clip();
                 context.font = `${this.textSize}px ${this.fontFamily}`;
+                context.textBaseline = this.textBaseline;
+                context.fillStyle = this.textColor;
                 context.fillText(
                     (this.selectedItem || { text: "" }).text,
-                    this.bounds.x + this.padding.left,
-                    this.bounds.y + this.padding.top);
+                    this.viewportX + this.padding.left,
+                    this.viewportY + (this.height / 2));
+                context.restore();
             }
-
-            context.drawImage(this.arrowImage, this.bounds.right - this.padding.right, this.bounds.centerY - (this.arrowImage.height / 2));
-
+            
             if (this.isDropDownBoxOpened) {
                 this.dropDownMenu.draw(context);
+
+                context.drawImage(
+                    this.arrowUpImage,
+                    this.viewportX + this.width - this.padding.right - this.arrowDownImage.width,
+                    this.viewportY + (this.height / 2) - (this.arrowDownImage.height / 2));
+            } else {
+                context.drawImage(
+                    this.arrowDownImage,
+                    this.viewportX + this.width - this.padding.right - this.arrowDownImage.width,
+                    this.viewportY + (this.height / 2) - (this.arrowDownImage.height / 2));
             }
         }
 
         protected selectItem(item: SelectBoxItem): void {
             var index = this._items.indexOf(item);
+
+            let oldItem = this._selectedItem;
 
             if (item === null || typeof item === "undefined") {
                 this._selectedItem = null;
@@ -143,10 +211,26 @@ module UI {
 
             this.mustMeasureText = true;
             this.selectedItemText = "";
+            this.isDropDownBoxOpened = false;
+
+            this.onItemSelected(oldItem, this._selectedItem);
+        }
+
+        protected handleOnBlur(): boolean {
+            let curMouse = Input.Mouse.currentState;
+
+            if (curMouse.x >= this.dropDownMenu.bounds.x && curMouse.x <= this._bounds.right
+                && curMouse.y >= this.dropDownMenu.bounds.y && curMouse.y <= this.dropDownMenu.bounds.bottom) {
+                return false;
+            }
+
+            return true;
         }
 
         protected onBlur(): void {
             super.onBlur();
+
+            this.isDropDownBoxOpened = false;
         }
 
         protected onFocus(): void {
@@ -168,6 +252,10 @@ module UI {
             this.selectedItemText = "";
             this.dropDownMenu.invalidate();
         }
+
+        protected onItemSelected(oldItem: SelectBoxItem, newItem: SelectBoxItem): void {
+            this.eventManager.triggerEvent("itemSelected", oldItem, newItem);
+        }
     }
 
     export class SelectBoxDropDownMenu extends Control {
@@ -175,8 +263,16 @@ module UI {
         private _itemHeight: number = 30;
         private mustMeasureWidth: boolean = true;
 
-        public constructor(private parent: SelectBox) {
+        public constructor(private selectBox: SelectBox) {
             super();
+        }
+
+        protected get viewportX(): number {
+            return this.x + (this.selectBox.manager ? this.selectBox.manager.game.viewport.x : 0);
+        }
+
+        protected get viewportY(): number {
+            return this.y + (this.selectBox.manager ? this.selectBox.manager.game.viewport.y : 0);
         }
 
         public get itemHeight(): number {
@@ -190,19 +286,19 @@ module UI {
         public invalidate(): void {
             let height = this.defaultHeight;
 
-            if (this.parent.items.length > 0) {
-                height = (this.parent.items.length * this.itemHeight) + this.padding.vertical;
+            if (this.selectBox.items.length > 0) {
+                height = (this.selectBox.items.length * this.itemHeight) + this.padding.vertical;
                 this.mustMeasureWidth = true;
             }
 
             this.bounds = new Rectangle(
-                this.parent.bounds.x,
-                this.parent.bounds.bottom,
-                this.parent.bounds.width,
+                this.selectBox.bounds.x,
+                this.selectBox.bounds.bottom,
+                this.selectBox.bounds.width,
                 height);
 
-            for (let i = 0; i < this.parent.items.length; i++) {
-                let item = this.parent.items[i];
+            for (let i = 0; i < this.selectBox.items.length; i++) {
+                let item = this.selectBox.items[i];
                 item.bounds = new Rectangle(
                     this.bounds.x + this.padding.left,
                     this.bounds.y + (i * this.itemHeight)  + this.padding.top,
@@ -214,8 +310,8 @@ module UI {
         public handleInput(updateTime: number): boolean {
             super.handleInput(updateTime);
 
-            for (let i = 0; i < this.parent.items.length; i++) {
-                let item = this.parent.items[i];
+            for (let i = 0; i < this.selectBox.items.length; i++) {
+                let item = this.selectBox.items[i];
                 item.handleInput(updateTime);
             }
 
@@ -228,25 +324,28 @@ module UI {
 
             this.invalidate();
 
-            for (let i = 0; i < this.parent.items.length; i++) {
-                let item = this.parent.items[i];
-                item.initialize();
+            for (let i = 0; i < this.selectBox.items.length; i++) {
+                let item = this.selectBox.items[i];
+                item.initialize();                
+                item.addClickHandler((mouseState: Input.MouseState) => {
+                    this.selectBox.selectedItem = item;
+                })
             }
         }
 
         protected onUpdate(updateTime: number): void {
-            for (let i = 0; i < this.parent.items.length; i++) {
-                let item = this.parent.items[i];
+            for (let i = 0; i < this.selectBox.items.length; i++) {
+                let item = this.selectBox.items[i];
                 item.update(updateTime);
             }
         }
 
         protected onDraw(context: CanvasRenderingContext2D): void {
             if (this.mustMeasureWidth) {
-                let width = this.parent.bounds.width;
+                let width = this.selectBox.bounds.width;
 
-                for (let i = 0; i < this.parent.items.length; i++) {
-                    let item = this.parent.items[i];
+                for (let i = 0; i < this.selectBox.items.length; i++) {
+                    let item = this.selectBox.items[i];
                     let itemWidth = context.measureText(item.text || item.toString()).width + item.padding.horizontal;
                     if (itemWidth > width) {
                         width = itemWidth;
@@ -255,8 +354,8 @@ module UI {
 
                 this.bounds = new Rectangle(this.bounds.x, this.bounds.y, width + this.padding.horizontal, this.bounds.height);
 
-                for (let i = 0; i < this.parent.items.length; i++) {
-                    let item = this.parent.items[i];
+                for (let i = 0; i < this.selectBox.items.length; i++) {
+                    let item = this.selectBox.items[i];
                     item.bounds = new Rectangle(item.bounds.x, item.bounds.y, width, this.itemHeight);
                 }
 
@@ -266,23 +365,24 @@ module UI {
             // render dropdown box
             context.fillStyle = this.backgroundColor;
             context.fillRect(
-                this.bounds.x,
-                this.bounds.y,
-                this.bounds.width,
-                this.bounds.height);
+                this.viewportX,
+                this.viewportY,
+                this.width,
+                this.height);
 
             context.strokeStyle = "black";
             context.lineWidth = 1;
             context.strokeRect(
-                this.bounds.x,
-                this.bounds.y,
-                this.bounds.width,
-                this.bounds.height);
+                this.viewportX,
+                this.viewportY,
+                this.width,
+                this.height);
 
-            for (let i = 0; i < this.parent.items.length; i++) {
-                let item = this.parent.items[i];
+            const items = this.selectBox.items;
+            for (let i = 0; i < items.length; i++) {
+                let item = items[i];
 
-                if (this.parent.selectedIndex === i) {
+                if (this.selectBox.selectedIndex === i) {
                     item.backgroundColor = "blue";
                     item.textColor = "white";
                 } else {
@@ -298,11 +398,19 @@ module UI {
     export class SelectBoxItem extends Control {
         private _value: any;
 
-        public constructor(text: string, value: any) {
+        public constructor(private selectBox: SelectBox, text: string, value: any) {
             super();
 
             this.text = text;
             this._value = value;
+        }
+
+        protected get viewportX(): number {
+            return this.x + (this.selectBox.manager ? this.selectBox.manager.game.viewport.x : 0);
+        }
+
+        protected get viewportY(): number {
+            return this.y + (this.selectBox.manager ? this.selectBox.manager.game.viewport.y : 0);
         }
 
         public get value(): any {
@@ -321,7 +429,7 @@ module UI {
 
         protected onDraw(context: CanvasRenderingContext2D): void {
             context.fillStyle = this.state === ControlStates.Hovered ? this.backgroundColorHover : this.backgroundColor;
-            context.fillRect(this.bounds.x, this.bounds.y, this.bounds.width, this.bounds.height);
+            context.fillRect(this.viewportX, this.viewportY, this.bounds.width, this.bounds.height);
 
             context.fillStyle = this.textColor;
             context.textAlign = this.textAlign;
@@ -329,8 +437,8 @@ module UI {
             context.font = `${this.textSize}px ${this.fontFamily}`;
             context.fillText(
                 this.text,
-                this.bounds.x + this.padding.left,
-                this.bounds.y + this.padding.top);
+                this.viewportX + this.padding.left,
+                this.viewportY + this.padding.top);
         }
     }
 }

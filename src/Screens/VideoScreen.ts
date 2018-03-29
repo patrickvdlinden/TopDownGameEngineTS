@@ -45,7 +45,6 @@ module Screens {
                         fulfill();
                     });
                     this.videoElement.addEventListener("error", (e: ErrorEvent) => {
-                        console.log("ERRRROOOORRR");
                         reject(e.error);
                     });
                     this.videoElement.addEventListener("ended", () => {

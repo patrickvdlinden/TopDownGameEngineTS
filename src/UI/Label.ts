@@ -6,6 +6,13 @@ module UI {
         private mustRecalculateSize: boolean = true;
         private mustMeasureTextWidth: boolean = true;
 
+        public constructor() {
+            super();
+
+            this.backgroundColor = "transparent";
+            this.backgroundColorHover = "transparent";
+        }
+
         public get target(): Control {
             return this._target;
         }
@@ -33,8 +40,6 @@ module UI {
         }
 
         protected onInitialize(): void {
-            this.backgroundColor = "transparent";
-            this.backgroundColorHover = "transparent";
         }
 
         protected onUpdate(updateTime: number): void {
@@ -50,12 +55,28 @@ module UI {
                 this._textWidth = context.measureText(this.text).width;
             }
 
+            context.fillStyle = this.backgroundColor;
+            context.fillRect(this.viewportX, this.viewportY, this.width, this.height);
+
             if (this.text) {
                 context.fillStyle = this.textColor;
-                context.textAlign = "left";
+                context.textAlign = this.textAlign;
+                context.textBaseline = this.textBaseline;
                 context.font = `${this.textSize}px ${this.fontFamily}`;
 
-                context.fillText(this.text, this.x + this.padding.left, this.y + this.padding.top);
+                let x = this.padding.left;
+                let y = this.padding.top;
+                switch (this.textBaseline) {
+                    case TextBaselines.Middle:
+                        y = this.height / 2;
+                        break;
+
+                    case TextBaselines.Bottom:
+                        y =  this.bounds.bottom;
+                        break;
+                }
+
+                context.fillText(this.text, this.viewportX + x, this.viewportY + y);
             }
         }
 

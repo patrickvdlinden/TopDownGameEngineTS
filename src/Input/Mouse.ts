@@ -1,6 +1,7 @@
 module Input {
     export class Mouse {
         private static container: HTMLElement;
+        private static viewport: Viewport;
         private static _previousState: MouseState;
         private static _currentState: MouseState;
         private static lastKnownMousePosition: { x: number, y: number } = { x: -1, y: -1 };
@@ -8,8 +9,9 @@ module Input {
         private static isMiddleButtonPressed = false;
         private static isRightButtonPressed = false;
         
-        public static hook(container: HTMLElement) {
+        public static hook(container: HTMLElement, viewport: Viewport) {
             this.container = container;
+            this.viewport = viewport;
 
             container.onmousemove = this.onMouseMove;
             container.onmousedown = this.onMouseDown;
@@ -36,8 +38,8 @@ module Input {
         public static updateState() {
             this._previousState = this.currentState;
             this._currentState = new Input.MouseState(
-                this.lastKnownMousePosition.x,
-                this.lastKnownMousePosition.y,
+                this.lastKnownMousePosition.x - this.viewport.x,
+                this.lastKnownMousePosition.y - this.viewport.y,
                 this.isLeftButtonPressed,
                 this.isMiddleButtonPressed,
                 this.isRightButtonPressed
@@ -56,14 +58,7 @@ module Input {
         private static onMouseDown = (ev: MouseEvent) => {
             ev.preventDefault();
 
-            let buttonId: MouseButtons;
-
-            //this.isLeftButtonPressed = ev.button
-            if ("buttons" in ev) {
-                buttonId = ev.buttons;
-            } else {
-                buttonId = ev.which || ev.button;
-            }
+            const buttonId = typeof ev.buttons !== "undefined" ? ev.buttons : (ev.which || ev.button);
 
             Mouse.isLeftButtonPressed = (buttonId & MouseButtons.Left) === MouseButtons.Left;
             Mouse.isMiddleButtonPressed = (buttonId & MouseButtons.Middle) === MouseButtons.Middle;
@@ -73,14 +68,7 @@ module Input {
         private static onMouseUp = (ev: MouseEvent) => {
             ev.preventDefault();
 
-            let buttonId: MouseButtons;
-
-            //this.isLeftButtonPressed = ev.button
-            if ("buttons" in ev) {
-                buttonId = ev.buttons;
-            } else {
-                buttonId = ev.which || ev.button;
-            }
+            const buttonId = typeof ev.buttons !== "undefined" ? ev.buttons : (ev.which || ev.button);
 
             Mouse.isLeftButtonPressed = (buttonId & MouseButtons.Left) === MouseButtons.Left;
             Mouse.isMiddleButtonPressed = (buttonId & MouseButtons.Middle) === MouseButtons.Middle;

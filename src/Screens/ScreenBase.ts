@@ -81,92 +81,7 @@ module Screens {
             this.backgroundImageBounds = new Rectangle(0, 0, 0, 0);
 
             if (image !== null) {
-                image.addEventListener("load", () => {
-                    let imageX = 0;
-                    let imageY = 0;
-                    let imageWidth = image.width;
-                    let imageHeight = image.height;
-
-                    const aspectRatio = image.width / image.height;
-                    const scaleX = this.viewport.width / image.width;
-                    const scaleY = this.viewport.height / image.height;
-
-                    switch (this._backgroundImageFillStyle) {
-                        case BackgroundImageFillStyles.Stretch:
-                            imageX = this.viewport.x;
-                            imageY = this.viewport.y;
-                            imageWidth = this.viewport.width;
-                            imageHeight = this.viewport.height;
-                            break;
-
-                        case BackgroundImageFillStyles.TopRight:
-
-                        break;
-
-                        case BackgroundImageFillStyles.BottomLeft:
-                        break;
-
-                        case BackgroundImageFillStyles.BottomRight:
-                        break;
-
-                        case BackgroundImageFillStyles.Center:
-                            imageX = (this.viewport.width - image.width) / 2;
-                            imageY = (this.viewport.height - image.height) / 2;
-                            imageWidth = image.width;
-                            imageHeight = image.height;
-                            break;
-
-                        case BackgroundImageFillStyles.CenterCrop:
-                        case BackgroundImageFillStyles.CenterFit:
-                            imageX = 0;
-                            imageY = 0;
-                            imageWidth = 0;
-                            imageHeight = 0;
-
-                            if (image.width <= this.viewport.width) {
-                                imageX = (this.viewport.width - image.width) / 2;
-                            }
-
-                            if (image.height <= this.viewport.height) {
-                                imageY = (this.viewport.height - image.height) / 2;
-                            }
-
-                            if (this._backgroundImageFillStyle === BackgroundImageFillStyles.CenterCrop) {
-                                const smallestWidth = image.width * scaleX;
-                                const smallestHeight = image.height * scaleY;
-
-                                if (smallestHeight * aspectRatio >= smallestWidth) {
-                                    imageWidth = smallestHeight * aspectRatio;
-                                    imageHeight = smallestHeight;
-                                    imageX = (this.viewport.width - imageWidth) / 2;
-                                }
-
-                                if (smallestWidth / aspectRatio >= smallestHeight) {
-                                    imageWidth = smallestWidth;
-                                    imageHeight = smallestWidth / aspectRatio;
-                                    imageY = (this.viewport.height - imageHeight) / 2;
-                                }
-                            } else {
-                                const largestWidth = image.width * scaleX;
-                                const largestHeight = image.height * scaleY;
-
-                                if  (largestHeight * aspectRatio >= largestWidth) {
-                                    imageWidth = largestWidth;
-                                    imageHeight = imageWidth / aspectRatio;
-                                    imageY = (this.viewport.height - imageHeight) / 2;
-                                }
-                                
-                                if (largestWidth / aspectRatio >= largestHeight) {
-                                    imageHeight = largestHeight;
-                                    imageWidth = imageHeight * aspectRatio;
-                                    imageX = (this.viewport.width - imageWidth) / 2;
-                                }
-                            }
-                            break;
-                    }
-
-                    this.backgroundImageBounds = new Rectangle(imageX, imageY, imageWidth, imageHeight);
-                });
+                this.calculateBackgroundImageBounds();
             }
         }
 
@@ -176,6 +91,7 @@ module Screens {
 
         public set backgroundImageFillStyle(fillStyle: BackgroundImageFillStyles) {
             this._backgroundImageFillStyle = fillStyle;
+            this.calculateBackgroundImageBounds();
         }
 
         public initialize(): void {
@@ -195,8 +111,8 @@ module Screens {
                 this.mainLayerElement.height = Settings.screenHeight;
                 this.mainLayerElement.style.position = "absolute";
                 this.mainLayerElement.style.zIndex = "100";
+                this.game.container.appendChild(this.mainLayerElement);
             }
-            this.game.container.appendChild(this.mainLayerElement);
             this.setupMainLayer();
             this.mainLayer = this.mainLayerElement.getContext("2d");
 
@@ -219,6 +135,9 @@ module Screens {
                 console.log("uninitialize screen:", this.name);
             }
 
+            // Make sure to clear the viewport before unloading.
+            this.mainLayer.clearRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
+
             this.onUninitialize();
 
             if (this._controlManager.isInitialized) {
@@ -232,6 +151,9 @@ module Screens {
             this._controlManager = null;
             this._dialogManager = null;
             this._isInitialized = false;
+
+            this.mainLayer = null;
+            this.mainLayerElement = null;
         }
 
         public update(updateTime: number): void {
@@ -245,6 +167,7 @@ module Screens {
         }
 
         public draw(): void {
+            this.mainLayer.save();
             this.mainLayer.clearRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
 
             if (this.backgroundColor && this.backgroundColor !== "transparent") {
@@ -257,6 +180,8 @@ module Screens {
             }
 
             this.onDraw(this.mainLayer);
+            this.mainLayer.restore();
+
             this.drawControlManager(this.mainLayer);
         }
 
@@ -269,10 +194,14 @@ module Screens {
         protected abstract onDraw(context: CanvasRenderingContext2D): void;
 
         protected drawBackgroundImage(context: CanvasRenderingContext2D): void {
+            this.mainLayer.beginPath();
+            this.mainLayer.rect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
+            this.mainLayer.clip();
+            
             this.mainLayer.drawImage(
                 this.backgroundImage,
-                this.backgroundImageBounds.x,
-                this.backgroundImageBounds.y,
+                this.viewport.x + this.backgroundImageBounds.x,
+                this.viewport.y + this.backgroundImageBounds.y,
                 this.backgroundImageBounds.width,
                 this.backgroundImageBounds.height);
                 // TODO: texture bounds (to support topright, bottomleft, bottomright, etc.)
@@ -293,6 +222,97 @@ module Screens {
         protected setupMainLayer(): void {
             this.mainLayerElement.width = Settings.screenWidth;
             this.mainLayerElement.height = Settings.screenHeight;
+        }
+
+        private calculateBackgroundImageBounds() {
+            if (this._backgroundImage === null) {
+                return;
+            }
+
+            const image = this.backgroundImage;
+            let imageX = 0;
+            let imageY = 0;
+            let imageWidth = image.width;
+            let imageHeight = image.height;
+
+            const aspectRatio = image.width / image.height;
+            const scaleX = this.viewport.width / image.width;
+            const scaleY = this.viewport.height / image.height;
+
+            switch (this._backgroundImageFillStyle) {
+                case BackgroundImageFillStyles.Stretch:
+                    imageX = this.viewport.x;
+                    imageY = this.viewport.y;
+                    imageWidth = this.viewport.width;
+                    imageHeight = this.viewport.height;
+                    break;
+
+                case BackgroundImageFillStyles.TopRight:
+                    break;
+
+                case BackgroundImageFillStyles.BottomLeft:
+                    break;
+
+                case BackgroundImageFillStyles.BottomRight:
+                    break;
+
+                case BackgroundImageFillStyles.Center:
+                    imageX = (this.viewport.width - image.width) / 2;
+                    imageY = (this.viewport.height - image.height) / 2;
+                    imageWidth = image.width;
+                    imageHeight = image.height;
+                    break;
+
+                case BackgroundImageFillStyles.CenterCrop:
+                case BackgroundImageFillStyles.CenterFit:
+                    imageX = 0;
+                    imageY = 0;
+                    imageWidth = 0;
+                    imageHeight = 0;
+
+                    if (image.width <= this.viewport.width) {
+                        imageX = (this.viewport.width - image.width) / 2;
+                    }
+
+                    if (image.height <= this.viewport.height) {
+                        imageY = (this.viewport.height - image.height) / 2;
+                    }
+
+                    if (this._backgroundImageFillStyle === BackgroundImageFillStyles.CenterCrop) {
+                        const smallestWidth = image.width * scaleX;
+                        const smallestHeight = image.height * scaleY;
+
+                        if (smallestHeight * aspectRatio >= smallestWidth) {
+                            imageWidth = smallestHeight * aspectRatio;
+                            imageHeight = smallestHeight;
+                            imageX = (this.viewport.width - imageWidth) / 2;
+                        }
+
+                        if (smallestWidth / aspectRatio >= smallestHeight) {
+                            imageWidth = smallestWidth;
+                            imageHeight = smallestWidth / aspectRatio;
+                            imageY = (this.viewport.height - imageHeight) / 2;
+                        }
+                    } else {
+                        const largestWidth = image.width * scaleX;
+                        const largestHeight = image.height * scaleY;
+
+                        if  (largestHeight * aspectRatio >= largestWidth) {
+                            imageWidth = largestWidth;
+                            imageHeight = imageWidth / aspectRatio;
+                            imageY = (this.viewport.height - imageHeight) / 2;
+                        }
+                        
+                        if (largestWidth / aspectRatio >= largestHeight) {
+                            imageHeight = largestHeight;
+                            imageWidth = imageHeight * aspectRatio;
+                            imageX = (this.viewport.width - imageWidth) / 2;
+                        }
+                    }
+                    break;
+            }
+
+            this.backgroundImageBounds = new Rectangle(imageX, imageY, imageWidth, imageHeight);
         }
     }
 }

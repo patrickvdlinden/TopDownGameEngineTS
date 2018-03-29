@@ -21,6 +21,7 @@ module UI {
         private _textBaseline: TextBaselines = TextBaselines.Top;
         private _textAlign: TextAligns = TextAligns.Left;
         private _isFocused: boolean = false;
+        private _isHidden: boolean = false;
 
         public constructor() {
             this._bounds = new Rectangle();
@@ -57,35 +58,35 @@ module UI {
         }
 
         public get x(): number {
-            return this._bounds.x;
+            return this.bounds.x;
         }
 
         public set x(x: number) {
-            this._bounds = this._bounds.update(x, this._bounds.y, this._bounds.width, this._bounds.height);
+            this.bounds = this.bounds.update(x, this.bounds.y, this.bounds.width, this.bounds.height);
         }
 
         public get y(): number {
-            return this._bounds.y;
+            return this.bounds.y;
         }
 
         public set y(y: number) {
-            this._bounds = this._bounds.update(this._bounds.x, y, this._bounds.width, this._bounds.height);
+            this.bounds = this.bounds.update(this.bounds.x, y, this.bounds.width, this.bounds.height);
         }
 
         public get width(): number {
-            return this._bounds.width;
+            return this.bounds.width;
         }
 
         public set width(width: number) {
-            this._bounds = this._bounds.update(this._bounds.x, this._bounds.y, width, this._bounds.height);
+            this.bounds = this.bounds.update(this.bounds.x, this.bounds.y, width, this.bounds.height);
         }
 
         public get height(): number {
-            return this._bounds.height;
+            return this.bounds.height;
         }
 
         public set height(height: number) {
-            this._bounds = this.bounds.update(this._bounds.x, this._bounds.y, this._bounds.width, height);
+            this.bounds = this.bounds.update(this.bounds.x, this.bounds.y, this.bounds.width, height);
         }
 
         public get state(): ControlStates {
@@ -105,7 +106,12 @@ module UI {
                 this._manager.remove(this);
             }
 
+            const oldManager = this._manager;
             this._manager = manager;
+
+            if (oldManager !== manager) {
+                this.onManagerChanged(oldManager, manager);
+            }
 
             if (manager !== null && !manager.contains(this)) {
                 manager.add(this);
@@ -214,6 +220,18 @@ module UI {
             return this._isFocused;
         }
 
+        public get isHidden(): boolean {
+            return this._isHidden;
+        }
+
+        protected get viewportX(): number {
+            return this.x + (this.manager ? this.manager.game.viewport.x : 0);
+        }
+
+        protected get viewportY(): number {
+            return this.y + (this.manager ? this.manager.game.viewport.y : 0);
+        }
+
         public initialize() {
             if (this._isInitialized) {
                 throw new Error("Control is already initialized.");
@@ -280,6 +298,12 @@ module UI {
             return this;
         }
 
+        public addVisibilityChangedHandler(handler: IEventHandler1<boolean>): this {
+            this.eventManager.registerEventHandler("visibilityChanged", handler);
+
+            return this;
+        }
+
         public addKeyDownHandler(handler: Input.IKeyboardEventHandler): this {
             this.eventManager.registerEventHandler("keydown", handler);
 
@@ -288,6 +312,12 @@ module UI {
 
         public addKeyUpHandler(handler: Input.IKeyboardEventHandler): this {
             this.eventManager.registerEventHandler("keyup", handler);
+
+            return this;
+        }
+
+        public addManagerChangedHandler(handler: IEventHandler2<ControlManager, ControlManager>): this {
+            this.eventManager.registerEventHandler("managerChanged", handler);
 
             return this;
         }
@@ -324,20 +354,32 @@ module UI {
             return this;
         }
 
+        public hide(): this {
+            this.onHide();
+            this._isHidden = true;
+
+            return this;
+        }
+
+        public show(): this {
+            this.onShow();
+            this._isHidden = false;
+
+            return this;
+        }
+
         public handleInput(updateTime: number): boolean {
             var prevMouse = Input.Mouse.previousState;
             var curMouse = Input.Mouse.currentState;
 
-            if (curMouse.x >= this._bounds.x && curMouse.x <= this._bounds.right
-                && curMouse.y >= this._bounds.y && curMouse.y <= this._bounds.bottom) {
-
+            if (this.isCursorInBounds(updateTime, curMouse)) {
                 if (!this.cursorInBounds) {
                     this.cursorInBounds = true;
                     this.onMouseOver(curMouse);
                 }
 
                 if (!prevMouse.isLeftButtonPressed && curMouse.isLeftButtonPressed) {
-                    this.onMouseDown(curMouse);    
+                    this.onMouseDown(curMouse);
                     
                     if (!this.isFocused) {
                         if (this.manager !== null) {
@@ -352,10 +394,12 @@ module UI {
                 this.onMouseOut(curMouse);
                 this.cursorInBounds = false;
             } else if (!prevMouse.isLeftButtonPressed && curMouse.isLeftButtonPressed) {
-                if (this._isFocused) {
-                    this.onBlur();
+                if (this.handleOnBlur()) {
+                    if (this._isFocused) {
+                        this.onBlur();
+                    }
+                    this._isFocused = false;
                 }
-                this._isFocused = false;                
             }
 
             if (this._state === ControlStates.Pressed) {
@@ -396,7 +440,18 @@ module UI {
         }
 
         public draw(context: CanvasRenderingContext2D): void {
+            if (this._isHidden) {
+                return;
+            }
+            
+            context.save();
             this.onDraw(context);
+            context.restore();
+        }
+
+        protected isCursorInBounds(updateTime: number, mouseState: Input.MouseState): boolean {
+            return mouseState.x >= this._bounds.x && mouseState.x <= this._bounds.right
+            && mouseState.y >= this._bounds.y && mouseState.y <= this._bounds.bottom;
         }
 
         protected abstract onInitialize(): void;
@@ -456,8 +511,24 @@ module UI {
             this.eventManager.triggerEvent("focus");
         }
 
+        protected handleOnBlur(): boolean {
+            return true;
+        }
+
         protected onBlur(): void {
             this.eventManager.triggerEvent("blur");
+        }
+
+        protected onHide(): void {
+            if (!this._isHidden) {
+                this.eventManager.triggerEvent("visibilityChanged", false);
+            }
+        }
+
+        protected onShow(): void {
+            if (this._isHidden) {
+                this.eventManager.triggerEvent("visibilityChanged", true);
+            }
         }
 
         protected onKeyDown(key: Input.Keys, keyboardState: Input.KeyboardState): void {
@@ -474,6 +545,10 @@ module UI {
 
         protected onKeyUp(key: Input.Keys, keyboardState: Input.KeyboardState): void {
             this.eventManager.triggerEvent("keyup", key, Input.Keyboard.currentState);
+        }
+
+        protected onManagerChanged(oldManager: ControlManager, newManager: ControlManager): void {
+            this.eventManager.triggerEvent("managerChanged", oldManager, newManager);
         }
     }
 }

@@ -18,6 +18,15 @@ module UI {
 
         public constructor() {
             super();
+
+            this._bounds = new Rectangle(this.x, this.y, 250, 25);
+            this.backgroundColor = Colors.white;
+            this.textSize = 12;
+            this.fontFamily = "Courier New";
+            this.textColor = Colors.black;
+            this.textBaseline = TextBaselines.Bottom;
+            this.textCursorPosition = new Rectangle();
+            this.padding = new Padding(5, 7);
         }
 
         public get placeholder(): string {
@@ -67,13 +76,6 @@ module UI {
         }
 
         protected onInitialize(): void {
-            this.bounds = this.bounds.update(this.x, this.y, 250, 25);
-            this.textSize = 12;
-            this.fontFamily = "Courier New";
-            this.textColor = "black";
-            this.textBaseline = TextBaselines.Bottom;
-            this.textCursorPosition = new Rectangle();
-            this.padding = new Padding(5, 7);
         }
 
         protected onUpdate(updateTime: number): void {
@@ -84,12 +86,12 @@ module UI {
                 this.textMeasureContext = context;
             }
 
-            context.fillStyle = "white";
-            context.fillRect(this.x, this.y, this.width, this.height);
+            context.fillStyle = this.backgroundColor;
+            context.fillRect(this.viewportX, this.viewportY, this.width, this.height);
 
             context.strokeStyle = "black";
             context.lineWidth = 1;
-            context.strokeRect(this.x, this.y, this.width, this.height);
+            context.strokeRect(this.viewportX, this.viewportY, this.width, this.height);
 
             if (this.text !== null && this.text.length > 0) {
                 this.drawText(context, this.text, this.fontFamily, this.textSize, this.textColor);
@@ -103,12 +105,16 @@ module UI {
             context.textAlign = "left";
             context.fillStyle = color;
             context.font = `${size}px ${fontFamily}`;
-            context.fillText(text, this.x + this.padding.left, this.bounds.bottom - this.padding.bottom);
+            context.fillText(text, this.viewportX + this.padding.left, this.viewportY + this.height - this.padding.bottom);
 
             if (this.isFocused && this.textCursorBlinker) {
                 context.strokeStyle = "grey";
                 context.lineWidth = 1;
-                context.strokeRect(this.x + this.padding.left + this.textCursorPosition.left, this.y + this.padding.top, 0, this.textSize);
+                context.strokeRect(
+                    this.viewportX + this.padding.left + this.textCursorPosition.left,
+                    this.viewportY + this.padding.top,
+                    0,
+                    this.textSize);
             }
         }
 

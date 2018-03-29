@@ -7,22 +7,23 @@ module Input {
         private static isControlKeyPressed = false;
         private static isShiftKeyPressed = false;
         private static isAltKeyPressed = false;
-        private static eventManager: EventManager = new EventManager(null);
+        private static eventManager: EventManager;
 
         private static specialKeys: Array<Keys>;
 
         public static hook(container: HTMLElement) {
-            Keyboard.specialKeys = [
+            this.specialKeys = [
                 Keys.F12, Keys.WinKey, Keys.CommandKey
             ];
-            
+
             if (Settings.isDebugModeEnabled) {
-                Keyboard.specialKeys.push(Keys.F5);
+                this.specialKeys.push(Keys.F5);
             }
 
             this.container = container;
             this.container.tabIndex = 0;
 
+            this.eventManager = new EventManager(null);
             document.onkeydown = this.onKeyDown;
             container.onkeyup = this.onKeyUp;
             container.focus();
@@ -89,7 +90,7 @@ module Input {
                     Keyboard.isControlKeyPressed,
                     Keyboard.isAltKeyPressed));
 
-                return false;
+            return false;
         }
 
         private static onKeyUp = (ev: KeyboardEvent) => {
@@ -114,7 +115,7 @@ module Input {
                     Keyboard.isShiftKeyPressed,
                     Keyboard.isAltKeyPressed));
 
-                return false;
+            return false;
         }
 
         private static copyObject(obj: any): any {
@@ -123,7 +124,7 @@ module Input {
             for (let i in obj) {
                 if (!obj.hasOwnProperty(i)) {
                     continue;
-                
+
                 }
                 // Arrays are still by reference, but we don't use arrays for now.
                 if (typeof obj[i] === "object") {
