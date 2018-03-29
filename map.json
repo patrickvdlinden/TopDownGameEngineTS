@@ -1,0 +1,3453 @@
+{
+    "tileSize": 32,
+    "chunkSize": 16,
+    "chunks": {
+        "0": {
+            "0": {
+                "tiles": {
+                    "0": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "doorTop"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        }
+                    },
+                    "1": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "door"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall"
+                        }
+                    },
+                    "2": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "3": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "4": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "5": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "6": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "7": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "8": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "9": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "10": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "11": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "12": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "13": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "14": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    },
+                    "15": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    }
+                },
+                "triggers": [
+                    {
+                        "name": "Trigger1",
+                        "y": 32,
+                        "x": 64,
+                        "width": 32,
+                        "height": 32,
+                        "command": "teleport y:1165 x:495"
+                    }
+                ]
+            },
+            "1": {
+                "tiles": {
+                    "0": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "1": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "2": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "3": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "4": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "5": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "6": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "7": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "8": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "9": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "10": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "11": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "12": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "13": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "14": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated"
+                        }
+                    },
+                    "15": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt"
+                        }
+                    }
+                },
+                "triggers": []
+            }
+        },
+        "1": {
+            "0": {
+                "tiles": {
+                    "0": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "1": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "2": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "3": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "4": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "5": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "6": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "7": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "8": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "9": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "10": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "11": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "12": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "13": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        }
+                    },
+                    "14": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass"
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand"
+                        }
+                    }
+                },
+                "triggers": []
+            }
+        }
+    },
+    "tilesets": {
+        "basicTiles": {
+            "name": "BasicTiles",
+            "textureFilePath": "BasicTiles.png",
+            "tileSize": 32,
+            "tiles": {
+                "void": {
+                    "name": "Void",
+                    "type": "static",
+                    "label": "Void",
+                    "passable": true,
+                    "textureX": 0,
+                    "textureY": 0
+                },
+                "water": {
+                    "name": "Water",
+                    "type": "static",
+                    "label": "Water (still)",
+                    "passable": false,
+                    "textureX": 0,
+                    "textureY": 16
+                },
+                "waterAnimated": {
+                    "name": "WaterAnimated",
+                    "type": "animated",
+                    "label": "Water (animated)",
+                    "passable": false,
+                    "animation": [
+                        {
+                            "textureY": 16,
+                            "textureX": 0
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 1
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 2
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 3
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 4
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 5
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 6
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 7
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 8
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 9
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 10
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 11
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 12
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 13
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 14
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 15
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 16
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 17
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 18
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 19
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 20
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 21
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 22
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 23
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 24
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 0
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 1
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 2
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 3
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 4
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 5
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 6
+                        }
+                    ],
+                    "interval": 100
+                },
+                "grass": {
+                    "name": "Grass",
+                    "type": "static",
+                    "label": "Grass",
+                    "passable": true,
+                    "textureX": 1,
+                    "textureY": 0
+                },
+                "grassTopLeft": {
+                    "name": "GrassTopLeft",
+                    "type": "static",
+                    "label": "Grass (top left corner)",
+                    "passable": true,
+                    "textureX": 1,
+                    "textureY": 1
+                },
+                "grassTopRight": {
+                    "name": "GrassTopRight",
+                    "type": "static",
+                    "label": "Grass (top right corner)",
+                    "passable": true,
+                    "textureX": 1,
+                    "textureY": 2
+                },
+                "grassBottomRight": {
+                    "name": "GrassBottomRight",
+                    "type": "static",
+                    "label": "Grass (bottom right corner)",
+                    "passable": true,
+                    "textureX": 1,
+                    "textureY": 3
+                },
+                "grassBottomLeft": {
+                    "name": "GrassBottomLeft",
+                    "type": "static",
+                    "label": "Grass (bottom left corner)",
+                    "passable": true,
+                    "textureX": 1,
+                    "textureY": 4
+                },
+                "dirt": {
+                    "name": "Dirt",
+                    "type": "static",
+                    "label": "Dirt",
+                    "passable": true,
+                    "textureX": 2,
+                    "textureY": 0
+                },
+                "dirtTopLeft": {
+                    "name": "DirtTopLeft",
+                    "type": "static",
+                    "label": "Dirt (top left corner)",
+                    "passable": true,
+                    "textureX": 2,
+                    "textureY": 1
+                },
+                "dirtTopRight": {
+                    "name": "DirtTopRight",
+                    "type": "static",
+                    "label": "Dirt (top right corner)",
+                    "passable": true,
+                    "textureX": 2,
+                    "textureY": 2
+                },
+                "dirtBottomRight": {
+                    "name": "DirtBottomRight",
+                    "type": "static",
+                    "label": "Dirt (bottom right corner)",
+                    "passable": true,
+                    "textureX": 2,
+                    "textureY": 3
+                },
+                "dirtBottomLeft": {
+                    "name": "DirtBottomLeft",
+                    "type": "static",
+                    "label": "Dirt (bottom left corner)",
+                    "passable": true,
+                    "textureX": 2,
+                    "textureY": 4
+                },
+                "sand": {
+                    "name": "Sand",
+                    "type": "static",
+                    "label": "Sand",
+                    "passable": true,
+                    "textureX": 3,
+                    "textureY": 0
+                },
+                "sandTopLeft": {
+                    "name": "SandTopLeft",
+                    "type": "static",
+                    "label": "Sand (top left corner)",
+                    "passable": true,
+                    "textureX": 3,
+                    "textureY": 1
+                },
+                "sandTopRight": {
+                    "name": "SandTopRight",
+                    "type": "static",
+                    "label": "Sand (top right corner)",
+                    "passable": true,
+                    "textureX": 3,
+                    "textureY": 2
+                },
+                "sandBottomRight": {
+                    "name": "SandBottomRight",
+                    "type": "static",
+                    "label": "Sand (bottom right corner)",
+                    "passable": true,
+                    "textureX": 3,
+                    "textureY": 3
+                },
+                "sandBottomLeft": {
+                    "name": "SandBottomLeft",
+                    "type": "static",
+                    "label": "Sand (bottom left corner)",
+                    "passable": true,
+                    "textureX": 3,
+                    "textureY": 4
+                },
+                "wall": {
+                    "name": "Wall",
+                    "type": "static",
+                    "label": "Wall",
+                    "passable": false,
+                    "textureX": 4,
+                    "textureY": 0
+                },
+                "wallBottomGrass": {
+                    "name": "WallBottomGrass",
+                    "type": "static",
+                    "label": "Wall bottom (grass)",
+                    "passable": false,
+                    "textureX": 4,
+                    "textureY": 1
+                },
+                "doorTop": {
+                    "name": "DoorTop",
+                    "type": "static",
+                    "label": "Door (top)",
+                    "passable": false,
+                    "textureX": 5,
+                    "textureY": 0
+                },
+                "door": {
+                    "name": "Door",
+                    "type": "static",
+                    "label": "Door",
+                    "passable": true,
+                    "textureX": 5,
+                    "textureY": 1
+                }
+            },
+            "animatedTiles": [
+                "waterAnimated"
+            ]
+        }
+    }
+}

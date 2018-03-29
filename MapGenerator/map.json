@@ -1,0 +1,4238 @@
+{
+    "tileSize": 32,
+    "chunkSize": 16,
+    "chunks": {
+        "0": {
+            "0": {
+                "tiles": {
+                    "0": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "doorTop",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        }
+                    },
+                    "1": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "door",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wallBottomGrass",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "wall",
+                            "passable": false
+                        }
+                    },
+                    "2": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "3": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "4": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "5": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "6": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "7": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "8": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "9": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "10": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "11": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "12": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "13": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "14": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    },
+                    "15": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    }
+                },
+                "objects": {
+                    "10": {
+                        "10": {
+                            "tilesetName": "house1",
+                            "objectName": "house1"
+                        }
+                    }
+                },
+                "triggers": [
+                    {
+                        "name": "Trigger1",
+                        "y": 32,
+                        "x": 64,
+                        "width": 32,
+                        "height": 32,
+                        "command": "teleport y:1165 x:495"
+                    }
+                ]
+            },
+            "1": {
+                "tiles": {
+                    "0": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "1": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "2": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "3": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "4": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "5": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "6": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "7": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "8": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "9": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "10": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "11": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "12": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "13": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "14": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "waterAnimated",
+                            "passable": false
+                        }
+                    },
+                    "15": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "dirt",
+                            "passable": true
+                        }
+                    }
+                },
+                "objects": {},
+                "triggers": []
+            }
+        },
+        "1": {
+            "0": {
+                "tiles": {
+                    "0": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "1": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "2": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "3": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "4": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "5": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "6": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "7": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "8": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "9": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "10": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "11": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "12": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "13": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        }
+                    },
+                    "14": {
+                        "0": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "1": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "2": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "3": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "4": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "5": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "grass",
+                            "passable": true
+                        },
+                        "6": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "7": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "8": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "9": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "10": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "11": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "12": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "13": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "14": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        },
+                        "15": {
+                            "tilesetName": "basicTiles",
+                            "tileName": "sand",
+                            "passable": true
+                        }
+                    }
+                },
+                "objects": {},
+                "triggers": []
+            }
+        }
+    },
+    "tilesets": {
+        "basicTiles": {
+            "name": "BasicTiles",
+            "textureFilePath": "BasicTiles.png",
+            "tileSize": 32,
+            "tiles": {
+                "void": {
+                    "name": "Void",
+                    "type": "static",
+                    "label": "Void",
+                    "passable": true,
+                    "textureX": 0,
+                    "textureY": 0
+                },
+                "water": {
+                    "name": "Water",
+                    "type": "static",
+                    "label": "Water (still)",
+                    "passable": false,
+                    "textureX": 0,
+                    "textureY": 16
+                },
+                "waterAnimated": {
+                    "name": "WaterAnimated",
+                    "type": "animated",
+                    "label": "Water (animated)",
+                    "passable": false,
+                    "animation": [
+                        {
+                            "textureY": 16,
+                            "textureX": 0
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 1
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 2
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 3
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 4
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 5
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 6
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 7
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 8
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 9
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 10
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 11
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 12
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 13
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 14
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 15
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 16
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 17
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 18
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 19
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 20
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 21
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 22
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 23
+                        },
+                        {
+                            "textureY": 16,
+                            "textureX": 24
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 0
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 1
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 2
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 3
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 4
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 5
+                        },
+                        {
+                            "textureY": 17,
+                            "textureX": 6
+                        }
+                    ],
+                    "interval": 100
+                },
+                "grass": {
+                    "name": "Grass",
+                    "type": "static",
+                    "label": "Grass",
+                    "passable": true,
+                    "textureX": 1,
+                    "textureY": 0
+                },
+                "grassTopLeft": {
+                    "name": "GrassTopLeft",
+                    "type": "static",
+                    "label": "Grass (top left corner)",
+                    "passable": true,
+                    "textureX": 1,
+                    "textureY": 1
+                },
+                "grassTopRight": {
+                    "name": "GrassTopRight",
+                    "type": "static",
+                    "label": "Grass (top right corner)",
+                    "passable": true,
+                    "textureX": 1,
+                    "textureY": 2
+                },
+                "grassBottomRight": {
+                    "name": "GrassBottomRight",
+                    "type": "static",
+                    "label": "Grass (bottom right corner)",
+                    "passable": true,
+                    "textureX": 1,
+                    "textureY": 3
+                },
+                "grassBottomLeft": {
+                    "name": "GrassBottomLeft",
+                    "type": "static",
+                    "label": "Grass (bottom left corner)",
+                    "passable": true,
+                    "textureX": 1,
+                    "textureY": 4
+                },
+                "dirt": {
+                    "name": "Dirt",
+                    "type": "static",
+                    "label": "Dirt",
+                    "passable": true,
+                    "textureX": 2,
+                    "textureY": 0
+                },
+                "dirtTopLeft": {
+                    "name": "DirtTopLeft",
+                    "type": "static",
+                    "label": "Dirt (top left corner)",
+                    "passable": true,
+                    "textureX": 2,
+                    "textureY": 1
+                },
+                "dirtTopRight": {
+                    "name": "DirtTopRight",
+                    "type": "static",
+                    "label": "Dirt (top right corner)",
+                    "passable": true,
+                    "textureX": 2,
+                    "textureY": 2
+                },
+                "dirtBottomRight": {
+                    "name": "DirtBottomRight",
+                    "type": "static",
+                    "label": "Dirt (bottom right corner)",
+                    "passable": true,
+                    "textureX": 2,
+                    "textureY": 3
+                },
+                "dirtBottomLeft": {
+                    "name": "DirtBottomLeft",
+                    "type": "static",
+                    "label": "Dirt (bottom left corner)",
+                    "passable": true,
+                    "textureX": 2,
+                    "textureY": 4
+                },
+                "sand": {
+                    "name": "Sand",
+                    "type": "static",
+                    "label": "Sand",
+                    "passable": true,
+                    "textureX": 3,
+                    "textureY": 0
+                },
+                "sandTopLeft": {
+                    "name": "SandTopLeft",
+                    "type": "static",
+                    "label": "Sand (top left corner)",
+                    "passable": true,
+                    "textureX": 3,
+                    "textureY": 1
+                },
+                "sandTopRight": {
+                    "name": "SandTopRight",
+                    "type": "static",
+                    "label": "Sand (top right corner)",
+                    "passable": true,
+                    "textureX": 3,
+                    "textureY": 2
+                },
+                "sandBottomRight": {
+                    "name": "SandBottomRight",
+                    "type": "static",
+                    "label": "Sand (bottom right corner)",
+                    "passable": true,
+                    "textureX": 3,
+                    "textureY": 3
+                },
+                "sandBottomLeft": {
+                    "name": "SandBottomLeft",
+                    "type": "static",
+                    "label": "Sand (bottom left corner)",
+                    "passable": true,
+                    "textureX": 3,
+                    "textureY": 4
+                },
+                "wall": {
+                    "name": "Wall",
+                    "type": "static",
+                    "label": "Wall",
+                    "passable": false,
+                    "textureX": 4,
+                    "textureY": 0
+                },
+                "wallBottomGrass": {
+                    "name": "WallBottomGrass",
+                    "type": "static",
+                    "label": "Wall bottom (grass)",
+                    "passable": false,
+                    "textureX": 4,
+                    "textureY": 1
+                },
+                "doorTop": {
+                    "name": "DoorTop",
+                    "type": "static",
+                    "label": "Door (top)",
+                    "passable": false,
+                    "textureX": 5,
+                    "textureY": 0
+                },
+                "door": {
+                    "name": "Door",
+                    "type": "static",
+                    "label": "Door",
+                    "passable": true,
+                    "textureX": 5,
+                    "textureY": 1
+                }
+            },
+            "objects": [],
+            "animatedTiles": [
+                "waterAnimated"
+            ]
+        },
+        "house1": {
+            "name": "House1",
+            "textureFilePath": "House1.png",
+            "tileSize": 32,
+            "tiles": [],
+            "objects": {
+                "house1": {
+                    "name": "house1",
+                    "type": "static",
+                    "label": "House 1",
+                    "textureX": 1,
+                    "textureY": 0,
+                    "textureWidth": 6,
+                    "textureHeight": 8,
+                    "collisionX": 1,
+                    "collisionY": 5,
+                    "collisionWidth": 6,
+                    "collisionHeight": 3
+                }
+            },
+            "animatedTiles": []
+        }
+    }
+}

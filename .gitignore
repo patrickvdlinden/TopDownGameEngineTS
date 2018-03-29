@@ -4,4 +4,3 @@ script/gamecore.js
 
 # These files are auto-generated
 *.tileset.json
-map.json
