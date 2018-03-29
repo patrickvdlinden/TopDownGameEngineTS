@@ -2,20 +2,18 @@
 
 module Screens {
     export class GameScreen extends ScreenBase {
-        protected backgroundLayerElement: HTMLCanvasElement;
         protected groundLayerElement: HTMLCanvasElement;
-        protected objectEntityLayerElement: HTMLCanvasElement;
+        protected entitiesLayerElement: HTMLCanvasElement;
         protected itemLayerElement: HTMLCanvasElement;
         protected uiLayerElement: HTMLCanvasElement;
 
-        protected backgroundLayer: CanvasRenderingContext2D;
         protected groundLayer: CanvasRenderingContext2D;
-        protected objectEntityLayer: CanvasRenderingContext2D;
-        protected itemLayer: CanvasRenderingContext2D;
+        protected entitiesLayer: CanvasRenderingContext2D;
         protected uiLayer: CanvasRenderingContext2D;
 
         private _camera: Camera;
         private _map: Environment.IMap;
+
         private backgroundMusic: HTMLAudioElement;
         private videoScreen: VideoScreen;
 
@@ -31,6 +29,8 @@ module Screens {
 
         private animationUpdateTime: number = 0;
         private tileAnimationIndice: { [tileName: string]: number } = {};
+
+        private player: Entities.Player;
 
         public constructor(game: Game) {
             super(game, "GameScreen");
@@ -56,21 +56,20 @@ module Screens {
             return this.videoScreen.state === ScreenStates.Visible;
         }
 
-        protected onInitialize() {
-            this.backgroundLayerElement = this.createCanvasElement("BackgroundLayer", Settings.screenWidth, Settings.screenHeight, 10);
-            this.groundLayerElement = this.createCanvasElement("GroundLayer", Settings.screenWidth, Settings.screenHeight, 20);
-            this.objectEntityLayerElement = this.createCanvasElement("ObjectEntityLayer", Settings.screenWidth, Settings.screenHeight, 30);
-            this.itemLayerElement = this.createCanvasElement("ItemLayer", Settings.screenWidth, Settings.screenHeight, 40);
+        public static startNewGame(game: Game): GameScreen {
+             return new GameScreen(game);
+        }
 
-            this.backgroundLayer = this.backgroundLayerElement.getContext("2d");
+        protected onInitialize() {
+            this.groundLayerElement = this.createCanvasElement("GroundLayer", Settings.screenWidth, Settings.screenHeight, 10);
+            this.entitiesLayerElement = this.createCanvasElement("EntitiesLayer", Settings.screenWidth, Settings.screenHeight, 20);
+            this.uiLayerElement = this.createCanvasElement("UILayer", Settings.screenWidth, Settings.screenHeight, 30);
+
             this.groundLayer = this.groundLayerElement.getContext("2d");
-            this.objectEntityLayer = this.objectEntityLayerElement.getContext("2d");
-            this.itemLayer = this.itemLayerElement.getContext("2d");
+            this.entitiesLayer = this.entitiesLayerElement.getContext("2d");
+            this.uiLayer = this.uiLayerElement.getContext("2d");
 
             this._camera = new Camera();
-
-            // draw background once.
-            this.drawBackgroundLayer(this.backgroundLayer);
 
             var loadingScreen = new LoadingScreen(this.game);
             loadingScreen.runTasksParallel = false;
@@ -81,6 +80,38 @@ module Screens {
                     reporter.reportCompleted();
 
                     this.map = map;
+                    this.map.tilesOccupiedByObject = {};
+
+                    for (let chunkY in this.map.chunks) {
+                        this.map.tilesOccupiedByObject[chunkY] = {};
+
+                        for (let chunkX in this.map.chunks[chunkY]) {
+                            let chunk = this.map.chunks[chunkY][chunkX];
+
+                            this.map.tilesOccupiedByObject[chunkY][chunkX] = {};
+
+                            for (let objectY in chunk.objects) {
+                                for (let objectX in chunk.objects[objectY]) {
+                                    let object = chunk.objects[objectY][objectX];
+                                    let objectDescriptor = <Environment.IStaticObjectDescriptor>this.map.tilesets[object.tilesetName].objects[object.objectName];
+
+                                    const objY = parseInt(objectY);
+                                    const objX = parseInt(objectX);
+
+                                    for (let y = objY; y < objY + objectDescriptor.collisionHeight; y++) {
+                                        if (!this.map.tilesOccupiedByObject[chunkY][chunkX][y]) {
+                                            this.map.tilesOccupiedByObject[chunkY][chunkX][y] = {};
+                                        }
+
+                                        for (let x = objX; x < objX + objectDescriptor.collisionWidth; x++) {
+                                            this.map.tilesOccupiedByObject[chunkY][chunkX][y][x] = true;
+                                            this.map.chunks[chunkY][chunkX].tiles[y][x].passable = false;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 });
             });
             loadingScreen.backgroundTasks.push((reporter: BackgroundProgressReporter) => {
@@ -116,11 +147,18 @@ module Screens {
 
                     this.tilesetImages[i] = tilesetImage;
                 }
+
+                // TODO: create seperate task for Entities.
+                this.player = new Entities.Player(this.viewport, this.camera);
+                //this.player.character = new Entities.Characters.MyCharacter(this.viewport, this.camera);
+                //this.player.character.map = this.map;
+                //this.player.character.initialize();
+                this.player.x = 96;
+                this.player.y = 96;
             });
             loadingScreen.backgroundTasks.push((reporter: BackgroundProgressReporter) => {
                 reporter.reportProgress(30, "Loading background music (Grasslands Theme.mp3)...");
 
-                this.backgroundMusic = new Audio("Grasslands Theme.mp3");
                 this.backgroundMusic.volume = .5;
                 this.backgroundMusic.loop = true;
                 this.backgroundMusic.addEventListener("loadeddata", () => {
@@ -182,6 +220,15 @@ module Screens {
             if (Settings.isDebugModeEnabled) {
                 console.log("initialize UI");
             }
+
+            let musicButton = new UI.Button();
+            musicButton.text = "Music On";
+            musicButton.addClickHandler((m: Input.MouseState) => {
+                !this.backgroundMusic.paused ? this.backgroundMusic.pause() : this.backgroundMusic.play();
+                musicButton.text = "Music "+ (this.backgroundMusic.paused ? "Off" : "On");
+            });
+            musicButton.bounds = new Rectangle(this.game.viewport.width - 100, 10);
+            this.controlManager.add(musicButton);
         }
 
         protected createCanvasElement(name: string, width: number, height: number, zIndex: number): HTMLCanvasElement {
@@ -228,6 +275,8 @@ module Screens {
                     this.animationUpdateTime = (Number.MAX_VALUE - this.animationUpdateTime) + updateTime;
                 }
 
+                // TODO: Find a better solution to update animated tiles from different tilesets.
+                // For example, only tilesets that are currently used within the viewport.
                 for (let tilesetName in this.map.tilesets) {
                     if (!this.map.tilesets.hasOwnProperty(tilesetName)) {
                         continue;
@@ -247,10 +296,18 @@ module Screens {
                         if (this.tileAnimationIndice[tile.name] >= tile.animation.length) {
                             this.tileAnimationIndice[tile.name] = 0;
                         }
-
-                        console.log("animation index: ", this.tileAnimationIndice[tile.name]);
                     }
                 }
+
+                this.chunksInRangeStartX = Math.floor((this.camera.x - this.map.tileSize) / this.map.tileSize / this.map.chunkSize);
+                this.chunksInRangeStartY = Math.floor((this.camera.y - this.map.tileSize) / this.map.tileSize / this.map.chunkSize);
+                this.chunksInRangeEndX = Math.floor((this.viewport.width + this.camera.x + this.map.tileSize) / this.map.tileSize / this.map.chunkSize);
+                this.chunksInRangeEndY = Math.floor((this.viewport.height + this.camera.y + this.map.tileSize) / this.map.tileSize / this.map.chunkSize);
+
+                this.player.update(updateTime);
+
+                this.camera.x = Math.max(0, Math.floor(this.player.x - (this.viewport.width / 2)));
+                this.camera.y = Math.max(0, Math.floor(this.player.y - (this.viewport.height / 2)));
             }
         }
 
@@ -258,30 +315,13 @@ module Screens {
             if (!this.isInitialized) {
                 return;
             }
-            
-            this.drawGroundLayer(this.groundLayer);
-            this.drawObjectEntitiesLayer(this.objectEntityLayer);
-            this.drawItemLayer(this.itemLayer);
-            this.drawUILayer(this.mainLayer);
-        }
 
-        protected updateControlManager(updateTime: number): void {
-            if (this.isStarted && !this.isVideoPlaying) {
-                this.controlManager.update(updateTime);
-            }
-        }
+            this.groundLayer.clearRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
+            this.entitiesLayer.clearRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
+            this.uiLayer.clearRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
 
-        protected drawControlManager(context: CanvasRenderingContext2D): void {
-            if (this.isStarted && !this.isVideoPlaying) {
-                this.controlManager.draw(context);
-            }
-        }
+            let playerDrawn = false;
 
-        protected drawBackgroundLayer(context: CanvasRenderingContext2D) {
-            context.clearRect(0, 0, this.viewport.width, this.viewport.height);
-        }
-
-        protected drawGroundLayer(context: CanvasRenderingContext2D) {
             for (let chunkY = 0; chunkY <= 1; chunkY++) {
                 for (let chunkX = 0; chunkX <= 1; chunkX++) {
                     let chunk = this.map.chunks && this.map.chunks[chunkY] && this.map.chunks[chunkY][chunkX]
@@ -298,13 +338,15 @@ module Screens {
                         continue;
                     }
 
+                    let objects = chunk.objects ? chunk.objects : {};
+
                     const tileStartX = chunkX === this.chunksInRangeStartX ? Math.floor((this.camera.x - this.map.tileSize) / this.map.tileSize - (chunkX * this.map.chunkSize)) : 0;
                     const tileStartY = chunkY === this.chunksInRangeStartY ? Math.floor((this.camera.y - this.map.tileSize) / this.map.tileSize - (chunkY * this.map.chunkSize)) : 0;
                     const tileEndX = chunkX === this.chunksInRangeEndX ? Math.ceil((this.camera.x + this.viewport.width + this.map.tileSize) / this.map.tileSize - (chunkX * this.map.chunkSize)) : this.map.chunkSize;
                     const tileEndY = chunkY === this.chunksInRangeEndY ? Math.ceil((this.camera.y + this.viewport.height + this.map.tileSize) / this.map.tileSize - (chunkX * this.map.chunkSize)) : this.map.chunkSize;
 
-                    for (let y = 0; y < 16; y++) {
-                        for (let x = 0; x < 16; x++) {
+                    for (let y = tileStartY; y < tileEndY; y++) {
+                        for (let x = tileStartX; x < tileEndX; x++) {
                             if (!tiles[y] || !tiles[y][x]) {
                                 continue;
                             }
@@ -332,57 +374,119 @@ module Screens {
                             //     tileIndice = tileIndice.corners[1];
                             // }
 
-                            context.drawImage(
-                                    this.tilesetImages[tile.tilesetName],
-                                    tileIndice.textureX * tileset.tileSize,
-                                    tileIndice.textureY * tileset.tileSize,
-                                    tileset.tileSize,
-                                    tileset.tileSize,
-                                    this.viewport.x + (chunkX * this.map.chunkSize * this.map.tileSize) + (x * this.map.tileSize) - this.camera.x,
-                                    this.viewport.y + (chunkY * this.map.chunkSize * this.map.tileSize) + (y * this.map.tileSize) - this.camera.y,
-                                    this.map.tileSize,
-                                    this.map.tileSize);
+                            let tileAbsX = (chunkX * this.map.chunkSize * this.map.tileSize) + (x * this.map.tileSize) 
+                            let tileAbsY = (chunkY * this.map.chunkSize * this.map.tileSize) + (y * this.map.tileSize)
+
+                            this.groundLayer.drawImage(
+                                this.tilesetImages[tile.tilesetName],
+                                tileIndice.textureX * tileset.tileSize,
+                                tileIndice.textureY * tileset.tileSize,
+                                tileset.tileSize,
+                                tileset.tileSize,
+                                this.viewport.x + tileAbsX - this.camera.x,
+                                this.viewport.y + tileAbsY - this.camera.y,
+                                this.map.tileSize,
+                                this.map.tileSize);
+                            
+                            if (objects[y] && objects[y][x]) {
+                                let object = objects[y][x];
+                                let objectset = this.map.tilesets[object.tilesetName];
+                                let objectDescriptor = objectset.objects[object.objectName];
+                                let objectTexture = <Environment.IObjectTexture>objectDescriptor;
+
+                                if (Settings.isDebugModeEnabled) {
+                                    this.entitiesLayer.fillStyle = "red";
+                                    this.entitiesLayer.fillRect(
+                                        this.viewport.x + tileAbsX - this.camera.x,
+                                        this.viewport.y + tileAbsY - this.camera.y,
+                                        objectDescriptor.collisionWidth * this.map.tileSize,
+                                        objectDescriptor.collisionHeight * this.map.tileSize
+                                    );
+                                }
+
+                                this.entitiesLayer.drawImage(
+                                    this.tilesetImages[object.tilesetName],
+                                    objectTexture.textureX * objectset.tileSize,
+                                    objectTexture.textureY * objectset.tileSize,
+                                    objectTexture.textureWidth * objectset.tileSize,
+                                    objectTexture.textureHeight * objectset.tileSize,
+                                    this.viewport.x + tileAbsX - this.camera.x,
+                                    this.viewport.y + tileAbsY - ((objectTexture.textureHeight - objectDescriptor.collisionHeight) * this.map.tileSize) - this.camera.y,
+                                    objectTexture.textureWidth * this.map.tileSize,
+                                    objectTexture.textureHeight * this.map.tileSize);
+                            }
+
+                            if (!playerDrawn
+                                && (this.player.x >= tileAbsX && this.player.x < tileAbsX + this.map.tileSize
+                                    && this.player.y >= tileAbsY && this.player.y < tileAbsY + this.map.tileSize)
+                                || (this.player.x < tileAbsX - this.map.tileSize && this.player.x + this.map.tileSize >= tileAbsX
+                                    && this.player.y < tileAbsY - this.map.tileSize && this.player.y + this.map.tileSize >= tileAbsY)) {
+                                
+                                this.player.draw(this.entitiesLayer);
+                                playerDrawn = true;
+                            }
                         }
                     }
 
                     if (Settings.isDebugModeEnabled) {
                         for (let i = 0; i < chunk.triggers.length; i++) {
                             let trigger = chunk.triggers[i];
+                            let triggerX = this.viewport.x + trigger.x - this.camera.x;
+                            let triggerY = this.viewport.y + trigger.y - this.camera.y;
 
-                            context.fillStyle = "rgba(100, 100, 255, 0.6)";
-                            context.fillRect(trigger.x, trigger.y, trigger.width, trigger.height);
+                            this.uiLayer.fillStyle = "rgba(100, 100, 255, 0.6)";
+                            this.uiLayer.fillRect(triggerX, triggerY, trigger.width, trigger.height);
 
-                            context.font = "10px Segoe UI";
-                            let labelWidth = context.measureText(trigger.command).width;
+                            this.uiLayer.font = "10px Segoe UI";
+                            let labelWidth = this.uiLayer.measureText(trigger.command).width;
 
-                            context.fillStyle = "rgba(0, 0, 0, 0.6)";
-                            context.fillRect(trigger.x + ((trigger.width - labelWidth) / 2) - 5, trigger.y + 5, labelWidth + 10, 15);
+                            this.uiLayer.fillStyle = "rgba(0, 0, 0, 0.6)";
+                            this.uiLayer.fillRect(triggerX + ((trigger.width - labelWidth) / 2) - 5, triggerY + 5, labelWidth + 10, 15);
 
-                            context.fillStyle = "white";
-                            context.fillText(trigger.command, trigger.x + ((trigger.width - labelWidth) / 2), trigger.y + 15);
+                            this.uiLayer.fillStyle = "white";
+                            this.uiLayer.fillText(trigger.command, triggerX + ((trigger.width - labelWidth) / 2), triggerY + 15);
                         }
 
-                        context.lineWidth = 2;
-                        context.strokeStyle = "red";
-                        context.strokeRect(
-                                this.viewport.x + (chunkX * this.map.chunkSize * 32) - this.camera.x,
-                                this.viewport.y + (chunkY * this.map.chunkSize * 32) - this.camera.y,
-                                this.map.chunkSize * 32,
-                                this.map.chunkSize * 32);
+                        this.uiLayer.lineWidth = 2;
+                        this.uiLayer.strokeStyle = "red";
+                        this.uiLayer.strokeRect(
+                            this.viewport.x + (chunkX * this.map.chunkSize * 32) - this.camera.x,
+                            this.viewport.y + (chunkY * this.map.chunkSize * 32) - this.camera.y,
+                            this.map.chunkSize * 32,
+                            this.map.chunkSize * 32);
                     }
                 }
             }
+
+            if (!playerDrawn) {
+                this.player.draw(this.entitiesLayer);
+            }
+
+            if (Settings.isDebugModeEnabled) {
+                this.entitiesLayer.globalAlpha = 0.75;
+                this.entitiesLayer.fillStyle = "purple";
+                this.entitiesLayer.fillRect(
+                    this.viewport.x + this.player.x - 16 - this.camera.x,
+                    this.viewport.y + this.player.y - 32 - this.camera.y,
+                    32,
+                    32);
+                this.entitiesLayer.globalAlpha = 1;
+            }
         }
 
-        protected drawObjectEntitiesLayer(context: CanvasRenderingContext2D) {            
+        protected updateControlManager(updateTime: number): void {
+            if (this.isStarted && !this.isVideoPlaying) {
+                this.controlManager.update(updateTime);
+            }
         }
-        
-        protected drawItemLayer(context: CanvasRenderingContext2D) {
+
+        protected drawControlManager(context: CanvasRenderingContext2D): void {
+            if (this.isStarted && !this.isVideoPlaying) {
+                this.controlManager.draw(context);
+            }
         }
 
         protected drawUILayer(context: CanvasRenderingContext2D) {
-            context.clearRect(0, 0, Settings.screenWidth, Settings.screenHeight);
-
             // if (!this.isVideoPlaying && this.isStarted) {
             //     this.mainLayer.fillStyle = "#FFFFFF";
             //     this.mainLayer.fillText("Left Mouse: " + Input.Mouse.currentState.isLeftButtonPressed, 10, 10);
