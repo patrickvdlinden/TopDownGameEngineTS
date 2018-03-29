@@ -8,7 +8,7 @@
         html, body {
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            /*overflow: hidden;*/
             -webkit-user-select: none; /* webkit (safari, chrome) browsers */
             -moz-user-select: none; /* mozilla browsers */
             -khtml-user-select: none; /* webkit (konqueror) browsers */
@@ -51,7 +51,7 @@
             window.debug = true;
         <?php endif; ?>
     </script>
-    <script type="text/javascript" src="script/gamecore.js"></script>
+    <script type="text/javascript" src="script/gamecore.js?v=<?= filemtime("script/gamecore.js"); ?>"></script>
 </head>
 <body>
     <div id="GameContainer"></div>
