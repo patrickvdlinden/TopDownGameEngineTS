@@ -39,15 +39,58 @@
             font-size: 14px;
         }
         .toolbarMenu__item {
+            position: relative;
+            display: block;
+            float: left;
+        }
+        
+        .toolbarMenu__item > .toolbarMenu__itemLabel {
             height: 25px;
             padding: 0 10px;
             line-height: 25px;
-            display: block;
-            float: left;
+            display: inline-block;
             cursor: pointer;
         }
-        .toolbarMenu__item:hover {
+        .toolbarMenu__item > .toolbarMenu__itemLabel:hover,
+        .toolbarMenu__item.toolbarMenu__item--opened > .toolbarMenu__itemLabel {
             background-color: #ddd;
+        }
+
+        .toolbarMenu__subMenu {
+            min-width: 200px;
+            position: absolute;
+            margin: 0;
+            padding: 4px 0;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            list-style: none;
+            display: none;
+        }
+        .toolbarMenu__item.toolbarMenu__item--opened > .toolbarMenu__subMenu {
+            display: block;
+        }
+
+        .toolbarMenu__subMenu .toolbarMenu__itemLabel {
+            padding-left: 20px;
+        }
+
+        .toolbarMenu__subMenu .toolbarMenu__item,
+        .toolbarMenu__subMenu .toolbarMenu__itemLabel  {
+            display: block;
+            float: none;
+        }
+
+        .toolbarMenu__item--divider {
+            margin: 4px 0;
+            height: auto;
+        }
+
+        .toolbarMenu__item--divider .toolbarMenu__itemLabel,
+        .toolbarMenu__item--divider .toolbarMenu__itemLabel:hover {
+            height: 1px;
+            background-color: #e3e3e3;
+            cursor: default;
         }
 
         .paneContainer {
@@ -228,15 +271,8 @@
     <script type="text/javascript" src="../node_modules/c-p/color-picker.min.js?v=<?= filemtime("../node_modules/c-p/color-picker.min.js"); ?>"></script>
     <script type="text/javascript" src="script/core.js?v=<?= filemtime("script/core.js"); ?>"></script>
 </head>
-<body>
-    <div class="toolbarMenuContainer">
-        <ul class="toolbarMenu">
-            <li class="toolbarMenu__item">File</li>
-            <li class="toolbarMenu__item">Edit</li>
-            <li class="toolbarMenu__item">View</li>
-            <li class="toolbarMenu__item">Help</li>
-        </ul>
-    </div>
+<body id="container">
+
     <div class="paneContainer">
         <div class="pane pane--docked pane--left pane--top pane--bottom pane--width25p" id="leftPane">
             <h3 class="pane__title">Left Pane</h3>

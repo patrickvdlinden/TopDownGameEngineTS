@@ -9,6 +9,9 @@ module SpritesheetBuilder {
     }
 
     export class App {
+        private container: HTMLElement;
+        private toolbarMenu: ToolbarMenu;
+
         private leftPaneBody: HTMLElement;
         private editorPaneBody: HTMLElement;
         private propertiesPaneBody: HTMLElement;
@@ -21,7 +24,8 @@ module SpritesheetBuilder {
         private isCtrlPressed: boolean = false;
         private scale: number = 1.0;
 
-        public constructor(private leftPane: HTMLElement, private editorPane: HTMLElement, private propertiesPane: HTMLElement) {
+        public constructor(container: HTMLElement, private leftPane: HTMLElement, private editorPane: HTMLElement, private propertiesPane: HTMLElement) {
+            this.container = container;
             this.leftPaneBody = <HTMLElement>leftPane.getElementsByClassName("pane__body")[0];
             this.editorPaneBody = <HTMLElement>editorPane.getElementsByClassName("pane__body")[0];
             this.propertiesPaneBody = <HTMLElement>propertiesPane.getElementsByClassName("pane__body")[0];
@@ -39,6 +43,22 @@ module SpritesheetBuilder {
             
             this.transparentBackgroundImage = new Image();
             this.transparentBackgroundImage.src = Constants.ResourcesPath + "/TransparentBackground.png";
+
+            this.toolbarMenu = new ToolbarMenu();
+            this.toolbarMenu
+                .addMenuItem(
+                    new ToolbarMenuItem("File", [
+                        new ToolbarMenuItem("New", (e) => alert("New!")),
+                        new ToolbarMenuItem("-"),
+                        new ToolbarMenuItem("Open..."),
+                        new ToolbarMenuItem("-"),
+                        new ToolbarMenuItem("Save"),
+                        new ToolbarMenuItem("Save as...")
+                    ]))
+                .addMenuItem(new ToolbarMenuItem("Edit"))
+                .addMenuItem(new ToolbarMenuItem("View"))
+                .addMenuItem(new ToolbarMenuItem("Help"))
+                .appendTo(this.container);
         }
 
         public initTexturesOverview() {
