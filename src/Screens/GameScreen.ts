@@ -5,11 +5,9 @@ module Screens {
         protected groundLayerElement: HTMLCanvasElement;
         protected entitiesLayerElement: HTMLCanvasElement;
         protected itemLayerElement: HTMLCanvasElement;
-        protected uiLayerElement: HTMLCanvasElement;
 
         protected groundLayer: CanvasRenderingContext2D;
         protected entitiesLayer: CanvasRenderingContext2D;
-        protected uiLayer: CanvasRenderingContext2D;
 
         private _camera: Camera;
         private _map: Environment.IMap;
@@ -30,6 +28,9 @@ module Screens {
         private animationUpdateTime: number = 0;
         private tileAnimationIndice: { [tileName: string]: number } = {};
 
+        private luffy: Entities.Character;
+        private kidLuffy: Entities.Character;
+        private zoro: Entities.Character;
         private player: Entities.Player;
 
         public constructor(game: Game) {
@@ -63,7 +64,6 @@ module Screens {
         protected onInitialize() {
             this.groundLayerElement = this.createCanvasElement("GroundLayer", Settings.screenWidth, Settings.screenHeight, 10);
             this.entitiesLayerElement = this.createCanvasElement("EntitiesLayer", Settings.screenWidth, Settings.screenHeight, 20);
-            this.uiLayerElement = this.createCanvasElement("UILayer", Settings.screenWidth, Settings.screenHeight, 30);
 
             this.groundLayer = this.groundLayerElement.getContext("2d");
             this.entitiesLayer = this.entitiesLayerElement.getContext("2d");
@@ -148,17 +148,47 @@ module Screens {
                     this.tilesetImages[i] = tilesetImage;
                 }
 
+
+
+                this.luffy = new Entities.Character("Luffy", this.viewport, this.camera);
+                this.luffy.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("KidLuffy's Pants", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 0, 0);
+                this.luffy.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("KidLuffy's Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 0, 0);
+                this.luffy.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("KidLuffy's Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 0, 0);
+                this.luffy.cosmetics.hat = new Entities.CharacterCosmeticsItem("Default Strawhat", Entities.CharacterCosmeticsItemTypes.Hats, 0, 0);
+                this.luffy.map = this.map;
+                this.luffy.x = 256;
+                this.luffy.y = 496;
+                this.luffy.faceDirection = Entities.FaceDirections.Right;
+                this.luffy.initialize();
+
+                this.kidLuffy = new Entities.Character("KidLuffy", this.viewport, this.camera);
+                this.kidLuffy.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("KidLuffy's Pants", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 96, 0);
+                this.kidLuffy.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("KidLuffy's Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 96, 0);
+                this.kidLuffy.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("KidLuffy's Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 96, 0);
+                //this.kidLuffy.cosmetics.hat = new Entities.CharacterCosmeticsItem("Default Strawhat", Entities.CharacterCosmeticsItemTypes.Hats, 0, 0);
+                this.kidLuffy.map = this.map;
+                this.kidLuffy.initialize();
+
+                this.zoro = new Entities.Character("Zoro", this.viewport, this.camera);
+                this.zoro.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("Zoro's Pants", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 192, 0);
+                this.zoro.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("Zoro's Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 192, 0);
+                this.zoro.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("Zoro's Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 192, 0);
+                //this.zoro.cosmetics.hat = new Entities.CharacterCosmeticsItem("Default Strawhat", Entities.CharacterCosmeticsItemTypes.Hats, 0, 0);
+                this.zoro.map = this.map;
+                this.zoro.x = 32;
+                this.zoro.y = 128;
+                this.zoro.initialize();
+
                 // TODO: create seperate task for Entities.
                 this.player = new Entities.Player(this.viewport, this.camera);
-                //this.player.character = new Entities.Characters.MyCharacter(this.viewport, this.camera);
-                //this.player.character.map = this.map;
-                //this.player.character.initialize();
+                this.player.character = this.kidLuffy;
                 this.player.x = 96;
                 this.player.y = 96;
             });
             loadingScreen.backgroundTasks.push((reporter: BackgroundProgressReporter) => {
                 reporter.reportProgress(30, "Loading background music (Grasslands Theme.mp3)...");
 
+                this.backgroundMusic = new Audio("Resources/Music/one-piece-ost-02-hungry-luffy.mp3");
                 this.backgroundMusic.volume = .5;
                 this.backgroundMusic.loop = true;
                 this.backgroundMusic.addEventListener("loadeddata", () => {
@@ -251,6 +281,9 @@ module Screens {
             this.backgroundMusic.pause();
             this.backgroundMusic.remove();
             this.backgroundMusic = null;
+
+            this.groundLayerElement.remove();
+            this.entitiesLayerElement.remove();
         }
 
         protected onUpdate(updateTime: number) {
@@ -305,6 +338,9 @@ module Screens {
                 this.chunksInRangeEndY = Math.floor((this.viewport.height + this.camera.y + this.map.tileSize) / this.map.tileSize / this.map.chunkSize);
 
                 this.player.update(updateTime);
+                this.luffy.update(updateTime);
+                this.luffy.move(updateTime, false);
+                this.zoro.update(updateTime);
 
                 this.camera.x = Math.max(0, Math.floor(this.player.x - (this.viewport.width / 2)));
                 this.camera.y = Math.max(0, Math.floor(this.player.y - (this.viewport.height / 2)));
@@ -461,6 +497,10 @@ module Screens {
             if (!playerDrawn) {
                 this.player.draw(this.entitiesLayer);
             }
+
+            // TODO: Move to correct z-index (see playerDrawn).
+            this.luffy.draw(this.entitiesLayer);
+            this.zoro.draw(this.entitiesLayer);
 
             if (Settings.isDebugModeEnabled) {
                 this.entitiesLayer.globalAlpha = 0.75;
