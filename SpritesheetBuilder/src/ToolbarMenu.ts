@@ -59,7 +59,7 @@ module SpritesheetBuilder {
                 for (let i = 0; i < this._menuItems.length; i++) {
                     this._element.appendChild(this._menuItems[i].element);
                 }
-            }    
+            }
         }
     }
 
@@ -68,37 +68,14 @@ module SpritesheetBuilder {
         private _labelElement: HTMLElement;
         private _subMenuElement: HTMLElement;
         private _label: string;
+        private _shortKeys: Keys[];
         private _clickHandler: ClickEventListener;
         private _children: ToolbarMenuItem[] = [];
+        private _isEnabled: boolean = true;
 
-        public constructor(label: string)
-        public constructor(label: string, children: ToolbarMenuItem[])
-        public constructor(label: string, clickHandler: ClickEventListener)
-        public constructor(label: string, clickHandler: ClickEventListener, children: ToolbarMenuItem[])
-        public constructor(label: string, arg2?: any, arg3?: any) {
-            let clickHandler: ClickEventListener;
-            let children: ToolbarMenuItem[];
-
-            if (typeof arg2 !== "undefined") {
-                if (Array.isArray ? Array.isArray(arg2) : (arg2 instanceof Array)) {
-                    children = arg2;
-                } else {
-                    clickHandler = arg2;
-                }
-            }
-            
-            if (typeof arg3 !== "undefined") {
-                children = arg3;
-            }
-
+        public constructor(label: string, shortKeys?: Keys[]) {
             this._label = label;
-            this._clickHandler = clickHandler;
-
-            if (children && children.length > 0) {
-                for (let i = 0; i < children.length; i++) {
-                    this.addChildItem(children[i]);
-                }
-            }
+            this._shortKeys = shortKeys;
         }
 
         public get element(): HTMLElement {
@@ -121,16 +98,62 @@ module SpritesheetBuilder {
             this.invalidate();
         }
 
+        public get shortKeys(): Keys[] {
+            return this._shortKeys;
+        }
+
+        public set shortKeys(shortKeys: Keys[]) {
+            this._shortKeys = shortKeys;
+
+            this.invalidate();
+        }
+
         public get clickHandler(): ClickEventListener {
             return this._clickHandler;
         }
         
         public set clickHandler(clickHandler: ClickEventListener) {
             this._clickHandler = clickHandler;
+
+            this.invalidate();
         }
 
         public get children(): ToolbarMenuItem[] {
             return this._children.slice();
+        }
+
+        public get isEnabled(): boolean {
+            return this._isEnabled;
+        }
+
+        public set isEnabled(isEnabled: boolean) {
+            this._isEnabled = isEnabled;
+
+            this.invalidate();
+        }
+
+        public setLabel(label: string): this {
+            this.label = label;
+
+            return this;
+        }
+
+        public setShortKeys(shortKeys: Keys[]): this {
+            this.shortKeys = shortKeys;
+
+            return this;
+        }
+
+        public disable(): this {
+            this.isEnabled = false;
+
+            return this;
+        }
+
+        public setClickHandler(clickHandler: ClickEventListener): this {
+            this.clickHandler = clickHandler;
+
+            return this;
         }
 
         public addChildItem(menuItem: ToolbarMenuItem): this {
@@ -149,29 +172,25 @@ module SpritesheetBuilder {
 
             this._labelElement = document.createElement("span");
             this._labelElement.classList.add("toolbarMenu__itemLabel");
-            this.updateLabelStyle();
             this._labelElement.onmousedown = this.onMouseDown;
-
-            if (this._clickHandler) {
-                this._labelElement.onclick = this.clickHandler;
-            }
-
             this._element.appendChild(this._labelElement);
 
             if (this._children.length > 0) {
-                this._subMenuElement = document.createElement("ul");
-                this._subMenuElement.classList.add("toolbarMenu__subMenu");
-
-                for (let i = 0; i < this._children.length; i++) {
-                    this._subMenuElement.appendChild(this._children[i].element);
-                }
-
-                this._element.appendChild(this._subMenuElement);
-            }
+                this.createSubMenuElement();
+            }    
 
             document.addEventListener("mousedown", this.onDocumentMouseDown);
 
+            this.invalidate();
+
             return this._element;
+        }
+
+        protected createSubMenuElement(): void {
+            this._subMenuElement = document.createElement("ul");
+            this._subMenuElement.classList.add("toolbarMenu__subMenu");
+
+            this._element.appendChild(this._subMenuElement);
         }
 
         protected invalidate() {
@@ -179,14 +198,36 @@ module SpritesheetBuilder {
                 return;
             }
 
+            if (!this._isEnabled) {
+                this._element.classList.add("toolbarMenu__item--disabled");
+            } else if (this._element.classList.contains("toolbarMenu__item--disabled")) {
+                this._element.classList.remove("toolbarMenu__item--disabled");
+            }
+
             if (this._labelElement) {
-                this.updateLabelStyle();
+                if (this._label === "-") {
+                    this._labelElement.innerText = "";
+
+                    if (!this._element.classList.contains("toolbarMenu__item--divider")) {
+                        this._element.classList.add("toolbarMenu__item--divider");
+                    }
+                } else {
+                    this._labelElement.innerText = this._label;
+
+                    if (this._element.classList.contains("toolbarMenu__item--divider")) {
+                        this._element.classList.remove("toolbarMenu__item--divider");
+                    }
+                }
 
                 if (this._clickHandler) {
                     this._labelElement.onclick = this.clickHandler;
                 }
             }
             
+            if (this.children.length > 0 && !this._subMenuElement) {
+                this.createSubMenuElement();
+            }
+
             if (this._subMenuElement) {
                 this._subMenuElement.innerHTML = "";
 
@@ -244,22 +285,6 @@ module SpritesheetBuilder {
             if (target !== this._element && !this._element.contains(target)
                 && this._element.classList.contains("toolbarMenu__item--opened")) {
                 this._element.classList.remove("toolbarMenu__item--opened");
-            }
-        }
-
-        private updateLabelStyle() {
-            if (this._label === "-") {
-                this._labelElement.innerText = "";
-
-                if (!this._element.classList.contains("toolbarMenu__item--divider")) {
-                    this._element.classList.add("toolbarMenu__item--divider");
-                }
-            } else {
-                this._labelElement.innerText = this._label;
-
-                if (this._element.classList.contains("toolbarMenu__item--divider")) {
-                    this._element.classList.remove("toolbarMenu__item--divider");
-                }
             }
         }
     }

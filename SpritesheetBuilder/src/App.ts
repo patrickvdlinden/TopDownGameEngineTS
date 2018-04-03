@@ -22,7 +22,10 @@ module SpritesheetBuilder {
         private currentTexture: HTMLImageElement;
 
         private isCtrlPressed: boolean = false;
+        private scaleIndex: number = 7;
         private scale: number = 1.0;
+
+        private isDirty: boolean = false;
 
         public constructor(container: HTMLElement, private leftPane: HTMLElement, private editorPane: HTMLElement, private propertiesPane: HTMLElement) {
             this.container = container;
@@ -47,18 +50,53 @@ module SpritesheetBuilder {
             this.toolbarMenu = new ToolbarMenu();
             this.toolbarMenu
                 .addMenuItem(
-                    new ToolbarMenuItem("File", [
-                        new ToolbarMenuItem("New", (e) => alert("New!")),
-                        new ToolbarMenuItem("-"),
-                        new ToolbarMenuItem("Open..."),
-                        new ToolbarMenuItem("-"),
-                        new ToolbarMenuItem("Save"),
-                        new ToolbarMenuItem("Save as...")
-                    ]))
-                .addMenuItem(new ToolbarMenuItem("Edit"))
+                    new ToolbarMenuItem("File")
+                        .addChildItem(new ToolbarMenuItem("New").setClickHandler(this.onNewMenuItemClick))
+                        .addChildItem(new ToolbarMenuItem("-"))
+                        .addChildItem(new ToolbarMenuItem("Open...").setClickHandler(this.onOpenMenuItemClick))
+                        .addChildItem(new ToolbarMenuItem("-"))
+                        .addChildItem(new ToolbarMenuItem("Save").disable().setClickHandler(this.onSaveMenuItemClick))
+                        .addChildItem(new ToolbarMenuItem("Save as...").disable().setClickHandler(this.onSaveAsMenuItemClick))
+                        .addChildItem(new ToolbarMenuItem("-"))
+                        .addChildItem(new ToolbarMenuItem("Settings").setClickHandler(this.onSettingsMenuItemClick))
+                        .addChildItem(new ToolbarMenuItem("-"))
+                        .addChildItem(new ToolbarMenuItem("Close").setClickHandler(this.onCloseMenuItemClick)))
+                .addMenuItem(
+                    new ToolbarMenuItem("Edit")
+                        .addChildItem(new ToolbarMenuItem("Undo").disable())
+                        .addChildItem(new ToolbarMenuItem("Redo").disable()))
                 .addMenuItem(new ToolbarMenuItem("View"))
-                .addMenuItem(new ToolbarMenuItem("Help"))
+                .addMenuItem(new ToolbarMenuItem("Help").addChildItem(new ToolbarMenuItem("About")))
                 .appendTo(this.container);
+        }
+
+        protected onNewMenuItemClick = (e: MouseEvent): void => {
+            if (this.isDirty && !confirm("There are unsaved changes. Are you sure you want to continue?")) {
+                return;
+            }
+
+            this.newSpritesheet();
+        }
+
+        protected onOpenMenuItemClick = (e: MouseEvent): void => {
+            if (this.isDirty && !confirm("There are unsaved changes. Are you sure you want to continue?")) {
+                return;
+            }
+        }
+
+        protected onSaveMenuItemClick = (e: MouseEvent): void => {
+        }
+
+        protected onSaveAsMenuItemClick = (e: MouseEvent): void => {
+        }
+
+        protected onSettingsMenuItemClick = (e: MouseEvent): void => {
+        }
+
+        protected onCloseMenuItemClick = (e: MouseEvent): void => {
+            if (this.isDirty && !confirm("There are unsaved changes. Are you sure you want to continue?")) {
+                return;
+            }
         }
 
         public initTexturesOverview() {
@@ -310,6 +348,8 @@ module SpritesheetBuilder {
 
             context.stroke();
             context.restore();
+
+            document.getElementById("editorPaneTitle").innerText = "Editor Pane (" + (this.scale * 100) + "%)";
         }
 
         private onWindowResize = () => {
@@ -380,7 +420,30 @@ module SpritesheetBuilder {
             if (this.isCtrlPressed) {
                 e.preventDefault();
 
-                this.scale += 0.1;
+                console.log(e.deltaX, e.deltaY, e.deltaZ);
+                if (e.deltaY < 0) {
+                    // zoom in
+                    this.scaleIndex++;
+                    if (this.scaleIndex >= Constants.zoomScales.length) {
+                        this.scaleIndex = Constants.zoomScales.length - 1;
+                    }
+
+                    this.scale = Constants.zoomScales[this.scaleIndex];
+                } else {
+                    // zoom out
+                    this.scaleIndex--;
+                    if (this.scaleIndex < 0) {
+                        this.scaleIndex = 0;
+                    }
+
+                    this.scale = Constants.zoomScales[this.scaleIndex];
+                }
+                //this.scale -= (e.deltaY / 100);
+                
+                // if (Math.abs(this.scale) < 0.1) {
+                //     this.scale = -this.scale;
+                // }
+
                 this.invalidateTexturesCanvas();
             }
         }

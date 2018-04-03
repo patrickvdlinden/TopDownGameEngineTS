@@ -86,10 +86,17 @@
             height: auto;
         }
 
-        .toolbarMenu__item--divider .toolbarMenu__itemLabel,
-        .toolbarMenu__item--divider .toolbarMenu__itemLabel:hover {
+        .toolbarMenu__item.toolbarMenu__item--divider .toolbarMenu__itemLabel,
+        .toolbarMenu__item.toolbarMenu__item--divider .toolbarMenu__itemLabel:hover {
             height: 1px;
             background-color: #e3e3e3;
+            cursor: default;
+        }
+
+        .toolbarMenu__item.toolbarMenu__item--disabled .toolbarMenu__itemLabel,
+        .toolbarMenu__item.toolbarMenu__item--disabled .toolbarMenu__itemLabel:hover {
+            background-color: transparent;
+            color: #ccc;
             cursor: default;
         }
 
@@ -279,7 +286,7 @@
             <div class="pane__body"></div>
         </div>
         <div class="pane pane--docked pane--center pane--top pane--bottom pane--offset25p pane--width50pMinus300" id="editorPane">
-            <h3 class="pane__title">Editor Pane</h3>
+            <h3 class="pane__title" id=editorPaneTitle>Editor Pane</h3>
             <div class="pane__body"></div>
         </div>
         <div class="pane pane--docked pane--right pane--top pane--bottom pane--width300" id="propertiesPane">

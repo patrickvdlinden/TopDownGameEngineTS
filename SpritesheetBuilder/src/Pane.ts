@@ -27,13 +27,13 @@ module SpritesheetBuilder {
 
         public show(): void {
             if (this._element && !this.isVisible) {
-                this._element.classList.remove("hidden");
+                this._element.classList.remove("pane--hidden");
             }
         }
 
         public hide(): void {
             if (this.isVisible) {
-                this._element.classList.add("hidden");
+                this._element.classList.add("pane--hidden");
             }
         }
     }
