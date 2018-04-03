@@ -188,7 +188,7 @@
                         "3": {
                             "tilesetName": "basicTiles",
                             "tileName": "grass",
-                            "passable": true
+                            "passable": false
                         },
                         "4": {
                             "tilesetName": "basicTiles",
@@ -1318,14 +1318,7 @@
                         }
                     }
                 },
-                "objects": {
-                    "10": {
-                        "10": {
-                            "tilesetName": "house1",
-                            "objectName": "house1"
-                        }
-                    }
-                },
+                "objects": {},
                 "triggers": [
                     {
                         "name": "Trigger1",
@@ -3890,7 +3883,14 @@
                         }
                     }
                 },
-                "objects": {},
+                "objects": {
+                    "13": {
+                        "10": {
+                            "tilesetName": "house1",
+                            "objectName": "house1"
+                        }
+                    }
+                },
                 "triggers": []
             }
         }
@@ -4222,13 +4222,13 @@
                     "name": "house1",
                     "type": "static",
                     "label": "House 1",
-                    "textureX": 1,
+                    "textureX": 0,
                     "textureY": 0,
-                    "textureWidth": 6,
+                    "textureWidth": 7,
                     "textureHeight": 8,
                     "collisionX": 1,
                     "collisionY": 5,
-                    "collisionWidth": 6,
+                    "collisionWidth": 5,
                     "collisionHeight": 3
                 }
             },

@@ -64,7 +64,7 @@ $tileset
     ->describeTile($DOOR_T)
     ->describeTile($DOOR);
 
-$HOUSE_1 = new StaticObjectDescriptor("house1", "House 1", 0, 1, 6, 8, 5, 1, 6, 3);
+$HOUSE_1 = new StaticObjectDescriptor("house1", "House 1", 0, 0, 7, 8, 5, 1, 5, 3);
 
 $objectset = new Tileset("House1", "House1.png", 32);
 $objectset->describeObject($HOUSE_1);
@@ -76,6 +76,7 @@ $objectset->describeObject($HOUSE_1);
  * @return TileDescriptor
  */
 function X(TileDescriptor $tileDescriptor) {
+    $result = $tileDescriptor;
     if ($tileDescriptor instanceof StaticTileDescriptor) {
         $result = new StaticTileDescriptor($tileDescriptor->name, $tileDescriptor->label, false, $tileDescriptor->textureX, $tileDescriptor->textureY);
     } else if ($tileDescriptor instanceof AnimatedTileDescriptor) {
@@ -86,7 +87,7 @@ function X(TileDescriptor $tileDescriptor) {
         $result->tileset = $tileDescriptor->tileset;
     }
 
-    return $tileDescriptor;
+    return $result;
 }
 
 $map = new Map(32, 16);
@@ -111,7 +112,6 @@ $map->addChunk(0, 0)
         $GRASS,   $GRASS,   $SAND,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $DIRT,
         $GRASS,   $GRASS,   $SAND,   $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $DIRT,
     ])
-    ->addObject(10, 10, $HOUSE_1)
     ->addTrigger(new Trigger("Trigger1", 32, 64, 32, 32, new TeleportCommand(1165, 495)));
 
 $map->addChunk(0, 1)
@@ -151,7 +151,8 @@ $map->addChunk(1, 0)
         $GRASS,   $GRASS,   $GRASS,   $GRASS,   $SAND,    $SAND,    $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,
         $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $SAND,    $SAND,    $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,
         $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $GRASS,   $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $SAND,    $SAND
-    ]);
+    ])
+    ->addObject(13, 10, $HOUSE_1);
 
 /*
 echo json_encode($map, JSON_PRETTY_PRINT);exit;

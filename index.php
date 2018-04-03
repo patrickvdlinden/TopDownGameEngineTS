@@ -5,6 +5,17 @@
     <title>TopDownGameEngine</title>
 
     <style type="text/css">
+        @font-face {
+            font-family: 'Press Start 2P';
+            src: url('Resources/Fonts/PressStart2P.ttf');
+            font-weight: normal;
+        }
+
+h1 {
+    color: white;
+    position: absolute;
+    font-family: "Press Start 2P";
+}
         html, body {
             margin: 0;
             padding: 0;
@@ -54,6 +65,7 @@
     <script type="text/javascript" src="script/gamecore.js?v=<?= filemtime("script/gamecore.js"); ?>"></script>
 </head>
 <body>
+<h1>Test</h1>
     <div id="GameContainer"></div>
 </body>
 </html>

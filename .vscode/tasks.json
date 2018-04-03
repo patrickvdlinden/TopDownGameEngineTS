@@ -4,7 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "TypeScript",
+            // Custom shell task as the build task with type 'typescript'
+            // ignores the "tsconfig" variable.
+            "label": "TypeScript",
             "type": "shell",
             "command": "./node_modules/.bin/tsc.cmd",
             "args": [
@@ -22,7 +24,7 @@
             "problemMatcher": []
         },
         {
-            "taskName": "TypeScript_SpritesheetBuilder",
+            "label": "TypeScript_SpritesheetBuilder",
             "type": "shell",
             "command": "./node_modules/.bin/tsc.cmd",
             "args": [
@@ -35,16 +37,9 @@
             },
             "group": {
                 "kind": "build",
-                "isDefault": false
+                "isDefault": true
             },
             "problemMatcher": []
-        },
-        {
-            "type": "typescript",
-            "tsconfig": "SpritesheetBuilder\\src\\tsconfig.json",
-            "problemMatcher": [
-                "$tsc"
-            ]
         }
     ]
 }
