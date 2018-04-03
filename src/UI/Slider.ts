@@ -184,11 +184,10 @@ module UI {
                     : this.backgroundColor);
             
             context.beginPath();
-            context.ellipse(
+            context.arc(
                 this.viewportX + (this.width / 2),
                 this.viewportY + (this.height / 2),
-                this.width / 2, this.height / 2,
-                0,
+                this.width / 2,
                 0,
                 Math.PI * 2,
                 false);
