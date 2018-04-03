@@ -24,14 +24,14 @@ module Input {
             this.container.tabIndex = 0;
 
             this.eventManager = new EventManager(null);
-            document.onkeydown = this.onKeyDown;
-            container.onkeyup = this.onKeyUp;
+            document.addEventListener("keydown", this.onKeyDown);
+            document.addEventListener("keyup", this.onKeyUp);
             container.focus();
         }
 
         public static unhook() {
-            this.container.onkeydown = null;
-            this.container.onkeyup = null;
+            this.container.removeEventListener("keydown", this.onKeyDown);
+            this.container.removeEventListener("keyup", this.onKeyUp);
             this.container = null;
         }
 
@@ -76,7 +76,6 @@ module Input {
             ev.preventDefault();
 
             Keyboard.keysPressed[ev.keyCode] = <Keys>ev.keyCode;
-
             Keyboard.isShiftKeyPressed = ev.shiftKey;
             Keyboard.isControlKeyPressed = ev.ctrlKey;
             Keyboard.isAltKeyPressed = ev.altKey;
