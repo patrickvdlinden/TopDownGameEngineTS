@@ -2,7 +2,7 @@ module Entities {
     export class Player implements IUpdatable, IDrawableWithContext {
         private viewport: Viewport;
         private camera: Camera;
-        private _character: Characters.CharacterBase;
+        private _character: Character;
         private lastPressedMovementKeys: Input.Keys[] = [];
 
         private get lastPressedMovementKey(): Input.Keys {
@@ -42,11 +42,11 @@ module Entities {
             });
         }
 
-        public get character(): Characters.CharacterBase {
+        public get character(): Character {
             return this._character;
         }
 
-        public set character(entity: Characters.CharacterBase) {
+        public set character(entity: Character) {
             this._character = entity;
         }
 
@@ -85,7 +85,25 @@ module Entities {
             let isRunning = false;
             let shouldMove = false;
 
-            this.character.state = Characters.CharacterStates.Standing;
+            this.character.state = CharacterStates.Standing;
+
+            // TODO: Retrieve movement key bindings.
+            //
+            // Example:
+            //
+            // In initialize/constructor:
+            // this.movementKeyBindings = UserSettings.instance.keyBindings.movement;
+            //
+            // In update:
+            // if (this.movementKeyBindings.contains(this.lastPressedMovementKey)) {
+            //     const moveDirection = <Input.KeyAction>this.movementKeyBindings.actionForKey(this.lastPressedMovementKey);
+            //     if (this.character.faceDirection !== this.moveToFaceDirectionMap[moveDirection]) {
+            //         this.character.faceDirection = this.moveToFaceDirectionMap[moveDirection];
+            //     }
+            //
+            //     shouldMove = true;
+            // }
+            //
 
             if (this.lastPressedMovementKey === Input.Keys.S) {
                 if (this.character.faceDirection !== FaceDirections.Down) {

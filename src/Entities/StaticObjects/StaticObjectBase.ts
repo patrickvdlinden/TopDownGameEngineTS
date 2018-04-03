@@ -4,12 +4,17 @@ module Entities.StaticObjects {
         protected camera: Camera;
         protected texture: HTMLImageElement;
 
+        private _isInitialized: boolean = false;
         private _textureBounds: Rectangle;
         private _bounds: Rectangle;
 
         protected constructor(viewport: Viewport, camera: Camera) {
             this.viewport = viewport;
             this.camera = camera;
+        }
+
+        public get isInitialized(): boolean {
+            return this._isInitialized;
         }
 
         public get textureBounds(): Rectangle {
@@ -53,7 +58,13 @@ module Entities.StaticObjects {
         }
 
         public initialize(): void {
+            if (this._isInitialized) {
+                throw new Error("Object was already initialized.");
+            }
+
             this.onInitialize();
+
+            this._isInitialized = true;
         }
 
         public uninitialize(): void {

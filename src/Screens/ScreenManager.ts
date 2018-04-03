@@ -10,6 +10,10 @@ module Screens {
             this._game = game;
         }
 
+        public get isInitialized(): boolean {
+            return this._isInitialized;
+        }
+
         public get game(): Game {
             return this._game;
         }

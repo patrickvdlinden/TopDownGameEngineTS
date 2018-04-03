@@ -23,6 +23,9 @@ module Screens {
             this.state = ScreenStates.Visible;
         }
 
+        protected onUninitialize(): void {
+        }
+
         protected initializeUI(): void {
             // TODO: Story mode
             // TODO: Marine mode

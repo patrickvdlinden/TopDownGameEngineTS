@@ -1,21 +1,21 @@
 module Textures {
-    export class SpriteDictionary {
-        private _dictionary: { [name: string]: Sprite } = {};
-        private _array: Sprite[] = [];
+    export class SpritesheetStateManager implements IUpdatable {
+        private _dictionary: { [name: string]: SpriteState } = {};
+        private _array: SpriteState[] = [];
 
         public get count(): number {
             return this._array.length;
         }
 
-        public get(name: string): Sprite {
+        public get(name: string): SpriteState {
             return this._dictionary[name];
         }
 
-        public getAt(index: number): Sprite {
+        public getAt(index: number): SpriteState {
             return this._array[index];
         }
 
-        public add = (entitySprite: Sprite): Sprite => {
+        public add = (entitySprite: SpriteState): SpriteState => {
             this._dictionary[entitySprite.name] = entitySprite;
             this._array.push(entitySprite);
 
@@ -32,6 +32,17 @@ module Textures {
                 this._array.splice(index, 1);
                 this._dictionary[name] = undefined;
                 delete this._dictionary[name];
+            }
+        }
+
+        public update(updateTime: number): void {
+            for (let i = 0; i < this.count; i++) {
+                let sprite = this.getAt(i);
+                if (sprite.animationMap.length <= 1) {
+                    continue;
+                }
+
+                sprite.update(updateTime);
             }
         }
 

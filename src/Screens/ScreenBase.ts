@@ -1,7 +1,7 @@
 module Screens {
     export abstract class ScreenBase implements IGameComponent, IInitializable, IUpdatable, IDrawable {
-        protected mainLayerElement: HTMLCanvasElement;
-        protected mainLayer: CanvasRenderingContext2D;
+        protected uiLayerElement: HTMLCanvasElement;
+        protected uiLayer: CanvasRenderingContext2D;
 
         private _game: Game;
         private _name: string;
@@ -103,23 +103,23 @@ module Screens {
                 console.log("initialize screen:", this.name);
             }
 
-            this.mainLayerElement = <HTMLCanvasElement>document.getElementById("MainLayer");
-            if (!this.mainLayerElement) {
-                this.mainLayerElement = document.createElement("canvas");
-                this.mainLayerElement.id = "MainLayer";
-                this.mainLayerElement.width = Settings.screenWidth;
-                this.mainLayerElement.height = Settings.screenHeight;
-                this.mainLayerElement.style.position = "absolute";
-                this.mainLayerElement.style.zIndex = "100";
-                this.game.container.appendChild(this.mainLayerElement);
+            this.uiLayerElement = <HTMLCanvasElement>document.getElementById("UILayer");
+            if (!this.uiLayerElement) {
+                this.uiLayerElement = document.createElement("canvas");
+                this.uiLayerElement.id = "UILayer";
+                this.uiLayerElement.width = Settings.screenWidth;
+                this.uiLayerElement.height = Settings.screenHeight;
+                this.uiLayerElement.style.position = "absolute";
+                this.uiLayerElement.style.zIndex = "100";
+                this.game.container.appendChild(this.uiLayerElement);
             }
-            this.setupMainLayer();
-            this.mainLayer = this.mainLayerElement.getContext("2d");
+            this.setupUILayer();
+            this.uiLayer = this.uiLayerElement.getContext("2d");
 
-            this._controlManager = new UI.ControlManager(this.game, this.mainLayer);
+            this._controlManager = new UI.ControlManager(this.game, this.uiLayer);
             this._controlManager.initialize();
 
-            this._dialogManager = new UI.DialogManager(this.game, this.mainLayer);
+            this._dialogManager = new UI.DialogManager(this.game, this.uiLayer);
             this._dialogManager.initialize();
 
             this.onInitialize();
@@ -136,7 +136,7 @@ module Screens {
             }
 
             // Make sure to clear the viewport before unloading.
-            this.mainLayer.clearRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
+            this.uiLayer.clearRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
 
             this.onUninitialize();
 
@@ -152,8 +152,8 @@ module Screens {
             this._dialogManager = null;
             this._isInitialized = false;
 
-            this.mainLayer = null;
-            this.mainLayerElement = null;
+            this.uiLayer = null;
+            this.uiLayerElement = null;
         }
 
         public update(updateTime: number): void {
@@ -167,38 +167,35 @@ module Screens {
         }
 
         public draw(): void {
-            this.mainLayer.save();
-            this.mainLayer.clearRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
+            this.uiLayer.save();
+            this.uiLayer.clearRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
 
             if (this.backgroundColor && this.backgroundColor !== "transparent") {
-                this.mainLayer.fillStyle = this.backgroundColor;
-                this.mainLayer.fillRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
+                this.uiLayer.fillStyle = this.backgroundColor;
+                this.uiLayer.fillRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
             }
 
             if (this.backgroundImage) {
-                this.drawBackgroundImage(this.mainLayer);
+                this.drawBackgroundImage(this.uiLayer);
             }
 
-            this.onDraw(this.mainLayer);
-            this.mainLayer.restore();
+            this.onDraw(this.uiLayer);
+            this.uiLayer.restore();
 
-            this.drawControlManager(this.mainLayer);
+            this.drawControlManager(this.uiLayer);
         }
 
         protected abstract onInitialize(): void;
-
-        protected onUninitialize(): void {
-        }
-
+        protected abstract onUninitialize(): void;
         protected abstract onUpdate(updateTime: number): void;
         protected abstract onDraw(context: CanvasRenderingContext2D): void;
 
         protected drawBackgroundImage(context: CanvasRenderingContext2D): void {
-            this.mainLayer.beginPath();
-            this.mainLayer.rect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
-            this.mainLayer.clip();
+            this.uiLayer.beginPath();
+            this.uiLayer.rect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
+            this.uiLayer.clip();
             
-            this.mainLayer.drawImage(
+            this.uiLayer.drawImage(
                 this.backgroundImage,
                 this.viewport.x + this.backgroundImageBounds.x,
                 this.viewport.y + this.backgroundImageBounds.y,
@@ -219,9 +216,9 @@ module Screens {
             this._controlManager.draw(context);
         }
 
-        protected setupMainLayer(): void {
-            this.mainLayerElement.width = Settings.screenWidth;
-            this.mainLayerElement.height = Settings.screenHeight;
+        protected setupUILayer(): void {
+            this.uiLayerElement.width = Settings.screenWidth;
+            this.uiLayerElement.height = Settings.screenHeight;
         }
 
         private calculateBackgroundImageBounds() {

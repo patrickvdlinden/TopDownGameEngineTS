@@ -14,7 +14,7 @@ class Game {
     private _commandManager: CommandManager;
     private _saveManager: IO.SaveManager;
 
-    private mainLayerElement: HTMLCanvasElement;
+    private uiLayerElement: HTMLCanvasElement;
     private _directFps = 0;
     private _estimatedFps = 0;
 
@@ -79,11 +79,11 @@ class Game {
 
         this.onStart();
 
-        this.mainLayerElement = <HTMLCanvasElement>document.getElementById("MainLayer");
+        this.uiLayerElement = <HTMLCanvasElement>document.getElementById("UILayer");
 
         this.updateInterval = setInterval(this.onUpdate, this.updateTime);
         this.updateEstimatedFpsInterval = setInterval(this.onUpdateEstimatedFps, 1000);
-        this.drawInterval = setInterval(this.onDraw);
+        this.drawInterval = setInterval(this.onDraw, 0);
     }
 
     public addInitializeHandler(handler: IEventHandler): this {
@@ -133,9 +133,9 @@ class Game {
     protected onDraw = () => {
         let context: CanvasRenderingContext2D = null;
 
-        if (this.mainLayerElement) {
-            context = this.mainLayerElement.getContext("2d");
-            context.clearRect(0, 0, this.mainLayerElement.clientWidth, this.mainLayerElement.clientHeight);
+        if (this.uiLayerElement) {
+            context = this.uiLayerElement.getContext("2d");
+            context.clearRect(0, 0, this.uiLayerElement.clientWidth, this.uiLayerElement.clientHeight);
         }
 
         // TODO: dictate MainLayer in Game.ts and pass context to all screens.
@@ -149,10 +149,10 @@ class Game {
             context.fillStyle = "#FFFF00";
             context.fillText(this._estimatedFps.toString(), this.viewport.x + 10, this.viewport.bottom - 15);
             context.restore();
-        }
 
-        context.strokeStyle = "#AA0000";
-        context.strokeRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
+            context.strokeStyle = "#AA0000";
+            context.strokeRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
+        }    
     }
     
 }

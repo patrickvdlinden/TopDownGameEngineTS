@@ -1,5 +1,5 @@
 module Textures {
-    export class Sprite {
+    export class SpriteState {
         private _name: string;
         private _animationBounds: Rectangle[] = [];
         private _textureIndex: number = 0;
@@ -12,6 +12,7 @@ module Textures {
             if (bounds) {
                 this._animationBounds = bounds;
             }
+            
             if (animationInterval >= 0) {
                 this._animationInterval = animationInterval;
             }
