@@ -12,10 +12,18 @@ module Screens {
         public reportProgress(percentage: number, description: string) {
             this.loadingScreen.percentage = Math.max(0, Math.min(100, percentage));
             this.loadingScreen.description = description;
+
+            if (Settings.isDebugModeEnabled) {
+                console.log("LoadingScreen: Progress:", percentage, "%, ", description);
+            }
         }
 
         public reportCompleted() {
             this.taskStatuses[this.taskIndex] = true;
+
+            if (Settings.isDebugModeEnabled) {
+                console.log("LoadingScreen: Task Completed.");
+            }
         }
 
         public reportError(error: any) {
@@ -135,12 +143,15 @@ module Screens {
                             clearInterval(checkStatusInterval);
                             fulfill();
                         }
-                    });
+                    }, 10);
                 });
             });
         }
 
         protected onInitialize(): void {
+        }
+
+        protected onUninitialize(): void {
         }
         
         protected onUpdate(updateTime: number): void {
