@@ -28,10 +28,9 @@ module Screens {
         private animationUpdateTime: number = 0;
         private tileAnimationIndice: { [tileName: string]: number } = {};
 
-        private luffy: Entities.Character;
-        private kidLuffy: Entities.Character;
-        private zoro: Entities.Character;
         private player: Entities.Player;
+
+        private characters: Entities.Character[] = [];
 
         public constructor(game: Game) {
             super(game, "GameScreen");
@@ -148,42 +147,58 @@ module Screens {
                     this.tilesetImages[i] = tilesetImage;
                 }
 
+                let luffy = this.spawnCharacter("Luffy", 0, 2);
+                luffy.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("KidLuffy's Trousers", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 0, 0);
+                luffy.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("KidLuffy's Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 0, 0);
+                luffy.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("KidLuffy's Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 0, 0);
+                luffy.cosmetics.hat = new Entities.CharacterCosmeticsItem("Default Strawhat", Entities.CharacterCosmeticsItemTypes.Hats, 0, 0);
 
+                let kidLuffy = this.spawnCharacter("KidLuffy", 0, 4);
+                kidLuffy.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("KidLuffy's Trousers", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 0, 0);
+                kidLuffy.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("KidLuffy's Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 96, 0);
+                kidLuffy.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("KidLuffy's Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 96, 0);
 
-                this.luffy = new Entities.Character("Luffy", this.viewport, this.camera);
-                this.luffy.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("KidLuffy's Pants", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 0, 0);
-                this.luffy.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("KidLuffy's Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 0, 0);
-                this.luffy.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("KidLuffy's Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 0, 0);
-                this.luffy.cosmetics.hat = new Entities.CharacterCosmeticsItem("Default Strawhat", Entities.CharacterCosmeticsItemTypes.Hats, 0, 0);
-                this.luffy.map = this.map;
-                this.luffy.x = 256;
-                this.luffy.y = 496;
-                this.luffy.faceDirection = Entities.FaceDirections.Right;
-                this.luffy.initialize();
+                let zoro = this.spawnCharacter("Zoro", 0, 6);
+                zoro.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("Zoro's Trousers", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 192, 0);
+                zoro.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("Zoro's Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 192, 0);
+                zoro.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("Zoro's Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 192, 0);
 
-                this.kidLuffy = new Entities.Character("KidLuffy", this.viewport, this.camera);
-                this.kidLuffy.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("KidLuffy's Pants", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 96, 0);
-                this.kidLuffy.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("KidLuffy's Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 96, 0);
-                this.kidLuffy.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("KidLuffy's Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 96, 0);
-                //this.kidLuffy.cosmetics.hat = new Entities.CharacterCosmeticsItem("Default Strawhat", Entities.CharacterCosmeticsItemTypes.Hats, 0, 0);
-                this.kidLuffy.map = this.map;
-                this.kidLuffy.initialize();
+                let shanks = this.spawnCharacter("Shanks", 0, 8);
+                shanks.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("Shanks' Trousers", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 0, 128);
+                shanks.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("Shanks' Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 0, 128);
+                shanks.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("Shanks' Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 0, 128);
+                shanks.cosmetics.hat = new Entities.CharacterCosmeticsItem("Shanks' Hat", Entities.CharacterCosmeticsItemTypes.Hats, 96, 0);
 
-                this.zoro = new Entities.Character("Zoro", this.viewport, this.camera);
-                this.zoro.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("Zoro's Pants", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 192, 0);
-                this.zoro.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("Zoro's Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 192, 0);
-                this.zoro.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("Zoro's Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 192, 0);
-                //this.zoro.cosmetics.hat = new Entities.CharacterCosmeticsItem("Default Strawhat", Entities.CharacterCosmeticsItemTypes.Hats, 0, 0);
-                this.zoro.map = this.map;
-                this.zoro.x = 32;
-                this.zoro.y = 128;
-                this.zoro.initialize();
+                let bennBeckman = this.spawnCharacter("Benn Beckman", 0, 10);
+                bennBeckman.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("Benn Beckman's Trousers", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 96, 128);
+                bennBeckman.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("Benn Beckman's Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 96, 128);
+                bennBeckman.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("Benn Beckman's Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 96, 128);
+
+                let yassop = this.spawnCharacter("Yassop", 0, 12);
+                yassop.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("Yassop's Trousers", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 288, 128);
+                yassop.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("Yassop's Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 288, 128);
+                yassop.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("Yassop's Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 288, 128);
+
+                this.spawnPirate(1, 0, 14);
+                this.spawnPirate(2, 1, 15);
+                this.spawnPirate(3, 3, 15);
+                this.spawnPirate(4, 5, 15);
+                this.spawnPirate(5, 8, 15);
+
+                this.spawnBandit(1, 10, 15);
+                this.spawnBandit(2, 12, 15);
+
+                let woopSlap = this.spawnCharacter("Woop Slap", 14, 15);
+                woopSlap.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("Woop Slap's Trousers", Entities.CharacterCosmeticsItemTypes.LegsAndFeet, 0, 512);
+                woopSlap.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("Woop Slap's Shirt", Entities.CharacterCosmeticsItemTypes.BodyAndArms, 0, 512);
+                woopSlap.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("Woop Slap's Hair", Entities.CharacterCosmeticsItemTypes.HeadAndHair, 0, 512);
+                woopSlap.cosmetics.hat = new Entities.CharacterCosmeticsItem("Woop Slap's Hat", Entities.CharacterCosmeticsItemTypes.Hats, 0, 512);
 
                 // TODO: create seperate task for Entities.
                 this.player = new Entities.Player(this.viewport, this.camera);
-                this.player.character = this.kidLuffy;
-                this.player.x = 96;
-                this.player.y = 96;
+                // this.player.character = kidLuffy;
+                // this.player.x = 96;
+                // this.player.y = 96;
             });
             loadingScreen.backgroundTasks.push((reporter: BackgroundProgressReporter) => {
                 reporter.reportProgress(30, "Loading background music (Grasslands Theme.mp3)...");
@@ -338,9 +353,37 @@ module Screens {
                 this.chunksInRangeEndY = Math.floor((this.viewport.height + this.camera.y + this.map.tileSize) / this.map.tileSize / this.map.chunkSize);
 
                 this.player.update(updateTime);
-                this.luffy.update(updateTime);
-                this.luffy.move(updateTime, false);
-                this.zoro.update(updateTime);
+
+                for (let i = 0; i < this.characters.length; i++) {
+                    let character = this.characters[i];
+
+                    character.update(updateTime);
+                    character.move(updateTime, false);
+
+                    if (character.faceDirection === Entities.FaceDirections.Down &&
+                        character.y >= (this.map.tileSize * this.map.chunkSize) - (this.map.tileSize / 2)) {
+                        character.faceDirection = Entities.FaceDirections.Right;
+                        character.y = (this.map.tileSize * this.map.chunkSize) - (this.map.tileSize / 2);
+                    }
+
+                    if (character.faceDirection === Entities.FaceDirections.Right &&
+                        character.x >= (this.map.tileSize * this.map.chunkSize) - (this.map.tileSize / 2)) {
+                        character.faceDirection = Entities.FaceDirections.Up;
+                        character.x = (this.map.tileSize * this.map.chunkSize) - (this.map.tileSize / 2);
+                    }
+
+                    if (character.faceDirection === Entities.FaceDirections.Up &&
+                        character.y <= (this.map.tileSize * 2) + (this.map.tileSize / 2)) {
+                        character.faceDirection = Entities.FaceDirections.Left;
+                        character.y = (this.map.tileSize * 2) + (this.map.tileSize / 2)
+                    }
+
+                    if (character.faceDirection === Entities.FaceDirections.Left &&
+                        character.x <= (this.map.tileSize / 2)) {
+                        character.faceDirection = Entities.FaceDirections.Down;
+                        character.x = (this.map.tileSize / 2);
+                    }
+                }
 
                 this.camera.x = Math.max(0, Math.floor(this.player.x - (this.viewport.width / 2)));
                 this.camera.y = Math.max(0, Math.floor(this.player.y - (this.viewport.height / 2)));
@@ -494,13 +537,14 @@ module Screens {
                 }
             }
 
+            // TODO: Move to correct z-index (see playerDrawn).
+            for (let i = 0; i < this.characters.length; i++) {
+                this.characters[i].draw(this.entitiesLayer);
+            }
+
             if (!playerDrawn) {
                 this.player.draw(this.entitiesLayer);
             }
-
-            // TODO: Move to correct z-index (see playerDrawn).
-            this.luffy.draw(this.entitiesLayer);
-            this.zoro.draw(this.entitiesLayer);
 
             if (Settings.isDebugModeEnabled) {
                 this.entitiesLayer.globalAlpha = 0.75;
@@ -534,6 +578,42 @@ module Screens {
             //     this.mainLayer.fillText("Right Mouse: " + Input.Mouse.currentState.isRightButtonPressed, 10, 50);
             //     this.mainLayer.fillText("Focused control: " + (this.controlManager.focusedControl ? this.controlManager.focusedControl.text : ""), 10, 80);
             // }
+        }
+
+        private spawnCharacter(name: string, tileX: number, tileY: number, addToCharactersList: boolean = true): Entities.Character {
+            let character = new Entities.Character(name, this.viewport, this.camera);
+            character.faceDirection = Entities.FaceDirections.Down;
+            character.map = this.map;
+            character.x = (tileX * this.map.tileSize) + (character.width / 2);
+            character.y = (tileY * this.map.tileSize) + this.map.tileSize - (character.height / 2);
+
+            if (addToCharactersList) {
+                this.characters.push(character);
+            }
+            
+            character.initialize();
+
+            return character;
+        }
+
+        private spawnPirate(index: number, tileX: number, tileY: number): Entities.Character {
+            let character = this.spawnCharacter("Pirate " + index, tileX, tileY);
+            character.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("Pirate Trousers " + index, Entities.CharacterCosmeticsItemTypes.LegsAndFeet, (index - 1) * 96, 256);
+            character.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("Pirate Shirt " + index, Entities.CharacterCosmeticsItemTypes.BodyAndArms, (index - 1) * 96, 256);
+            character.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("Pirate Hair " + index, Entities.CharacterCosmeticsItemTypes.HeadAndHair, (index - 1) * 96, 256);
+            character.cosmetics.hat = new Entities.CharacterCosmeticsItem("Pirate Bandana " + index, Entities.CharacterCosmeticsItemTypes.Hats, (index - 1) * 96, 256);
+
+            return character;
+        }
+
+        private spawnBandit(index: number, tileX: number, tileY: number): Entities.Character {
+            let character = this.spawnCharacter("Bandit " + index, tileX, tileY);
+            character.cosmetics.legsAndFeet = new Entities.CharacterCosmeticsItem("Bandit Trousers " + index, Entities.CharacterCosmeticsItemTypes.LegsAndFeet, (index - 1) * 96, 384);
+            character.cosmetics.bodyAndArms = new Entities.CharacterCosmeticsItem("Bandit Shirt " + index, Entities.CharacterCosmeticsItemTypes.BodyAndArms, (index - 1) * 96, 384);
+            character.cosmetics.headAndHair = new Entities.CharacterCosmeticsItem("Bandit Hair " + index, Entities.CharacterCosmeticsItemTypes.HeadAndHair, (index - 1) * 96, 384);
+            character.cosmetics.hat = new Entities.CharacterCosmeticsItem("Bandit Bandana " + index, Entities.CharacterCosmeticsItemTypes.Hats, (index - 1) * 96, 384);
+
+            return character;
         }
     }
 }

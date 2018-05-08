@@ -152,7 +152,7 @@ class Game {
 
             context.strokeStyle = "#AA0000";
             context.strokeRect(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
-        }    
+        }
     }
     
 }
