@@ -16,6 +16,24 @@
             font-size: 12px;
         }
 
+        .appContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .appContainer.appContainer--hasToolbarMenu > .pane {
+            margin-top: 25px;
+        }
+
+        .control {
+            position: relative;
+            box-sizing: border-box;
+        }
+
+
         .toolbarMenuContainer {
             height: 25px;
             position: absolute;
@@ -37,6 +55,7 @@
             list-style: none;
             font-family: Arial;
             font-size: 14px;
+            z-index: 1000;
         }
         .toolbarMenu__item {
             position: relative;
@@ -56,6 +75,11 @@
             background-color: #ddd;
         }
 
+        .toolbarMenu__itemShortKeys {
+            position: absolute;
+            right: 20px;
+        }
+
         .toolbarMenu__subMenu {
             min-width: 200px;
             position: absolute;
@@ -72,6 +96,7 @@
         }
 
         .toolbarMenu__subMenu .toolbarMenu__itemLabel {
+            position: relative;
             padding-left: 20px;
         }
 
@@ -100,47 +125,55 @@
             cursor: default;
         }
 
-        .paneContainer {
+        .toolbarMenu__subMenu .toolbarMenu__subMenu {
+            left: 200px;
+            top: -5px;
+        }
+
+        .toolbarMenu__subMenu .toolbarMenu__item.toolbarMenu__item--hasSubMenu > .toolbarMenu__itemLabel > .toolbarMenu__itemShortKeys {
+            display: none;
+        }
+
+        .toolbarMenu__subMenu .toolbarMenu__item.toolbarMenu__item--hasSubMenu > .toolbarMenu__itemLabel::after {
             position: absolute;
-            top: 25px;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0;
+            right: 5px;
+            content: "\25b6";
+            font-size: 10px;
+            color: #444;
+            display: block;
+        }
+
+        .splitContainer {
+            overflow: hidden;
         }
 
         .pane {
-            box-sizing: border-box;
             border: 1px solid #ccc;
         }
 
-        .pane--docked {
+        .docked {
             position: absolute;
         }
 
-        .pane--docked.pane--left {
+        .docked.docked--all,
+        .docked.docked--left {
             left: 0;
         }
 
-        .pane--docked.pane--right {
+        .docked.docked--all,
+        .docked.docked--right {
             right: 0;
         }
 
-        .pane--docked.pane--top {
+        .docked.docked--all,
+        .docked.docked--top {
             top: 0;
         }
 
-        .pane--docked.pane--bottom {
+        .docked.docked--all,
+        .docked.docked--bottom {
             bottom: 0;
-        }
-
-        .pane--left,
-        .pane--right {
-            width: 300px;
-        }
-
-        .pane--center {
-            width: calc(100% - 600px);
-            left: 300px;
         }
 
         .pane__title {
@@ -160,10 +193,13 @@
 
         .pane__body {
             position: absolute;
-            top: 30px;
+            top: 0;
             left: 0;
             right: 0;
             bottom: 0;
+        }
+        .pane--hasTitle > .pane__body {
+            top: 30px;
         }
 
         #editorPane {
@@ -256,6 +292,79 @@
             image-rendering: pixelated;                 /* Awesome future-browsers       */
             -ms-interpolation-mode: nearest-neighbor;   /* IE                            */
         }
+
+        .modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+        .modal--opened {
+            display: block;
+        }
+
+        .modal__window {
+            width: 500px;
+            min-height: 100px;
+            margin: 10% auto;
+            position: relative;
+            background-color: #ffffff;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.6);
+        }
+        .modal__title {
+            height: 25px;
+            border-bottom: 1px solid #ccc;
+            background-color: #eeeeee;
+            padding: 0 15px;
+            line-height: 25px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .modal__closeWindowButton {
+            width: 25px;
+            height: 25px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
+        .modal__closeWindowButton::after {
+            width: 25px;
+            height: 25px;
+            content: "r";
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-family: "Webdings";
+            text-align: center;
+            line-height: 25px;
+            display: block;
+        }
+        .modal__closeWindowButton:hover {
+            background-color: #dd0000;
+            color: #ffffff;
+        }
+
+        .modal__body {
+            padding: 15px;
+        }
+        .modal__body p:first-child {
+            margin-top: 0;
+        }
+
+        .dialog__buttonsContainer {
+            padding: 15px;
+            text-align: right;
+        }
+        .button--dialog {
+            margin: 0 3px;
+        }
     </style>
 
     <script type="text/javascript">
@@ -278,9 +387,9 @@
     <script type="text/javascript" src="../node_modules/c-p/color-picker.min.js?v=<?= filemtime("../node_modules/c-p/color-picker.min.js"); ?>"></script>
     <script type="text/javascript" src="script/core.js?v=<?= filemtime("script/core.js"); ?>"></script>
 </head>
-<body id="container">
+<body>
 
-    <div class="paneContainer">
+    <!-- <div class="paneContainer">
         <div class="pane pane--docked pane--left pane--top pane--bottom pane--width25p" id="leftPane">
             <h3 class="pane__title">Left Pane</h3>
             <div class="pane__body"></div>
@@ -293,6 +402,6 @@
             <h3 class="pane__title">Properties Pane</h3>
             <div class="pane__body"></div>
         </div>
-    </div>
+    </div> -->
 </body>
 </html>

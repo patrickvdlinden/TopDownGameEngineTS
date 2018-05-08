@@ -1,4 +1,4 @@
-module SpritesheetBuilder {
+module MapBuilder {
     export enum PropertyFieldTypes {
         Text = "text",
         Number = "number",

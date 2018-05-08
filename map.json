@@ -188,7 +188,7 @@
                         "3": {
                             "tilesetName": "basicTiles",
                             "tileName": "grass",
-                            "passable": false
+                            "passable": true
                         },
                         "4": {
                             "tilesetName": "basicTiles",

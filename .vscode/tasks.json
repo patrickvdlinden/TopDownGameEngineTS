@@ -24,12 +24,12 @@
             "problemMatcher": []
         },
         {
-            "label": "TypeScript_SpritesheetBuilder",
+            "label": "TypeScript_MapBuilder",
             "type": "shell",
             "command": "./node_modules/.bin/tsc.cmd",
             "args": [
                 "-p",
-                "SpritesheetBuilder/src/tsconfig.json"
+                "MapBuilder/src/tsconfig.json"
             ],
             "presentation": {
                 "reveal": "always",

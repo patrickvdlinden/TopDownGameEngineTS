@@ -1,6 +1,6 @@
 /// <reference path="../typings/color-picker.d.ts" />
 
-module SpritesheetBuilder {
+module MapBuilder {
     interface IGlobalProperties {
         rasterItemWidth?: number;
         rasterItemHeight?: number;
@@ -10,11 +10,13 @@ module SpritesheetBuilder {
 
     export class App {
         private container: HTMLElement;
-        private toolbarMenu: ToolbarMenu;
+        private toolbarMenu: Controls.ToolbarMenu;
 
-        private leftPaneBody: HTMLElement;
-        private editorPaneBody: HTMLElement;
-        private propertiesPaneBody: HTMLElement;
+        private splitContainer: Controls.SplitContainer;
+        private leftPane: Controls.Pane;
+        private startPane: Controls.Pane;
+        private editorPane: Controls.Pane;
+        private propertiesPane: Controls.Pane;
 
         private globalProperties: IGlobalProperties = {};
         private transparentBackgroundImage: HTMLImageElement;
@@ -27,14 +29,25 @@ module SpritesheetBuilder {
 
         private isDirty: boolean = false;
 
-        public constructor(container: HTMLElement, private leftPane: HTMLElement, private editorPane: HTMLElement, private propertiesPane: HTMLElement) {
+        private appContainer: Controls.AppContainer;
+        private newMenuItem: Controls.ToolbarMenuItem;
+        private aboutModal: Controls.Modal;
+
+        public constructor(container: HTMLElement) {
             this.container = container;
-            this.leftPaneBody = <HTMLElement>leftPane.getElementsByClassName("pane__body")[0];
-            this.editorPaneBody = <HTMLElement>editorPane.getElementsByClassName("pane__body")[0];
-            this.propertiesPaneBody = <HTMLElement>propertiesPane.getElementsByClassName("pane__body")[0];
         }
 
         public initialize() {
+            this.appContainer = new Controls.AppContainer();
+            document.body.insertBefore(this.appContainer.element, document.body.childNodes[0]);
+
+            this.buildToolbar();
+
+            this.startPane = new Controls.Pane("Start");
+            this.startPane.dockMode = Controls.DockMode.All;
+
+            this.appContainer.pane.controls.add(this.startPane);
+
             this.initTexturesOverview();
             window.onresize = this.onWindowResize;
             window.onmousedown = this.onWindowMouseDown;
@@ -42,32 +55,9 @@ module SpritesheetBuilder {
             window.onmousemove = this.onWindowMouseMove;
             window.onkeydown = this.onWindowKeyDown;
             window.onkeyup = this.onWindowKeyUp;
-            this.editorPaneBody.addEventListener("wheel", this.onEditorWheel);
             
             this.transparentBackgroundImage = new Image();
             this.transparentBackgroundImage.src = Constants.ResourcesPath + "/TransparentBackground.png";
-
-            this.toolbarMenu = new ToolbarMenu();
-            this.toolbarMenu
-                .addMenuItem(
-                    new ToolbarMenuItem("File")
-                        .addChildItem(new ToolbarMenuItem("New").setClickHandler(this.onNewMenuItemClick))
-                        .addChildItem(new ToolbarMenuItem("-"))
-                        .addChildItem(new ToolbarMenuItem("Open...").setClickHandler(this.onOpenMenuItemClick))
-                        .addChildItem(new ToolbarMenuItem("-"))
-                        .addChildItem(new ToolbarMenuItem("Save").disable().setClickHandler(this.onSaveMenuItemClick))
-                        .addChildItem(new ToolbarMenuItem("Save as...").disable().setClickHandler(this.onSaveAsMenuItemClick))
-                        .addChildItem(new ToolbarMenuItem("-"))
-                        .addChildItem(new ToolbarMenuItem("Settings").setClickHandler(this.onSettingsMenuItemClick))
-                        .addChildItem(new ToolbarMenuItem("-"))
-                        .addChildItem(new ToolbarMenuItem("Close").setClickHandler(this.onCloseMenuItemClick)))
-                .addMenuItem(
-                    new ToolbarMenuItem("Edit")
-                        .addChildItem(new ToolbarMenuItem("Undo").disable())
-                        .addChildItem(new ToolbarMenuItem("Redo").disable()))
-                .addMenuItem(new ToolbarMenuItem("View"))
-                .addMenuItem(new ToolbarMenuItem("Help").addChildItem(new ToolbarMenuItem("About")))
-                .appendTo(this.container);
         }
 
         protected onNewMenuItemClick = (e: MouseEvent): void => {
@@ -75,7 +65,7 @@ module SpritesheetBuilder {
                 return;
             }
 
-            this.newSpritesheet();
+            this.newProject();
         }
 
         protected onOpenMenuItemClick = (e: MouseEvent): void => {
@@ -100,11 +90,11 @@ module SpritesheetBuilder {
         }
 
         public initTexturesOverview() {
-            this.clearPane(this.editorPaneBody);
-            
+            this.startPane.bodyElement.innerHTML = "";
+
             const w: IAppSpecificWindowVariables = <any>window;
             if (!w.availableSpritesheetTextures || w.availableSpritesheetTextures.length === 0) {
-                this.editorPaneBody.innerHTML = "<p>No textures found</p>";
+                this.startPane.bodyElement.innerHTML = "<p>No textures found</p>";
                 return;
             }
 
@@ -128,7 +118,7 @@ module SpritesheetBuilder {
                     currentSelectedItem.className = "texturesList__item texturesList__item--active";
                 });
                 listItem.addEventListener("dblclick", () => {
-                    this.newSpritesheet(textureFile);
+                    this.newProject(textureFile);
                 });
                 
                 const thumbnail = document.createElement("div");
@@ -146,12 +136,28 @@ module SpritesheetBuilder {
                 list.appendChild(listItem);
             }
 
-            this.editorPaneBody.appendChild(list);
+            this.startPane.bodyElement.appendChild(list);
         }
 
-        public newSpritesheet(textureFile?: string) {
-            this.clearPane(this.editorPaneBody);
-            this.clearPane(this.propertiesPaneBody);
+        public newProject(textureFile?: string) {
+            this.appContainer.pane.controls.remove(this.startPane);
+
+            this.splitContainer = new Controls.SplitContainer();
+
+            this.editorPane = new Controls.EditorPane("Editor");
+            this.propertiesPane = new Controls.Pane("Properties");
+            this.leftPane = new Controls.Pane("Left Pane");
+
+            //this.splitContainer.panes.add(this.leftPane);
+            this.splitContainer.panes.add(this.leftPane);
+            this.splitContainer.panes.add(this.editorPane);
+            this.splitContainer.panes.add(this.propertiesPane);
+
+            this.appContainer.pane.controls.add(this.splitContainer);
+            this.splitContainer.setSplitterPositionFor(0, 25);
+            this.splitContainer.setSplitterPositionFor(1, 75);
+
+            this.editorPane.bodyElement.innerHTML = "";
 
             const globalProperties = document.createElement("div");
             globalProperties.className = "properties properties--global";
@@ -166,11 +172,11 @@ module SpritesheetBuilder {
             globalProperties.appendChild(this.createPropertiesItem(this.globalProperties, "rasterColor", "Raster Color", PropertyFieldTypes.ColorPicker, "000000", (v) => this.invalidateTexturesCanvas()));
             globalProperties.appendChild(this.createPropertiesItem(this.globalProperties, "rasterAlpha", "Raster Alpha", PropertyFieldTypes.Number, 0.5, (v) => this.invalidateTexturesCanvas()));
 
-            this.propertiesPaneBody.appendChild(globalProperties);
+            this.propertiesPane.bodyElement.appendChild(globalProperties);
 
             this.texturesCanvas = document.createElement("canvas");
             this.texturesCanvas.className = "texturesCanvas";
-            this.editorPaneBody.appendChild(this.texturesCanvas);
+            this.editorPane.bodyElement.appendChild(this.texturesCanvas);
 
             if (textureFile) {
                 // TODO: Load with ajax
@@ -178,13 +184,45 @@ module SpritesheetBuilder {
                 image.addEventListener("load", () => {
                     this.currentTexture = image;
 
-                    this.editorPaneBody.dataset.scrollX = Math.round((this.editorPaneBody.clientWidth - image.width) / 2).toString();
-                    this.editorPaneBody.dataset.scrollY = Math.round((this.editorPaneBody.clientHeight - image.height) / 2).toString();
+                    this.editorPane.element.dataset.scrollX = Math.round((this.editorPane.element.clientWidth - image.width) / 2).toString();
+                    this.editorPane.element.dataset.scrollY = Math.round((this.editorPane.element.clientHeight - image.height) / 2).toString();
 
                     this.invalidateTexturesCanvas();
                 });
                 image.src = Constants.TexturesPath + "/" + textureFile;
             }
+        }
+
+        private buildToolbar(): void {
+            this.toolbarMenu = new Controls.ToolbarMenu();
+
+            let fileMenuItem = new Controls.ToolbarMenuItem("File");
+            this.newMenuItem = new Controls.ToolbarMenuItem("New", [Keys.Control, Keys.N]).setClickHandler(this.onNewMenuItemClick)
+
+            fileMenuItem
+                .addSubItem(this.newMenuItem)
+                .addSubItem(new Controls.ToolbarMenuItem("-"))
+                .addSubItem(new Controls.ToolbarMenuItem("Open...").setClickHandler(this.onOpenMenuItemClick))
+                .addSubItem(
+                    new Controls.ToolbarMenuItem("Open recent")
+                        .addSubItem(new Controls.ToolbarMenuItem("Luffy.png")))
+                .addSubItem(new Controls.ToolbarMenuItem("-"))
+                .addSubItem(new Controls.ToolbarMenuItem("Save").disable().setClickHandler(this.onSaveMenuItemClick))
+                .addSubItem(new Controls.ToolbarMenuItem("Save as...").disable().setClickHandler(this.onSaveAsMenuItemClick))
+                .addSubItem(new Controls.ToolbarMenuItem("-"))
+                .addSubItem(new Controls.ToolbarMenuItem("Settings").setClickHandler(this.onSettingsMenuItemClick))
+                .addSubItem(new Controls.ToolbarMenuItem("-"))
+                .addSubItem(new Controls.ToolbarMenuItem("Close").setClickHandler(this.onCloseMenuItemClick));
+
+            this.toolbarMenu
+                .addMenuItem(fileMenuItem)
+                .addMenuItem(
+                    new Controls.ToolbarMenuItem("Edit")
+                        .addSubItem(new Controls.ToolbarMenuItem("Undo",[Keys.Control, Keys.Z]).disable())
+                        .addSubItem(new Controls.ToolbarMenuItem("Redo", [Keys.Control, Keys.Shift, Keys.Z]).disable()))
+                .addMenuItem(new Controls.ToolbarMenuItem("View"))
+                .addMenuItem(new Controls.ToolbarMenuItem("Help").addSubItem(new Controls.ToolbarMenuItem("About").setClickHandler(this.onAboutMenuItemClick)));
+            this.appContainer.toolbarMenu = this.toolbarMenu;
         }
 
         private clearPane(pane: HTMLElement) {
@@ -299,17 +337,17 @@ module SpritesheetBuilder {
                 return;
             }
 
-            this.texturesCanvas.width = this.editorPaneBody.clientWidth;
-            this.texturesCanvas.height = this.editorPaneBody.clientHeight;
+            this.texturesCanvas.width = this.editorPane.element.clientWidth;
+            this.texturesCanvas.height = this.editorPane.element.clientHeight;
 
-            const centerPaneWidth = this.editorPaneBody.clientWidth;
-            const centerPaneHeight = this.editorPaneBody.clientHeight;
+            const centerPaneWidth = this.editorPane.element.clientWidth;
+            const centerPaneHeight = this.editorPane.element.clientHeight;
 
             const maxX = Math.min(centerPaneWidth / this.globalProperties.rasterItemWidth, this.currentTexture.width / this.globalProperties.rasterItemWidth);
             const maxY = Math.min(centerPaneHeight / this.globalProperties.rasterItemHeight, this.currentTexture.height / this.globalProperties.rasterItemHeight);
 
-            var scrollX = parseFloat(this.editorPaneBody.dataset.scrollX);
-            var scrollY = parseFloat(this.editorPaneBody.dataset.scrollY);
+            var scrollX = parseFloat(this.editorPane.element.dataset.scrollX);
+            var scrollY = parseFloat(this.editorPane.element.dataset.scrollY);
 
             const context = this.texturesCanvas.getContext("2d");
             context.imageSmoothingEnabled = false;
@@ -349,7 +387,7 @@ module SpritesheetBuilder {
             context.stroke();
             context.restore();
 
-            document.getElementById("editorPaneTitle").innerText = "Editor Pane (" + (this.scale * 100) + "%)";
+            this.editorPane.title = "Editor Pane (" + (this.scale * 100) + "%)";
         }
 
         private onWindowResize = () => {
@@ -357,7 +395,11 @@ module SpritesheetBuilder {
         }
 
         private onWindowMouseDown = (e: MouseEvent) => {
-            if (e.target !== this.editorPaneBody && !this.editorPaneBody.contains(<Node>e.target)) {
+            if (!this.editorPane) {
+                return true;
+            }
+
+            if (e.target !== this.editorPane.element && !this.editorPane.element.contains(<Node>e.target)) {
                 return true;
             }
 
@@ -366,39 +408,47 @@ module SpritesheetBuilder {
             e.cancelBubble=true;
             e.returnValue=false;
             
-            this.editorPaneBody.dataset.mouseDown = "true";
+            this.editorPane.element.dataset.mouseDown = "true";
 
-            var mouseX = e.pageX - this.editorPaneBody.offsetLeft;
-            var mouseY = e.pageY - this.editorPaneBody.offsetTop;
+            var mouseX = e.pageX - this.editorPane.element.offsetLeft;
+            var mouseY = e.pageY - this.editorPane.element.offsetTop;
 
-            this.editorPaneBody.dataset.startPointMouseX = mouseX.toString();
-            this.editorPaneBody.dataset.startPointMouseY = mouseY.toString();
+            this.editorPane.element.dataset.startPointMouseX = mouseX.toString();
+            this.editorPane.element.dataset.startPointMouseY = mouseY.toString();
 
-            this.editorPaneBody.dataset.startPointScrollX = this.editorPaneBody.dataset.scrollX;
-            this.editorPaneBody.dataset.startPointScrollY = this.editorPaneBody.dataset.scrollY;
+            this.editorPane.element.dataset.startPointScrollX = this.editorPane.element.dataset.scrollX;
+            this.editorPane.element.dataset.startPointScrollY = this.editorPane.element.dataset.scrollY;
 
             return false;
         }
 
         private onWindowMouseUp = (e: MouseEvent) => {
-            this.editorPaneBody.dataset.mouseDown = "false";
+            if (!this.editorPane) {
+                return;
+            }
+
+            this.editorPane.element.dataset.mouseDown = "false";
         }
 
         private onWindowMouseMove = (e: MouseEvent) => {
-            if (this.editorPaneBody.dataset.mouseDown === "true") {
-                var startPointMouseX = parseFloat(this.editorPaneBody.dataset.startPointMouseX);
-                var startPointMouseY = parseFloat(this.editorPaneBody.dataset.startPointMouseY);
-                var startPointScrollX = parseFloat(this.editorPaneBody.dataset.startPointScrollX);
-                var startPointScrollY = parseFloat(this.editorPaneBody.dataset.startPointScrollY);
+            if (!this.editorPane) {
+                return;
+            }
 
-                var offsetX = e.pageX - this.editorPaneBody.offsetLeft - startPointMouseX;
-                var offsetY = e.pageY - this.editorPaneBody.offsetTop - startPointMouseY;
+            if (this.editorPane.element.dataset.mouseDown === "true") {
+                var startPointMouseX = parseFloat(this.editorPane.element.dataset.startPointMouseX);
+                var startPointMouseY = parseFloat(this.editorPane.element.dataset.startPointMouseY);
+                var startPointScrollX = parseFloat(this.editorPane.element.dataset.startPointScrollX);
+                var startPointScrollY = parseFloat(this.editorPane.element.dataset.startPointScrollY);
+
+                var offsetX = e.pageX - this.editorPane.element.offsetLeft - startPointMouseX;
+                var offsetY = e.pageY - this.editorPane.element.offsetTop - startPointMouseY;
 
                 var scrollX = Math.round(startPointScrollX + offsetX);
                 var scrollY = Math.round(startPointScrollY + offsetY);
 
-                this.editorPaneBody.dataset.scrollX = scrollX.toString();
-                this.editorPaneBody.dataset.scrollY = scrollY.toString();
+                this.editorPane.element.dataset.scrollX = scrollX.toString();
+                this.editorPane.element.dataset.scrollY = scrollY.toString();
 
                 setTimeout(() => this.invalidateTexturesCanvas());
             }
@@ -446,6 +496,16 @@ module SpritesheetBuilder {
 
                 this.invalidateTexturesCanvas();
             }
+        }
+
+        private onAboutMenuItemClick = (event: MouseEvent): any => {
+            if (!this.aboutModal) {
+                this.aboutModal = new Controls.Modal("About");
+                this.aboutModal.body = "<p>v1.0.0</p>";
+            }
+
+            this.aboutModal.open();
+            this.appContainer.pane.controls.add(this.aboutModal);
         }
     }
 }

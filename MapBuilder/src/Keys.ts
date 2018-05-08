@@ -1,4 +1,4 @@
-module SpritesheetBuilder {
+module MapBuilder {
     export enum Keys {
         None = 0,
         LButton = 1,
@@ -149,5 +149,23 @@ module SpritesheetBuilder {
         CloseBracket = 221,
         Quote = 222,
         Backslash = 226
+    }
+
+    export class KeysStringHelper {
+        public static toString(key: Keys): string {
+            switch (key) {
+                case Keys.Control:
+                    return "Ctrl";
+                
+                case Keys.Comma:
+                    return ",";
+                
+                case Keys.BackTick:
+                    return "`";
+                
+                default:
+                    return Keys[key];
+            }
+        }
     }
 }

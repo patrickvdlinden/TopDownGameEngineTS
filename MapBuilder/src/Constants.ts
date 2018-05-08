@@ -1,4 +1,4 @@
-module SpritesheetBuilder {
+module MapBuilder {
     export class Constants {
         public static ResourcesPath = "Resources";
         public static TexturesPath = Constants.ResourcesPath + "/Textures";
