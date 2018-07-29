@@ -1322,10 +1322,10 @@
                 "triggers": [
                     {
                         "name": "Trigger1",
-                        "y": 32,
+                        "y": 40,
                         "x": 64,
                         "width": 32,
-                        "height": 32,
+                        "height": 16,
                         "command": "teleport y:1165 x:495"
                     }
                 ]
@@ -3884,14 +3884,23 @@
                     }
                 },
                 "objects": {
-                    "13": {
-                        "10": {
+                    "0": {
+                        "1": {
                             "tilesetName": "house1",
                             "objectName": "house1"
                         }
                     }
                 },
-                "triggers": []
+                "triggers": [
+                    {
+                        "name": "Trigger2",
+                        "y": 64,
+                        "x": 96,
+                        "width": 32,
+                        "height": 32,
+                        "command": "teleport y:1165 x:495"
+                    }
+                ]
             }
         }
     },

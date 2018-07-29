@@ -428,8 +428,8 @@ module Screens {
                             //     tileIndice = tileIndice.corners[1];
                             // }
 
-                            let tileAbsX = (chunkX * this.map.chunkSize * this.map.tileSize) + (x * this.map.tileSize) 
-                            let tileAbsY = (chunkY * this.map.chunkSize * this.map.tileSize) + (y * this.map.tileSize)
+                            let tileAbsX = (chunkX * this.map.chunkSize * this.map.tileSize) + (x * this.map.tileSize); 
+                            let tileAbsY = (chunkY * this.map.chunkSize * this.map.tileSize) + (y * this.map.tileSize);
 
                             this.groundLayer.drawImage(
                                 this.tilesetImages[tile.tilesetName],
@@ -453,8 +453,8 @@ module Screens {
                                     this.entitiesLayer.fillRect(
                                         this.viewport.x + tileAbsX - this.camera.x,
                                         this.viewport.y + tileAbsY - this.camera.y,
-                                        objectDescriptor.collisionWidth * this.map.tileSize,
-                                        objectDescriptor.collisionHeight * this.map.tileSize
+                                        objectDescriptor.collisionWidth * objectset.tileSize,
+                                        objectDescriptor.collisionHeight * objectset.tileSize
                                     );
                                 }
 
@@ -464,7 +464,7 @@ module Screens {
                                     objectTexture.textureY * objectset.tileSize,
                                     objectTexture.textureWidth * objectset.tileSize,
                                     objectTexture.textureHeight * objectset.tileSize,
-                                    this.viewport.x + tileAbsX - this.camera.x,
+                                    this.viewport.x + tileAbsX - this.camera.x - (objectDescriptor.collisionX * objectset.tileSize),
                                     this.viewport.y + tileAbsY - ((objectTexture.textureHeight - objectDescriptor.collisionHeight) * this.map.tileSize) - this.camera.y,
                                     objectTexture.textureWidth * this.map.tileSize,
                                     objectTexture.textureHeight * this.map.tileSize);
@@ -485,8 +485,8 @@ module Screens {
                     if (Settings.isDebugModeEnabled) {
                         for (let i = 0; i < chunk.triggers.length; i++) {
                             let trigger = chunk.triggers[i];
-                            let triggerX = this.viewport.x + trigger.x - this.camera.x;
-                            let triggerY = this.viewport.y + trigger.y - this.camera.y;
+                            let triggerX = this.viewport.x + (chunkX * this.map.chunkSize * this.map.tileSize) + trigger.x - this.camera.x;
+                            let triggerY = this.viewport.y + (chunkY * this.map.chunkSize * this.map.tileSize) + trigger.y - this.camera.y;
 
                             this.uiLayer.fillStyle = "rgba(100, 100, 255, 0.6)";
                             this.uiLayer.fillRect(triggerX, triggerY, trigger.width, trigger.height);
