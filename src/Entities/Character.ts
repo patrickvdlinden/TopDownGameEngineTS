@@ -17,7 +17,7 @@ module Entities {
         private _runSpeed: number = 0.15;
         private _shadow: Textures.Texture;
         private _spritesheetStateManager: Textures.SpritesheetStateManager;
-        private _cosmetics: CharacterCosmetics;
+        private _cosmetics: Cosmetics.CharacterCosmetics;
 
         public constructor(name: string, viewport: Viewport, camera: Camera) {
             this._name = name;
@@ -25,7 +25,7 @@ module Entities {
             this.camera = camera;
             this._bounds = new Rectangle(0, 0, 28, 16);
             this._spritesheetStateManager = new Textures.SpritesheetStateManager();
-            this._cosmetics = new CharacterCosmetics();
+            this._cosmetics = new Cosmetics.CharacterCosmetics();
         }
 
         public get isInitialized(): boolean {
@@ -124,7 +124,7 @@ module Entities {
             this._shadow = texture;
         }
 
-        public get cosmetics(): CharacterCosmetics {
+        public get cosmetics(): Cosmetics.CharacterCosmetics {
             return this._cosmetics;
         }
 
@@ -163,6 +163,8 @@ module Entities {
             if (!this._shadow.isInitialized) {
                 this._shadow.initialize();
             }
+
+            this.onInitialize();
 
             this._isInitialized = true;
         }
@@ -262,7 +264,7 @@ module Entities {
                     context,
                     null,
                     new Rectangle(
-                        this.viewport.x + this.x - (this.width / 2) - this.camera.x,
+                        this.viewport.x + this.x - 16 - this.camera.x,
                         this.viewport.y + this.y - 32 - this.camera.y,
                         -1,
                         -1));
@@ -294,7 +296,10 @@ module Entities {
             this.drawCosmeticsItem(context, this.cosmetics.hat, this.cosmetics.hatsTetxure, sprite, destination);
         }
 
-        private drawCosmeticsItem(context: CanvasRenderingContext2D, item: CharacterCosmeticsItem, texture: Textures.Texture, sprite: Textures.SpriteState, destination: Rectangle): void {
+        protected onInitialize(): void {
+        }
+
+        private drawCosmeticsItem(context: CanvasRenderingContext2D, item: Cosmetics.CosmeticsItem, texture: Textures.Texture, sprite: Textures.SpriteState, destination: Rectangle): void {
             if (!item) {
                 return;
             }

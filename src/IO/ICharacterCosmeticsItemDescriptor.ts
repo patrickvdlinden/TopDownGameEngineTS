@@ -1,7 +1,7 @@
 module IO {
-    export interface ICharacterCosmeticsItemDescriptor {
+    export interface ICosmeticsItemDescriptor {
         name: string;
-        type: Entities.CharacterCosmeticsItemTypes;
+        type: Entities.Cosmetics.CharacterCosmeticsItemTypes;
         textureOffsetX: number;
         textureOffsetY: number;
     }

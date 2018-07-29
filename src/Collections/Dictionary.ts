@@ -1,8 +1,8 @@
 module Collections {
     export class Dictionary<TKey, TValue> {
-        private _keys: TKey[];
-        private _values: TValue[];
-        private _collection: KeyValuePair<TKey, TValue>[];
+        private _keys: TKey[] = [];
+        private _values: TValue[] = [];
+        private _collection: KeyValuePair<TKey, TValue>[] = [];
         private _version = -1;
 
         public get count(): number {
