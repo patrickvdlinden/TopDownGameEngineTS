@@ -1,4 +1,5 @@
 /// <reference path="../Cosmetics/CharacterCosmeticsStore.ts" />
+/// <reference path="../Cosmetics/CharacterCosmeticsItemNames.ts" />
 
 namespace Zaggoware.OnePiece.Entities.Characters {
     import Viewport = GameEngine.Viewport;
