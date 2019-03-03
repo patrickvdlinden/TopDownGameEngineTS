@@ -1,6 +1,6 @@
 namespace Zaggoware.OnePiece {
-    import GameBase = Zaggoware.GameEngine.GameBase;
-    import Settings = Zaggoware.GameEngine.Settings;
+    import GameBase = GameEngine.GameBase;
+    import Settings = GameEngine.Settings;
 
     export class Game extends GameBase {
         protected onInitialize(): void {
