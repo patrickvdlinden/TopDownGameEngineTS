@@ -63,9 +63,17 @@ h1 {
         <?php endif; ?>
     </script>
     <script type="text/javascript" src="script/gamecore.js?v=<?= filemtime("script/gamecore.js"); ?>"></script>
+    <script type="text/javascript">
+        window.onload = () => {
+            var container = document.getElementById("GameContainer");
+            var game = new Zaggoware.OnePiece.Game(container);
+            game.start();
+        };
+    </script>
 </head>
 <body>
 <h1>Test</h1>
+<h2>ONE P<span>I</span>ECE</h1>
     <div id="GameContainer"></div>
 </body>
 </html>
