@@ -293,8 +293,10 @@ namespace Zaggoware.OnePiece.Screens {
             this.manager.remove(this.videoScreen);
             this.videoScreen = null;
 
-            this.backgroundMusic.pause();
-            this.backgroundMusic.remove();
+            if (this.backgroundMusic) {
+                this.backgroundMusic.pause();
+                this.backgroundMusic.remove();
+            }
             this.backgroundMusic = null;
 
             this.groundLayerElement.remove();
